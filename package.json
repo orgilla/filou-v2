@@ -1,0 +1,106 @@
+{
+  "name": "filou",
+  "private": true,
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "webworker",
+    "db",
+    "database",
+    "offline-first",
+    "nosql",
+    "jsonschema",
+    "rxjs",
+    "pwa",
+    "localstorage",
+    "indexeddb",
+    "encryption",
+    "pouchdb",
+    "couchdb",
+    "rx",
+    "reactive",
+    "realtime"
+  ],
+  "author": "Orgilla <hi@orgil.la>",
+  "bugs": {
+    "url": "https://github.com/bkniffler/workerdb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bkniffler/workerdb.git"
+  },
+  "workspaces": [
+    "packages/*",
+    "typescript/*"
+  ],
+  "scripts": {
+    "up": "yarn upgrade-interactive --latest",
+    "netlify": "yarn build && cd example/react && yarn && yarn build",
+    "prepublishOnly": "yarn build && yarn test",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "clean": "rm -rf ./node_modules && rm -rf ./packages/*/node_modules && rm -rf ./packages/*/lib",
+    "dev": "lerna run --parallel dev",
+    "lp": "lerna publish --registry https://registry.npmjs.org",
+    "test": "jest",
+    "coverage": "codecov"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.11.0",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-test-renderer": "^16.0.2",
+    "@babel/cli": "7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.1.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-import-7": "^1.6.7",
+    "babel-plugin-lodash": "3.3.4",
+    "babel-plugin-transform-imports": "^1.5.1",
+    "codecov": "^3.1.0",
+    "jest": "^23.6.0",
+    "lerna": "^3.4.0",
+    "react-test-renderer": "^16.5.2",
+    "regenerator-runtime": "^0.12.1",
+    "ts-jest": "^23.10.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  },
+  "resolve": {
+    "babel-core": "^7.0.0-bridge.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "apackages/*/src/**/*.js",
+      "typescript/*/src/**/*.{ts,tsx}"
+    ],
+    "coverageReporters": [
+      "html",
+      "cobertura",
+      "text"
+    ]
+  }
+}

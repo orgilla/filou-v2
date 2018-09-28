@@ -1,0 +1,18 @@
+{
+  "version": "0.14.12",
+  "name": "@filou/menu",
+  "description": "",
+  "author": "Philipp Achenbach <olymp@philipp-achenbach.de>",
+  "contributors": [
+    "Benjamin Kniffler <bkniffler@me.com>",
+    "Philipp Achenbach <olymp@philipp-achenbach.de>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "tinycolor2": "^1.4.1"
+  },
+  "peerDependencies": {
+    "react-fela": "^8.0.0"
+  },
+  "gitHead": "ac953f312ef0ed13d02ac2ebf52105f9411a6787"
+}

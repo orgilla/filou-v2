@@ -1,0 +1,9 @@
+.env
+.DS_Store
+coverage
+node_modules
+packages/**/lib
+packages/**/es
+typescript/**/lib
+typescript/**/es
+yarn-error.log

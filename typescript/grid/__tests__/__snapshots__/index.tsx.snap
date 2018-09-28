@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid should render correctly 1`] = `
+<div
+  className="a"
+>
+  <div
+    className="b c d"
+  >
+    hi
+  </div>
+  <div
+    className="b c d"
+  >
+    hi
+  </div>
+</div>
+`;
+
+exports[`Grid should render correctly 2`] = `"<style type=\\"text/css\\" data-fela-rehydration=\\"4\\" data-fela-type=\\"RULE\\">.a{min-width:100%}.b{float:left}.c{width:50%}.d{margin-left:0%}</style>"`;

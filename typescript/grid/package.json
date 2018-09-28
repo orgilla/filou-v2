@@ -1,0 +1,21 @@
+{
+  "version": "0.14.11",
+  "name": "@filou/grid",
+  "description": "",
+  "main": "lib",
+  "esnext": "es",
+  "module": "es",
+  "types": "lib/index.d.js",
+  "scripts": {
+    "test": "jest",
+    "clean": "rimraf lib es",
+    "build": "yarn clean && tsc && tsc --module esnext --outDir es",
+    "dev": "yarn clean && tsc --watch"
+  },
+  "author": "Philipp Achenbach <olymp@philipp-achenbach.de>",
+  "contributors": [
+    "Benjamin Kniffler <bkniffler@me.com>",
+    "Philipp Achenbach <olymp@philipp-achenbach.de>"
+  ],
+  "license": "MIT"
+}

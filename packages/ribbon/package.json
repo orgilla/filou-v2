@@ -1,0 +1,35 @@
+{
+  "version": "0.14.8",
+  "name": "@filou/ribbon",
+  "description": "",
+  "main": "lib/index.js",
+  "modules": "es/index.js",
+  "author": "Orgilla <hi@orgil.la>",
+  "contributors": [
+    "Benjamin Kniffler <bkniffler@me.com>",
+    "Philipp Achenbach <olymp@philipp-achenbach.de>"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir lib && babel src --out-dir es"
+  },
+  "babel": {
+    "extends": "../../babel.config.js"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "electron-is": "^3.0.0",
+    "is-electron": "^2.1.0"
+  },
+  "peerDependencies": {
+    "electron": "^3.0.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-fela": "^8.0.0"
+  },
+  "devDependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-fela": "^8.0.2"
+  }
+}

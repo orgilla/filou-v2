@@ -1,0 +1,30 @@
+{
+  "version": "0.14.8",
+  "name": "@orgilla/auth",
+  "description": "",
+  "main": "./lib/index.js",
+  "modules": "./es/index.js",
+  "author": "Orgilla <hi@orgil.la>",
+  "contributors": [
+    "Benjamin Kniffler <bkniffler@me.com>",
+    "Philipp Achenbach <olymp@philipp-achenbach.de>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jwt-decode": "^2.2.0",
+    "shortid": "^2.2.13",
+    "uuid": "^3.3.2"
+  },
+  "peerDependencies": {
+    "axios": "^0.18.0",
+    "classnames": "^2.2.6",
+    "electron": "^3.0.0",
+    "is-electron": "^2.1.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-fela": "^8.0.0",
+    "react-final-form": "^3.6.5",
+    "react-router": "^4.3.1",
+    "validator": "^10.7.1"
+  }
+}
