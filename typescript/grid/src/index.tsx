@@ -9,7 +9,6 @@ interface GridProps {
   marginX?: number | string | boolean;
   padding?: number | string;
 }
-type GridType = React.ComponentType<GridProps> & { Item?: any };
 
 const rule = ({
   theme,
@@ -32,33 +31,35 @@ const rule = ({
   }
 });
 
-const Grid: GridType = ({
-  size = 12,
-  height,
-  marginX,
-  padding,
-  children,
-  ...rest
-}) => (
-  <FelaComponent
-    rule={rule}
-    height={height}
-    marginX={marginX}
-    padding={padding}
-    render={({ className }: { className: string }) => (
-      <div {...rest} className={className}>
-        {React.Children.map(
-          children,
-          child =>
-            child && typeof child !== 'string' && typeof child !== 'number'
-              ? React.cloneElement(child, { gridSize: size })
-              : child
+export default class Grid extends React.Component<GridProps> {
+  static Item = Item;
+  render() {
+    const {
+      size = 12,
+      height,
+      marginX,
+      padding,
+      children,
+      ...rest
+    } = this.props;
+    return (
+      <FelaComponent
+        rule={rule}
+        height={height}
+        marginX={marginX}
+        padding={padding}
+        render={({ className }: { className: string }) => (
+          <div {...rest} className={className}>
+            {React.Children.map(
+              children,
+              child =>
+                child && typeof child !== 'string' && typeof child !== 'number'
+                  ? React.cloneElement(child, { gridSize: size })
+                  : child
+            )}
+          </div>
         )}
-      </div>
-    )}
-  />
-);
-
-Grid.Item = Item;
-
-export default Grid;
+      />
+    );
+  }
+}

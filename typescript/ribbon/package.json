@@ -1,9 +1,11 @@
 {
-  "version": "0.14.8",
+  "version": "0.14.11",
   "name": "@filou/ribbon",
   "description": "",
-  "main": "lib/index.js",
-  "modules": "es/index.js",
+  "main": "lib",
+  "esnext": "es",
+  "module": "es",
+  "types": "lib/index.d.js",
   "author": "Orgilla <hi@orgil.la>",
   "contributors": [
     "Benjamin Kniffler <bkniffler@me.com>",
@@ -11,10 +13,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "babel src --out-dir lib && babel src --out-dir es"
-  },
-  "babel": {
-    "extends": "../../babel.config.js"
+    "test": "jest",
+    "clean": "rimraf lib es",
+    "build": "yarn clean && tsc && tsc --module esnext --outDir es",
+    "dev": "tsc --watch"
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -28,6 +30,7 @@
     "react-fela": "^8.0.0"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.6",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-fela": "^8.0.2"

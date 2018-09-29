@@ -1,9 +1,10 @@
-import React from 'react';
+import * as React from 'react';
+//@ts-ignore
 import { FelaComponent } from 'react-fela';
 import Item from './item';
 import Divider from './divider';
 
-const rule = ({ theme }) => ({
+const rule = ({ theme }: { theme: any }) => ({
   display: 'flex',
   flexDirection: 'row',
   paddingX: 8,
@@ -72,10 +73,20 @@ const rule = ({ theme }) => ({
       '0px 1px 0px 0px rgb(255, 255, 255), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.75)'
   }
 });
-export default ({ title, children }) => (
+
+export interface RibbonActionProps {
+  title?: string | React.ReactNode;
+}
+
+const RibbonActions: React.ComponentType<RibbonActionProps> = ({
+  title,
+  children
+}) => (
   <FelaComponent rule={rule}>
     {title ? <Item component="span">{title}</Item> : null}
     {title ? <Divider dark /> : null}
     {children}
   </FelaComponent>
 );
+
+export default RibbonActions;

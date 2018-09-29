@@ -1,13 +1,13 @@
 import 'jest';
-import React from 'react';
-import renderer from 'react-test-renderer';
+import * as React from 'react';
+import * as renderer from 'react-test-renderer';
 import { createRenderer } from 'fela';
 import { Provider as FelaProvider, ThemeProvider } from 'react-fela';
 import { renderToMarkup } from 'fela-dom';
 import Ribbon from '../src';
 
-const getProvider = (fela, theme = {}) => {
-  const Provider = ({ children }) => (
+const getProvider = (fela: any, theme = {}) => {
+  const Provider: React.SFC = ({ children }) => (
     <FelaProvider rehydrate renderer={fela}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </FelaProvider>

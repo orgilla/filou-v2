@@ -1,3 +1,4 @@
+//@ts-ignore
 import { createComponent } from 'react-fela';
 
 const Spacer = createComponent(

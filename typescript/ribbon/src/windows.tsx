@@ -1,10 +1,29 @@
-import React from 'react';
+import * as React from 'react';
+//@ts-ignore
 import { FelaComponent } from 'react-fela';
 import IsMaximized from './is-maximized';
 
-const Button = ({ red, ...p }) => (
+export interface RibbonTitleWindowsProps {
+  red?: boolean;
+  disabled?: boolean;
+  onClick?: ((event: React.MouseEvent<HTMLButtonElement>) => void) | undefined;
+}
+const Button: React.SFC<RibbonTitleWindowsProps> = ({
+  red,
+  disabled,
+  onClick,
+  ...p
+}) => (
   <FelaComponent
-    render={({ className }) => <button {...p} className={className} />}
+    render={({ className }: { className: string }) => (
+      <button
+        {...p}
+        className={className}
+        onClick={onClick}
+        disabled={disabled}
+        tabIndex={-1}
+      />
+    )}
     style={{
       onHover: {
         backgroundColor: red ? '#e81123' : 'rgba(255, 255, 255, 0.3)'
@@ -44,7 +63,6 @@ const Windows = () => (
       >
         <Button
           aria-label="minimize"
-          tabIndex="-1"
           disabled={disableMinimize}
           onClick={e => console.log('HI')}
         >
@@ -54,7 +72,6 @@ const Windows = () => (
         </Button>
         <Button
           aria-label="maximize"
-          tabIndex="-1"
           disabled={disableMaximize}
           onClick={e =>
             currentWindow.isMaximizable()
@@ -74,12 +91,7 @@ const Windows = () => (
             />
           </svg>
         </Button>
-        <Button
-          aria-label="close"
-          red
-          tabIndex="-1"
-          onClick={e => currentWindow.close()}
-        >
+        <Button aria-label="close" red onClick={e => currentWindow.close()}>
           <svg aria-hidden="true" version="1.1" width="10" height="10">
             <path d="M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z" />
           </svg>

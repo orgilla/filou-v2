@@ -19,6 +19,8 @@
   ],
   "dependencies": {
     "@filou/grid": "^0.14.11",
+    "@filou/ribbon": "^0.14.11",
+    "@filou/electron-router": "^0.14.11",
     "fela": "^6.2.1",
     "fela-plugin-custom-property": "^7.0.3",
     "fela-plugin-embedded": "^5.2.11",

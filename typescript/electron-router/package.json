@@ -1,6 +1,6 @@
 {
   "version": "0.14.11",
-  "name": "@filou/grid",
+  "name": "@filou/electron-router",
   "description": "",
   "main": "lib",
   "esnext": "es",
@@ -12,14 +12,21 @@
     "build": "yarn clean && tsc && tsc --module esnext --outDir es",
     "dev": "tsc --watch"
   },
-  "author": "Philipp Achenbach <olymp@philipp-achenbach.de>",
+  "author": "Orgilla <hi@orgil.la>",
   "contributors": [
     "Benjamin Kniffler <bkniffler@me.com>",
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "license": "MIT",
+  "dependencies": {
+    "history": "^4.7.2",
+    "react-router-dom": "^4.3.1"
+  },
   "peerDependencies": {
-    "react": "^16.5.2",
-    "react-fela": "^8.0.2"
+    "react": "^16.5.2"
+  },
+  "devDependencies": {
+    "@types/history": "^4.7.0",
+    "@types/react-router-dom": "^4.3.1"
   }
 }

@@ -2,7 +2,7 @@ import * as React from 'react';
 //@ts-ignore
 import { createComponent, FelaComponent } from 'react-fela';
 
-interface GridProps {
+export interface GridItemProps {
   gridSize?: number;
   offsetMini?: number;
   offsetSmall?: number;
@@ -25,7 +25,7 @@ interface GridProps {
 }
 
 // Force require gridSize internally since it is given by grid automatically
-interface GridPropsInner extends GridProps {
+interface GridItemPropsInner extends GridItemProps {
   gridSize: number;
 }
 
@@ -49,7 +49,7 @@ const rule = ({
   paddingHuge,
   height,
   relative
-}: GridPropsInner) => ({
+}: GridItemPropsInner) => ({
   float: 'left',
   padding,
   position: relative ? 'relative' : undefined,
@@ -111,7 +111,7 @@ const rule = ({
       : {}
 });
 
-const GridItem: React.ComponentType<GridProps> = ({
+const GridItem: React.ComponentType<GridItemProps> = ({
   gridSize = 12,
   offsetMini = 0,
   offsetSmall = 0,

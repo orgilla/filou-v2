@@ -3,7 +3,7 @@
     "moduleResolution": "node",
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": ["es6", "es2015", "dom"],
     "allowJs": false,
     "jsx": "react",
     "forceConsistentCasingInFileNames": true,

@@ -1,20 +1,25 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+//@ts-ignore
 import isElectron from 'is-electron';
 
-let remote = null;
-if (isElectron()) {
-  remote = window.require('electron').remote;
+let remote: any = null;
+if (typeof window !== 'undefined' && isElectron()) {
+  remote = window['require']('electron').remote;
   //  maximize = win.maximize;
 }
 
-class IsMaximized extends Component {
-  static propTypes = {
-    disableMinimize: PropTypes.bool,
-    disableMaximize: PropTypes.bool,
-    currentWindow: PropTypes.object
-  };
-
+interface IsMaximizedProps {
+  currentWindow?: any;
+  disableMaximize?: boolean;
+  disableMinimize?: boolean;
+  children: (args: any) => React.ReactNode;
+}
+class IsMaximized extends React.Component<IsMaximizedProps> {
+  static decorate: (
+    args: React.ComponentType
+  ) => React.ComponentType = Comp => p => (
+    <IsMaximized>{x => <Comp {...p} {...x} />}</IsMaximized>
+  );
   static defaultProps = {
     currentWindow: remote && remote.getCurrentWindow()
   };
@@ -52,9 +57,5 @@ class IsMaximized extends Component {
     });
   }
 }
-
-IsMaximized.decorate = Comp => p => (
-  <IsMaximized>{x => <Comp {...p} {...x} />}</IsMaximized>
-);
 
 export default IsMaximized;
