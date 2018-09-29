@@ -1,6 +1,6 @@
 import * as React from 'react';
 //@ts-ignore
-import isElectron from 'is-electron';
+import * as isElectron from 'is-electron';
 
 let remote: any = null;
 if (typeof window !== 'undefined' && isElectron()) {
