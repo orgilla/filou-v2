@@ -29,8 +29,11 @@
     "type": "git",
     "url": "https://github.com/bkniffler/workerdb.git"
   },
-  "workspaces": [
+  "workspacesAll": [
     "packages/*",
+    "typescript/*"
+  ],
+  "workspaces": [
     "typescript/*"
   ],
   "scripts": {
