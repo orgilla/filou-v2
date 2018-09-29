@@ -1,5 +1,5 @@
 {
-  "version": "0.14.8",
+  "version": "0.5.1",
   "name": "@orgilla/auth",
   "description": "",
   "main": "./lib/index.js",
