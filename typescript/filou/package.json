@@ -1,5 +1,5 @@
 {
-  "version": "0.5.6",
+  "version": "1.0.1",
   "name": "filou",
   "description": "",
   "main": "lib",
@@ -18,9 +18,9 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "dependencies": {
-    "@filou/electron-router": "^0.5.6",
-    "@filou/grid": "^0.5.6",
-    "@filou/ribbon": "^0.5.6",
+    "@filou/electron-router": "^1.0.1",
+    "@filou/grid": "^1.0.1",
+    "@filou/ribbon": "^1.0.1",
     "fela": "^6.2.1",
     "fela-plugin-custom-property": "^7.0.3",
     "fela-plugin-embedded": "^5.2.11",
