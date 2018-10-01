@@ -1,15 +1,62 @@
 import * as React from 'react';
-import MaterialTabs, {
-  TabsProps as MaterialTabsProps
-} from '@material-ui/core/Tabs';
-import MaterialTab from '@material-ui/core/Tab';
+//@ts-ignore
+import { FelaComponent } from 'react-fela';
+import MaterialTabs, { TabsProps } from '@material-ui/core/Tabs';
+import MaterialTab, { TabProps } from '@material-ui/core/Tab';
 
-interface TabsProps extends MaterialTabsProps {}
+const rule = ({ theme }: { theme: any }) => ({
+  '& .indicator': {
+    backgroundColor: theme.color
+  },
+  '& .tab': {
+    fontWeight: 'normal',
+    fontFamily: theme.fontFamily,
+    fontSize: theme.fontSize
+  }
+});
 
 class Tabs extends React.Component<TabsProps> {
   static Tab = MaterialTab;
+  state: { value: any } = { value: 0 };
+  onChange = (event: any, value: number) => {
+    this.setState({ value });
+  };
   render() {
-    return <MaterialTabs {...this.props} />;
+    let content: React.ReactElement<any> | null = null;
+    const children = React.Children.map(this.props.children, (child, index) => {
+      if (this.state.value === index) {
+        content = child['props'].children;
+      }
+      return React.cloneElement(child as React.ReactElement<TabProps>, {
+        children: undefined,
+        disableRipple: true,
+        classes: {
+          root: 'tab',
+          selected: 'tab-selected'
+        }
+      });
+    });
+    return (
+      <React.Fragment>
+        <FelaComponent
+          rule={rule}
+          render={({ className }: { className: string }) => (
+            <MaterialTabs
+              value={this.state.value}
+              onChange={this.onChange}
+              {...this.props}
+              classes={{
+                root: className,
+                indicator: 'indicator'
+              }}
+            >
+              {children}
+            </MaterialTabs>
+          )}
+        />
+        {content}
+      </React.Fragment>
+    );
   }
 }
 
