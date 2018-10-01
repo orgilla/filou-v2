@@ -10,6 +10,7 @@ const rule = ({ theme }: { theme: any }) => ({
   },
   '& .tab': {
     fontWeight: 'normal',
+    textTransform: 'none',
     fontFamily: theme.fontFamily,
     fontSize: theme.fontSize
   }
