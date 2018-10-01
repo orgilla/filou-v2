@@ -37,5 +37,6 @@
     "react-dom": "^16.4.2",
     "react-fela": "^8.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }

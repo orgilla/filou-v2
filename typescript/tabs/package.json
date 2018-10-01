@@ -6,7 +6,13 @@
   "esnext": "es",
   "module": "es",
   "types": "lib/index.d.js",
-  "author": "Philipp Achenbach <olymp@philipp-achenbach.de>",
+  "author": "Orgilla <hi@orgil.la>",
+  "scripts": {
+    "test": "jest",
+    "clean": "rimraf lib es",
+    "build": "yarn clean && tsc && tsc --module esnext --outDir es",
+    "dev": "tsc --watch"
+  },
   "contributors": [
     "Benjamin Kniffler <bkniffler@me.com>",
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
@@ -20,5 +26,6 @@
   },
   "devDependencies": {
     "react": "^16.5.2"
-  }
+  },
+  "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }
