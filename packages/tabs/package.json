@@ -8,5 +8,8 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "license": "MIT",
-  "gitHead": "ac953f312ef0ed13d02ac2ebf52105f9411a6787"
+  "gitHead": "ac953f312ef0ed13d02ac2ebf52105f9411a6787",
+  "dependencies": {
+    "@material-ui/core": "^3.1.2"
+  }
 }

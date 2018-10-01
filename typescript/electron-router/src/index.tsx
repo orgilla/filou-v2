@@ -25,7 +25,7 @@ class ElectronRouter extends React.Component {
   }
 
   listener = (location: Location) => {
-    if (this.location.pathname !== location.pathname) {
+    if (!this.location || this.location.pathname !== location.pathname) {
       localStorage.setItem('pathname', location.pathname);
     }
     this.location = location;

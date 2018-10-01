@@ -21,6 +21,7 @@
     "@filou/electron-router": "^1.0.1",
     "@filou/grid": "^1.0.1",
     "@filou/ribbon": "^1.0.2",
+    "@filou/tabs": "^1.0.2",
     "fela": "^6.2.1",
     "fela-plugin-custom-property": "^7.0.3",
     "fela-plugin-embedded": "^5.2.11",

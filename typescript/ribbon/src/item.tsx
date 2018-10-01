@@ -41,24 +41,27 @@ export interface RibbonItemProps {
 const Item: React.ComponentType<RibbonItemProps> = ({
   marginLeft,
   active,
-  className,
   children,
   onClick,
   to,
   component: Link
 }) => (
-  <FelaComponent rule={rule} marginLeft={marginLeft}>
-    {React.createElement(
-      (Link as 'a') || 'a',
-      {
-        href: Link ? undefined : 'javascript:;',
-        onClick,
-        to,
-        className: cn(className, active && 'active')
-      },
-      children
-    )}
-  </FelaComponent>
+  <FelaComponent
+    rule={rule}
+    marginLeft={marginLeft}
+    render={({ className }: { className: string }) =>
+      React.createElement(
+        (Link as 'a') || 'a',
+        {
+          href: Link ? undefined : 'javascript:;',
+          onClick,
+          to,
+          className: cn(className, active && 'active')
+        },
+        children
+      )
+    }
+  />
 );
 
 export default Item;
