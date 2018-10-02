@@ -38,6 +38,7 @@
   ],
   "scripts": {
     "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook -c .storybook -o storybook-out",
     "up": "yarn upgrade-interactive --latest",
     "netlify": "yarn build && cd example/react && yarn && yarn build",
     "docs": "docsify serve docs",

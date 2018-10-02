@@ -9,3 +9,5 @@ typescript/**/es
 typescript/*/src/**/*.d.ts
 typescript/*/stories/**/*.d.ts
 yarn-error.log
+storybook-out
+
