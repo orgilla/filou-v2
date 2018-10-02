@@ -1,2 +1,4 @@
 src
+stories
+__tests__
 tsconfig.json

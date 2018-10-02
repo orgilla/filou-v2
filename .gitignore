@@ -6,4 +6,6 @@ packages/**/lib
 packages/**/es
 typescript/**/lib
 typescript/**/es
+typescript/*/src/**/*.d.ts
+typescript/*/stories/**/*.d.ts
 yarn-error.log
