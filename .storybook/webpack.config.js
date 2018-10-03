@@ -5,7 +5,14 @@ module.exports = (baseConfig, env, config) => {
     test: /\.tsx?$/,
     include: path.resolve(__dirname, '../typescript'),
     use: [
-      require.resolve('ts-loader'),
+      {
+        loader: require.resolve('ts-loader'),
+        options: {
+          compilerOptions: {
+            rootDir: path.resolve(__dirname, '../typescript')
+          }
+        }
+      },
       {
         loader: require.resolve('react-docgen-typescript-loader'),
         options: { setDisplayName: false }
