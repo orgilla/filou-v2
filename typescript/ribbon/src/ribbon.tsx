@@ -4,13 +4,15 @@ import { FelaComponent } from 'react-fela';
 import IsMaximized from './is-maximized';
 import Actions from './actions';
 import Tabs from './tabs';
-import Title from './title';
+import Title, { RibbonOSStyle } from './title';
 import Spacer from './spacer';
 import Item from './item';
 import Foot from './foot';
 import Divider from './divider';
 
-interface RibbonProps {}
+interface RibbonProps {
+  maximized?: boolean;
+}
 
 const rule = ({
   theme,
@@ -29,7 +31,8 @@ const rule = ({
   borderBottom: isMaximized ? undefined : `1px solid ${theme.color}`
 });
 
-class Ribbon extends React.Component<RibbonProps> {
+export class Ribbon extends React.Component<RibbonProps> {
+  static OSStyle = RibbonOSStyle;
   static Spacer = Spacer;
   static Space = Spacer;
   static Actions = Actions;
@@ -38,13 +41,17 @@ class Ribbon extends React.Component<RibbonProps> {
   static Title = Title;
   static Foot = Foot;
   static Divider = Divider;
+  static displayName = 'Ribbon';
 
   render() {
-    const { children } = this.props;
+    const { children, maximized } = this.props;
     return (
       <IsMaximized>
         {({ isMaximized }) => (
-          <FelaComponent rule={rule} isMaximized={isMaximized}>
+          <FelaComponent
+            rule={rule}
+            isMaximized={maximized !== undefined ? maximized : isMaximized}
+          >
             {children}
           </FelaComponent>
         )}

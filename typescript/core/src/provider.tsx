@@ -69,9 +69,23 @@ const FilouProvider: React.ComponentType<FilouProviderProps> = ({
   children,
   renderer,
   rehydrate = true
-}) => (
-  <Provider renderer={renderer} rehydrate={rehydrate}>
-    <ThemeProvider theme={getTheme(theme)}>{children}</ThemeProvider>
-  </Provider>
-);
+}) => {
+  const props = {};
+  if (typeof document !== 'undefined') {
+    let element = document.getElementById('stylesheet');
+    if (element) {
+      document.body.removeChild(element);
+    }
+    element = document.createElement('style');
+    element.id = 'stylesheet';
+    document.body.appendChild(element);
+    const stylesheet = document.getElementById('stylesheet');
+    props['mountNode'] = stylesheet;
+  }
+  return (
+    <Provider renderer={renderer} rehydrate={rehydrate} {...props}>
+      <ThemeProvider theme={getTheme(theme)}>{children}</ThemeProvider>
+    </Provider>
+  );
+};
 export default FilouProvider;

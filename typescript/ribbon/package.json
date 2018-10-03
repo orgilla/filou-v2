@@ -30,6 +30,7 @@
     "react-fela": "^8.0.0"
   },
   "devDependencies": {
+    "@filou/core": "^1.0.4",
     "@types/classnames": "^2.2.6",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

@@ -2,7 +2,7 @@ import * as React from 'react';
 //@ts-ignore
 import { FelaComponent } from 'react-fela';
 import MaterialTabs from '@material-ui/core/Tabs';
-import MaterialTab, { TabProps } from '@material-ui/core/Tab';
+import Tab, { TabProps } from './tab';
 
 interface FilouTabsProps {
   value?: number;
@@ -22,8 +22,8 @@ const rule = ({ theme }: { theme: any }) => ({
   }
 });
 
-class Tabs extends React.Component<FilouTabsProps> {
-  static Tab = MaterialTab;
+export class Tabs extends React.Component<FilouTabsProps> {
+  static Tab = Tab;
   state: { value: any } = { value: 0 };
   onChange = (event: any, value: number) => {
     this.setState({ value });

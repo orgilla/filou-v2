@@ -78,7 +78,7 @@ export interface RibbonActionProps {
   title?: string | React.ReactNode;
 }
 
-const RibbonActions: React.ComponentType<RibbonActionProps> = ({
+export const RibbonActions: React.StatelessComponent<RibbonActionProps> = ({
   title,
   children
 }) => (
@@ -88,5 +88,6 @@ const RibbonActions: React.ComponentType<RibbonActionProps> = ({
     {children}
   </FelaComponent>
 );
+RibbonActions.displayName = 'RibbonActions';
 
 export default RibbonActions;

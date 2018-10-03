@@ -1,35 +1,67 @@
 import * as React from 'react';
-import { createRenderer } from 'fela';
-import { Provider as FelaProvider, ThemeProvider } from 'react-fela';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { createRenderer, Provider, ThemeProvider } from '@filou/core';
 
 import Ribbon from '../src';
 
-const getProvider = (theme = {}) => {
-  const renderer = createRenderer();
-  const Provider: React.SFC = ({ children }) => (
-    <FelaProvider rehydrate renderer={renderer}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </FelaProvider>
-  );
-  return (storyFn: Function) => <Provider>{storyFn()}</Provider>;
-};
-
 (storiesOf('Components/Ribbon', module) as any)
   .addDecorator((story: any, context: any) =>
-    withInfo({ propTables: [Ribbon, Ribbon.Title], inline: true })(story)(
-      context
-    )
+    withInfo({
+      inline: true,
+      header: false
+    })(story)(context)
   )
-  .addDecorator((story: any, context: any) =>
-    getProvider({ color: 'green' })(story)
-  )
-  .add('Basic', () => (
+  .addDecorator((stories: any) => (
+    <Provider renderer={createRenderer()}>{stories()}</Provider>
+  ))
+  .add('Mac (Maximized)', () => (
     <Ribbon>
-      <Ribbon.Title brand="Ribbon">
+      <Ribbon.Title maximized os={Ribbon.OSStyle.MAC} brand="Mac Ribbon">
         <Ribbon.Item>Hallo</Ribbon.Item>
         <Ribbon.Space />
       </Ribbon.Title>
+      <Ribbon.Actions>
+        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Space />
+      </Ribbon.Actions>
     </Ribbon>
+  ))
+  .add('Mac', () => (
+    <Ribbon>
+      <Ribbon.Title os={Ribbon.OSStyle.MAC} brand="Mac Ribbon">
+        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Space />
+      </Ribbon.Title>
+      <Ribbon.Actions>
+        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Space />
+      </Ribbon.Actions>
+    </Ribbon>
+  ))
+  .add('Windows', () => (
+    <Ribbon>
+      <Ribbon.Title os={Ribbon.OSStyle.WIN} brand="Windows Ribbon">
+        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Space />
+      </Ribbon.Title>
+      <Ribbon.Actions>
+        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Space />
+      </Ribbon.Actions>
+    </Ribbon>
+  ))
+  .add('Themed', () => (
+    <ThemeProvider theme={{ color: '#666' }}>
+      <Ribbon>
+        <Ribbon.Title os={Ribbon.OSStyle.WIN} brand="Windows Ribbon">
+          <Ribbon.Item>Hallo</Ribbon.Item>
+          <Ribbon.Space />
+        </Ribbon.Title>
+        <Ribbon.Actions title="Actions">
+          <Ribbon.Item>Hallo</Ribbon.Item>
+          <Ribbon.Space />
+        </Ribbon.Actions>
+      </Ribbon>
+    </ThemeProvider>
   ));

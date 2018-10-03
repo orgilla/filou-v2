@@ -26,6 +26,7 @@
     "react-fela": "^8.0.2"
   },
   "devDependencies": {
+    "@filou/core": "^1.0.4",
     "fela-dom": "^8.0.2",
     "react": "^16.5.2",
     "react-fela": "^8.0.2"

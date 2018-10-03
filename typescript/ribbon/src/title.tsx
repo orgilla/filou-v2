@@ -5,6 +5,19 @@ import { macOS, windows } from 'electron-is';
 import IsMaximized from './is-maximized';
 import Windows from './windows';
 
+export enum RibbonOSStyle {
+  WIN = 'win',
+  MAC = 'mac'
+}
+
+export interface RibbonTitleProps {
+  os?: RibbonOSStyle;
+  maximized?: boolean;
+  logo?: string | React.ComponentClass;
+  brand?: string;
+  children?: React.ReactNode;
+}
+
 const isMac = macOS();
 const isWindows = windows();
 
@@ -32,17 +45,16 @@ const rule = ({
       onBefore: {
         content: '""',
         position: 'absolute',
-        borderBottom: `1px solid ${theme.color}`,
         left: -5,
         top: 0,
         height: '100%',
         opacity: isMacFullscreen ? 1 : 0,
         zIndex: 0,
-        borderLeft: '1px solid #848484'
+        borderLeft: `1px solid ${theme.light4}`
       }
     },
     transition: '.3s cubic-bezier(.25,.8,.5,1),color 1ms',
-    transform: isMacFullscreen ? 'translateX(70px)' : undefined
+    marginLeft: isMacFullscreen ? 70 : undefined
   },
   '-webkit-user-select': 'none',
   '-webkit-app-region': 'drag',
@@ -97,20 +109,21 @@ const rule = ({
   }
 });
 
-export interface RibbonTitleProps {
-  logo?: string | React.ComponentClass;
-  brand?: string;
-}
-const Title: React.ComponentType<RibbonTitleProps> = ({
+export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
   children,
   logo: Logo,
+  maximized,
+  os,
   brand
 }) => (
   <IsMaximized>
     {({ isMaximized }) => (
       <FelaComponent
         rule={rule}
-        isMacFullscreen={isMaximized && isMac}
+        isMacFullscreen={
+          (maximized !== undefined ? maximized : isMaximized) &&
+          (os !== undefined ? os === RibbonOSStyle.MAC : isMac)
+        }
         render={({ className }: { className: string }) => (
           <nav className={className}>
             {Logo ? (
@@ -120,12 +133,19 @@ const Title: React.ComponentType<RibbonTitleProps> = ({
             ) : null}
             {brand ? <span className="brand">{brand}</span> : null}
             {children}
-            <Windows />
+            {(os !== undefined ? (
+              os === RibbonOSStyle.WIN
+            ) : (
+              isWindows
+            )) ? (
+              <Windows />
+            ) : null}
           </nav>
         )}
       />
     )}
   </IsMaximized>
 );
+RibbonTitle.displayName = 'RibbonTitle';
 
-export default Title;
+export default RibbonTitle;

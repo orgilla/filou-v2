@@ -37,8 +37,10 @@ export interface RibbonItemProps {
   onClick?: string;
   to?: string;
   component?: string | React.ComponentClass;
+  children?: React.ReactNode;
 }
-const Item: React.ComponentType<RibbonItemProps> = ({
+
+export const RibbonItem: React.StatelessComponent<RibbonItemProps> = ({
   marginLeft,
   active,
   children,
@@ -63,5 +65,6 @@ const Item: React.ComponentType<RibbonItemProps> = ({
     }
   />
 );
+RibbonItem.displayName = 'RibbonItem';
 
-export default Item;
+export default RibbonItem;
