@@ -16,10 +16,11 @@ import Ribbon from '../src';
     <Provider renderer={createRenderer()}>{stories()}</Provider>
   ))
   .add('Mac (Maximized)', () => (
-    <Ribbon>
+    <Ribbon width="100%" height="500px">
       <Ribbon.Title maximized os={Ribbon.OSStyle.MAC} brand="Mac Ribbon">
-        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Item>Left Item</Ribbon.Item>
         <Ribbon.Space />
+        <Ribbon.Item>Right Item</Ribbon.Item>
       </Ribbon.Title>
       <Ribbon.Actions>
         <Ribbon.Item>Hallo</Ribbon.Item>
@@ -28,10 +29,24 @@ import Ribbon from '../src';
     </Ribbon>
   ))
   .add('Mac', () => (
-    <Ribbon>
+    <Ribbon width="800px" height="500px">
       <Ribbon.Title os={Ribbon.OSStyle.MAC} brand="Mac Ribbon">
+        <Ribbon.Item>Left Item</Ribbon.Item>
+        <Ribbon.Space />
+        <Ribbon.Item>Right Item</Ribbon.Item>
+      </Ribbon.Title>
+      <Ribbon.Actions>
         <Ribbon.Item>Hallo</Ribbon.Item>
         <Ribbon.Space />
+      </Ribbon.Actions>
+    </Ribbon>
+  ))
+  .add('Windows (Maximized)', () => (
+    <Ribbon maximized width="100%" height="500px">
+      <Ribbon.Title maximized os={Ribbon.OSStyle.WIN} brand="Windows Ribbon">
+        <Ribbon.Item>Left Item</Ribbon.Item>
+        <Ribbon.Space />
+        <Ribbon.Item>Right Item</Ribbon.Item>
       </Ribbon.Title>
       <Ribbon.Actions>
         <Ribbon.Item>Hallo</Ribbon.Item>
@@ -40,10 +55,11 @@ import Ribbon from '../src';
     </Ribbon>
   ))
   .add('Windows', () => (
-    <Ribbon>
+    <Ribbon width="800px" height="500px">
       <Ribbon.Title os={Ribbon.OSStyle.WIN} brand="Windows Ribbon">
-        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Item>Left Item</Ribbon.Item>
         <Ribbon.Space />
+        <Ribbon.Item>Right Item</Ribbon.Item>
       </Ribbon.Title>
       <Ribbon.Actions>
         <Ribbon.Item>Hallo</Ribbon.Item>
@@ -53,10 +69,11 @@ import Ribbon from '../src';
   ))
   .add('Themed', () => (
     <ThemeProvider theme={{ color: '#666' }}>
-      <Ribbon>
+      <Ribbon width="800px" height="500px">
         <Ribbon.Title os={Ribbon.OSStyle.WIN} brand="Windows Ribbon">
-          <Ribbon.Item>Hallo</Ribbon.Item>
+          <Ribbon.Item>Left Item</Ribbon.Item>
           <Ribbon.Space />
+          <Ribbon.Item>Right Item</Ribbon.Item>
         </Ribbon.Title>
         <Ribbon.Actions title="Actions">
           <Ribbon.Item>Hallo</Ribbon.Item>

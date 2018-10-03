@@ -3,12 +3,12 @@ import * as React from 'react';
 import { FelaComponent } from 'react-fela';
 import IsMaximized from './is-maximized';
 
-export interface RibbonTitleWindowsProps {
+export interface RibbonTitleButtonProps {
   red?: boolean;
   disabled?: boolean;
   onClick?: ((event: React.MouseEvent<HTMLButtonElement>) => void) | undefined;
 }
-const Button: React.SFC<RibbonTitleWindowsProps> = ({
+const Button: React.SFC<RibbonTitleButtonProps> = ({
   red,
   disabled,
   onClick,
@@ -51,9 +51,18 @@ const Button: React.SFC<RibbonTitleWindowsProps> = ({
   />
 );
 
-const Windows = () => (
+export interface RibbonTitleWindowsProps {
+  maximized?: boolean;
+}
+const Windows: React.SFC<RibbonTitleWindowsProps> = ({ maximized }) => (
   <IsMaximized>
-    {({ disableMaximize, disableMinimize, isMaximized, currentWindow }) => (
+    {({
+      disableMaximize,
+      disableMinimize,
+      isMaximized,
+      currentWindow,
+      isMax = maximized !== undefined ? maximized : isMaximized
+    }) => (
       <FelaComponent
         style={{
           flexGrow: 0,
@@ -84,7 +93,7 @@ const Windows = () => (
           <svg aria-hidden="true" version="1.1" width="10" height="10">
             <path
               d={
-                isMaximized
+                isMax
                   ? 'm 2,1e-5 0,2 -2,0 0,8 8,0 0,-2 2,0 0,-8 z m 1,1 6,0 0,6 -1,0 0,-5 -5,0 z m -2,2 6,0 0,6 -6,0 z'
                   : 'M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z'
               }

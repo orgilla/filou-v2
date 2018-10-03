@@ -23,10 +23,12 @@ const isWindows = windows();
 
 const rule = ({
   theme,
-  isMacFullscreen
+  isMacFullscreen,
+  os
 }: {
   theme: any;
   isMacFullscreen?: boolean;
+  os?: RibbonOSStyle;
 }) => ({
   backgroundColor: theme.color,
   // backgroundColor: '#24292e',
@@ -36,7 +38,7 @@ const rule = ({
   paddingLeft: 8,
   minHeight: 32,
   maxHeight: 32,
-  paddingRight: isWindows ? 0 : 8,
+  paddingRight: (os ? os === RibbonOSStyle.WIN : isWindows) ? 0 : 8,
   alignContent: 'center',
   alignItems: 'stretch',
   '> .brand': {
@@ -124,6 +126,7 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
           (maximized !== undefined ? maximized : isMaximized) &&
           (os !== undefined ? os === RibbonOSStyle.MAC : isMac)
         }
+        os={os}
         render={({ className }: { className: string }) => (
           <nav className={className}>
             {Logo ? (
@@ -138,7 +141,9 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
             ) : (
               isWindows
             )) ? (
-              <Windows />
+              <Windows
+                maximized={maximized !== undefined ? maximized : isMaximized}
+              />
             ) : null}
           </nav>
         )}

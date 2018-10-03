@@ -12,18 +12,24 @@ import Divider from './divider';
 
 interface RibbonProps {
   maximized?: boolean;
+  width?: string;
+  height?: string;
 }
 
 const rule = ({
   theme,
-  isMaximized
+  isMaximized,
+  width = '100vw',
+  height = '100vh'
 }: {
   theme: any;
   isMaximized: boolean;
+  width: string;
+  height: string;
 }) => ({
   display: 'flex',
-  width: '100vw',
-  height: '100vh',
+  width,
+  height,
   flex: 1,
   flexDirection: 'column',
   borderLeft: isMaximized ? undefined : `1px solid ${theme.color}`,
@@ -44,12 +50,14 @@ export class Ribbon extends React.Component<RibbonProps> {
   static displayName = 'Ribbon';
 
   render() {
-    const { children, maximized } = this.props;
+    const { children, maximized, width, height } = this.props;
     return (
       <IsMaximized>
         {({ isMaximized }) => (
           <FelaComponent
             rule={rule}
+            width={width}
+            height={height}
             isMaximized={maximized !== undefined ? maximized : isMaximized}
           >
             {children}
