@@ -17,6 +17,10 @@ interface CreateRendererProps {
 }
 
 export default ({ ua }: CreateRendererProps = {}) => {
+  if (typeof window !== 'undefined' && window['renderer']) {
+    window['renderer'].clear();
+    return window['renderer'];
+  }
   const browser = ua && ua.getBrowser && ua.getBrowser();
   const isBrowser = (type: string, maxVersion: number, minVersion?: number) => {
     if (!browser) {
@@ -190,5 +194,8 @@ export default ({ ua }: CreateRendererProps = {}) => {
       overflow: hidden;
     }
   `);
+  if (typeof window !== 'undefined') {
+    window['renderer'] = renderer;
+  }
   return renderer;
 };
