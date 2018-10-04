@@ -1,5 +1,5 @@
 {
-  "version": "1.0.6",
+  "version": "1.0.7",
   "name": "filou",
   "description": "",
   "main": "lib",
@@ -21,7 +21,7 @@
     "@filou/core": "^1.0.6",
     "@filou/electron-router": "^1.0.6",
     "@filou/grid": "^1.0.6",
-    "@filou/ribbon": "^1.0.6",
+    "@filou/ribbon": "^1.0.7",
     "@filou/tabs": "^1.0.6"
   },
   "peerDependencies": {
