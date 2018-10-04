@@ -27,6 +27,7 @@ const rule = ({
   width: string;
   height: string;
 }) => ({
+  fontFamily: theme.fontFamily,
   display: 'flex',
   width,
   height,
