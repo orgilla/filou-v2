@@ -1,5 +1,7 @@
 {
   "files.exclude": {
+    "typescript/*/es": true,
+    "typescript/*/lib": true,
     "typescript/*/src/**/*.d.ts": true,
     "typescript/*/stories/**/*.d.ts": true
   }

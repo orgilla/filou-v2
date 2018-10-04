@@ -22,6 +22,7 @@
     "@filou/electron-router": "^1.1.0",
     "@filou/grid": "^1.1.0",
     "@filou/ribbon": "^1.1.2",
+    "@filou/menu": "^1.1.2",
     "@filou/tabs": "^1.1.2"
   },
   "peerDependencies": {
