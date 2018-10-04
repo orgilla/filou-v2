@@ -3,6 +3,7 @@ import { FelaComponent } from '@filou/core';
 import { macOS, windows } from 'electron-is';
 import IsMaximized from './is-maximized';
 import Windows from './windows';
+import Divider from '@filou/ribbon/src/divider';
 
 export enum RibbonOSStyle {
   WIN = 'win',
@@ -41,19 +42,6 @@ const rule = ({
   alignContent: 'center',
   alignItems: 'stretch',
   '> .brand': {
-    '&:first-child': {
-      position: 'relative',
-      onBefore: {
-        content: '""',
-        position: 'absolute',
-        left: -5,
-        top: 0,
-        height: '100%',
-        opacity: isMacFullscreen ? 1 : 0,
-        zIndex: 0,
-        borderLeft: `1px solid ${theme.light4}`
-      }
-    },
     transition: '.3s cubic-bezier(.25,.8,.5,1),color 1ms',
     marginLeft: isMacFullscreen ? 70 : undefined
   },
@@ -134,6 +122,10 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
               </span>
             ) : null}
             {brand ? <span className="brand">{brand}</span> : null}
+            {(maximized !== undefined ? maximized : isMaximized) &&
+            (os !== undefined ? os === RibbonOSStyle.MAC : isMac) ? (
+              <Divider />
+            ) : null}
             {children}
             {(os !== undefined ? (
               os === RibbonOSStyle.WIN
