@@ -44,7 +44,7 @@ const rule = ({
   }
 });
 
-const MenuHeader: React.StatelessComponent<MenuHeaderProps> = ({
+export const MenuHeader: React.StatelessComponent<MenuHeaderProps> = ({
   color,
   palette,
   marginBottom,
@@ -61,6 +61,8 @@ const MenuHeader: React.StatelessComponent<MenuHeaderProps> = ({
     {children}
   </FelaComponent>
 );
+
+MenuHeader.displayName = 'MenuHeader';
 
 export default MenuHeader;
 
