@@ -1,4 +1,10 @@
-export { FelaComponent, Provider, createRenderer } from '@filou/core';
+export {
+  FelaComponent,
+  Provider,
+  createRenderer,
+  ThemeProvider,
+  Text
+} from '@filou/core';
 export { default as Grid } from '@filou/grid';
 export { default as Ribbon } from '@filou/ribbon';
 export { default as ElectronRouter } from '@filou/electron-router';

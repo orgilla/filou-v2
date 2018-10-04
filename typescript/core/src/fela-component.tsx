@@ -6,9 +6,10 @@ interface FelaComponentRenderProps {
   className?: string;
 }
 interface FelaComponentProps {
-  style?: (theme: any) => any | any;
+  style?: any | ((theme: any) => any);
   rule?: (themeAndProps: any) => any;
   render?: (props: FelaComponentRenderProps) => React.ReactNode;
+  [x: string]: any;
 }
 
 const FilouFelaComponent: React.SFC<FelaComponentProps> = props => (

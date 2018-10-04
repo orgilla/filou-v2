@@ -65,6 +65,7 @@
     "@types/react-test-renderer": "^16.0.2",
     "@types/storybook__addon-info": "^3.2.3",
     "@types/storybook__addon-knobs": "^3.3.1",
+    "@types/storybook__addon-storyshots": "^3.4.3",
     "@types/storybook__react": "^3.0.8",
     "babel-core": "^6.26.0",
     "babel-loader": "^8.0.4",
@@ -117,7 +118,6 @@
     "preset": "ts-jest",
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "apackages/*/src/**/*.js",
       "typescript/*/src/**/*.{ts,tsx}"
     ],
     "coverageReporters": [

@@ -1,6 +1,5 @@
 import * as React from 'react';
-//@ts-ignore
-import { FelaComponent } from 'react-fela';
+import { FelaComponent } from '@filou/core';
 import MaterialTabs from '@material-ui/core/Tabs';
 import Tab, { TabProps } from './tab';
 

@@ -1,6 +1,5 @@
 import * as React from 'react';
-//@ts-ignore
-import { FelaComponent } from 'react-fela';
+import { FelaComponent } from '@filou/core';
 import { macOS, windows } from 'electron-is';
 import IsMaximized from './is-maximized';
 import Windows from './windows';

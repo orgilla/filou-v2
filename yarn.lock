@@ -1763,6 +1763,13 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
   integrity sha512-ZBFR7TROLVzCkswA3Fmqq+IIJt62/T7aY/Dmz+QkU7CaW2QFqAitCE8Ups7IzmGhcN1YWMBT4Qcoc07jU9hOJQ==
 
+"@types/puppeteer@*":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-1.8.0.tgz#b414871bfeaf7a20976b955f3a7546b81091d0b4"
+  integrity sha512-YR6aEjBY87BNj3k8wrtieU39ljyVAceKqO08fI9EMBDkYu5Sp6vioTKiAIsrNqDyB0u249lqLmmhwwq6qLNqww==
+  dependencies:
+    "@types/node" "*"
+
 "@types/react-dom@^16.0.7":
   version "16.0.8"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.8.tgz#6e1366ed629cadf55860cbfcc25db533f5d2fa7d"
@@ -1827,6 +1834,14 @@
   resolved "https://registry.yarnpkg.com/@types/storybook__addon-knobs/-/storybook__addon-knobs-3.4.1.tgz#36a9ff38c50b00b198bfdc04f6c0aaf747e0ed86"
   integrity sha512-OmksSeipn3T3zMaWxxrOKck1yG26KXjjrwtss1IgjXz0HnkhRjUEYQMF0mnq5awj72YTflinWimokDRp4FPMRw==
   dependencies:
+    "@types/react" "*"
+
+"@types/storybook__addon-storyshots@^3.4.3":
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/@types/storybook__addon-storyshots/-/storybook__addon-storyshots-3.4.3.tgz#fd39387b6bb3b3f5bd857b7de857b6574926217f"
+  integrity sha512-xn8V+3heUFbpMeVkkhG97CB0UaiWdr7QklmhZ7OftH4uS7VgposNybp+2/iwduoKQyfB7tLSxth9t5rOvDHWMA==
+  dependencies:
+    "@types/puppeteer" "*"
     "@types/react" "*"
 
 "@types/storybook__react@^3.0.8":
