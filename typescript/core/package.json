@@ -26,7 +26,8 @@
     "fela-plugin-friendly-pseudo-class": "^5.0.17",
     "fela-plugin-named-keys": "^1.0.3",
     "fela-plugin-prefixer": "^5.0.19",
-    "fela-plugin-unit": "^5.0.17"
+    "fela-plugin-unit": "^5.0.17",
+    "tinycolor2": "^1.4.1"
   },
   "peerDependencies": {
     "react": "^16.4.2",

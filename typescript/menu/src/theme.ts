@@ -1,4 +1,4 @@
-import { compose, withPropsOnChange } from 'recompose';
+/*import { compose, withPropsOnChange } from 'recompose';
 import { withTheme } from 'react-fela';
 import { getColor } from '@filou/core/colors-provider';
 
@@ -16,3 +16,4 @@ const enhance = compose(
   )
 );
 export default enhance;
+*/

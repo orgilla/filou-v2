@@ -8,7 +8,7 @@ interface FelaComponentRenderProps {
 interface FelaComponentProps {
   style?: any | ((theme: any) => any);
   rule?: (themeAndProps: any) => any;
-  render?: (props: FelaComponentRenderProps) => React.ReactNode;
+  render?: string | ((props: FelaComponentRenderProps) => React.ReactNode);
   [x: string]: any;
 }
 
