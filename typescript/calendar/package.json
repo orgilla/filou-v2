@@ -6,7 +6,13 @@
   "module": "es",
   "types": "lib/index.d.js",
   "description": "",
-  "author": "Philipp Achenbach <olymp@philipp-achenbach.de>",
+  "scripts": {
+    "test": "jest",
+    "clean": "rimraf lib es",
+    "build": "yarn clean && tsc && tsc --module esnext --outDir es",
+    "dev": "tsc --watch"
+  },
+  "author": "Orgilla <hi@orgil.la>",
   "contributors": [
     "Benjamin Kniffler <bkniffler@me.com>",
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
