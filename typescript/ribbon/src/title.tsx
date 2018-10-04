@@ -3,7 +3,7 @@ import { FelaComponent } from '@filou/core';
 import { macOS, windows } from 'electron-is';
 import IsMaximized from './is-maximized';
 import Windows from './windows';
-import Divider from '@filou/ribbon/src/divider';
+import Divider from './divider';
 
 export enum RibbonOSStyle {
   WIN = 'win',
@@ -122,10 +122,7 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
               </span>
             ) : null}
             {brand ? <span className="brand">{brand}</span> : null}
-            {(maximized !== undefined ? maximized : isMaximized) &&
-            (os !== undefined ? os === RibbonOSStyle.MAC : isMac) ? (
-              <Divider />
-            ) : null}
+            {brand || Logo ? <Divider /> : null}
             {children}
             {(os !== undefined ? (
               os === RibbonOSStyle.WIN
