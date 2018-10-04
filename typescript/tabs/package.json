@@ -1,5 +1,5 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
   "name": "@filou/tabs",
   "description": "",
   "main": "lib",
@@ -19,7 +19,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@filou/core": "^1.0.4",
+    "@filou/core": "^1.0.5",
     "@material-ui/core": "^3.1.2"
   },
   "peerDependencies": {
