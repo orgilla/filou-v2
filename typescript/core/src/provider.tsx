@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Provider, ThemeProvider } from 'react-fela';
+import createRenderer from './create-renderer';
 
 const getTheme = (theme = {}) => ({
   // linkAnimations: animations,
@@ -60,14 +61,14 @@ const getTheme = (theme = {}) => ({
 
 interface FilouProviderProps {
   theme?: any;
-  renderer: any;
+  renderer?: any;
   rehydrate?: boolean;
 }
 
 const FilouProvider: React.ComponentType<FilouProviderProps> = ({
   theme,
   children,
-  renderer,
+  renderer = createRenderer({}),
   rehydrate = true
 }) => {
   const props = {};

@@ -13,6 +13,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^2.0.0-alpha.16"
+    "react-day-picker": "^7.2.4",
+    "@filou/core": "^1.1.2"
   }
 }
