@@ -1,5 +1,5 @@
 {
-  "version": "1.1.5",
+  "version": "1.1.6",
   "name": "filou",
   "description": "",
   "main": "lib",
@@ -18,7 +18,7 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "dependencies": {
-    "@filou/calendar": "^1.1.4",
+    "@filou/calendar": "^1.1.6",
     "@filou/core": "^1.1.4",
     "@filou/electron-router": "^1.1.4",
     "@filou/grid": "^1.1.4",
