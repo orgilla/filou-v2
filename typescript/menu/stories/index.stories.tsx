@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { createRenderer, Provider } from '@filou/core';
+import { Provider } from '@filou/core';
 
 import Menu from '../src';
 
@@ -13,9 +13,7 @@ import Menu from '../src';
       header: false
     })(story)(context)
   )
-  .addDecorator((stories: any) => (
-    <Provider renderer={createRenderer()}>{stories()}</Provider>
-  ))
+  .addDecorator((stories: any) => <Provider>{stories()}</Provider>)
   .add('Basic', () => (
     <Menu color="red" width={200}>
       <Menu.Header>

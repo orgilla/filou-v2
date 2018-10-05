@@ -1,5 +1,5 @@
 //@ts-ignore
-import tinycolor from 'tinycolor2';
+import * as tinycolor from 'tinycolor2';
 
 // COLOR-TRANSFORMATIONS
 export const lighten = (color: string, percent?: number) =>

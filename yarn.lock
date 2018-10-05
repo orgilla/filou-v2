@@ -5051,6 +5051,11 @@ fela@^6.2.1, fela@^6.2.2:
     fela-utils "^8.1.2"
     isobject "^3.0.1"
 
+ficon-core@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/ficon-core/-/ficon-core-0.2.5.tgz#50a2a441a5132dde63e1c619ffb8aa018bdf6d39"
+  integrity sha512-BtsjB+0DEp9KO5zFzHvrHYkACj2celIjYzMVqBPon7tMSXUPVbaXDd1mDI/0SjvmNczMxiy97iGyu2+t983+mA==
+
 figgy-pudding@^3.1.0, figgy-pudding@^3.2.1, figgy-pudding@^3.4.1, figgy-pudding@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"

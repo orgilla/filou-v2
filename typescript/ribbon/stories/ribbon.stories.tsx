@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { createRenderer, Provider, ThemeProvider } from '@filou/core';
+import { Provider, ThemeProvider } from '@filou/core';
 
 import Ribbon from '../src';
 
@@ -12,9 +12,7 @@ import Ribbon from '../src';
       header: false
     })(story)(context)
   )
-  .addDecorator((stories: any) => (
-    <Provider renderer={createRenderer()}>{stories()}</Provider>
-  ))
+  .addDecorator((stories: any) => <Provider>{stories()}</Provider>)
   .add('Mac (Maximized)', () => (
     <Ribbon width="100%" height="500px">
       <Ribbon.Title maximized os={Ribbon.OSStyle.MAC} brand="Mac Ribbon">

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { createRenderer, Provider, ThemeProvider } from '@filou/core';
+import { Provider, ThemeProvider } from '@filou/core';
 
 import Tabs from '../src';
 
@@ -13,9 +13,7 @@ import Tabs from '../src';
       header: false
     })(story)(context)
   )
-  .addDecorator((stories: any) => (
-    <Provider renderer={createRenderer()}>{stories()}</Provider>
-  ))
+  .addDecorator((stories: any) => <Provider>{stories()}</Provider>)
   .add('Basic', () => (
     <Tabs>
       <Tabs.Tab label="Hi">Content2</Tabs.Tab>

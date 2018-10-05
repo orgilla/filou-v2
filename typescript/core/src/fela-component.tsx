@@ -6,15 +6,18 @@ interface FelaComponentRenderProps {
   className?: string;
 }
 interface FelaComponentProps {
+  className?: string;
   style?: any | ((theme: any) => any);
   rule?: (themeAndProps: any) => any;
   render?: string | ((props: FelaComponentRenderProps) => React.ReactNode);
   [x: string]: any;
 }
 
-const FilouFelaComponent: React.SFC<FelaComponentProps> = props => (
-  <FelaComponent {...props} />
-);
+const FilouFelaComponent: React.SFC<FelaComponentProps> = ({
+  customClass,
+  className,
+  ...rest
+}) => <FelaComponent customClass={customClass || className} {...rest} />;
 FilouFelaComponent.displayName = 'FelaComponent';
 
 export default FilouFelaComponent;

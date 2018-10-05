@@ -1,7 +1,13 @@
 import * as React from 'react';
-import { FelaStatic, FelaComponent } from '@filou/core';
-import DayPicker, { DayPickerProps } from 'react-day-picker';
+import { FelaStatic, FelaComponent, fade } from '@filou/core';
+import { IconButton as Button } from '@material-ui/core';
+import DayPicker, {
+  DayPickerProps,
+  NavbarElementProps
+} from 'react-day-picker';
 import DE from './de';
+import Left from './icons/left';
+import Right from './icons/right';
 
 const css = `
   .DayPicker {
@@ -17,7 +23,7 @@ const css = `
   
     user-select: none;
   }
-  
+
   .DayPicker-Months {
     display: flex;
     flex-wrap: wrap;
@@ -215,10 +221,12 @@ const css = `
 
 const rule = ({
   theme,
-  width = 320
+  width = 320,
+  selectedDays = []
 }: {
   theme: any;
   width: number | string;
+  selectedDays: any;
 }) => ({
   fontFamily: theme.fontFamily,
   width,
@@ -229,24 +237,126 @@ const rule = ({
     color: theme.color
   },
   '& .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside)': {
-    backgroundColor: theme.color
+    backgroundColor:
+      Array.isArray(selectedDays) && selectedDays.length > 1
+        ? fade(theme.color, 10)
+        : theme.color,
+    color:
+      Array.isArray(selectedDays) && selectedDays.length > 1
+        ? theme.dark
+        : theme.light
   }
 });
 
-export class Calendar extends React.Component<DayPickerProps> {
+const formRule = ({ theme }: { theme: any }) => ({
+  display: 'flex',
+  paddingTop: 10,
+  paddingLeft: 10,
+  paddingRight: 10,
+  marginBottom: 0
+});
+
+interface FilouDayPickerProps extends DayPickerProps {
+  width?: number | string;
+}
+
+interface FilouDayPickerNavProps extends NavbarElementProps {
+  onChange: (month: Date) => void;
+  months: String[];
+}
+
+const Navbar: React.StatelessComponent<FilouDayPickerNavProps> = ({
+  onPreviousClick,
+  onNextClick,
+  className,
+  month,
+  months,
+  onChange
+}) => {
+  const years = [];
+  const currentYear = new Date().getFullYear();
+  const fromMonth = new Date(currentYear - 5, 0);
+  const toMonth = new Date(currentYear + 5, 11);
+  for (let i = fromMonth.getFullYear(); i <= toMonth.getFullYear(); i += 1) {
+    years.push(i);
+  }
+
+  return (
+    <FelaComponent className={className} render="form" rule={formRule}>
+      <select
+        name="month"
+        onChange={e =>
+          e.target.form &&
+          onChange(
+            new Date(e.target.form.year.value, e.target.form.month.value)
+          )
+        }
+        value={month.getMonth()}
+      >
+        {months.map((month, i) => (
+          <option key={`${month}`} value={i}>
+            {month}
+          </option>
+        ))}
+      </select>
+      &nbsp;
+      <select
+        name="year"
+        onChange={e =>
+          e.target.form &&
+          onChange(
+            new Date(e.target.form.year.value, e.target.form.month.value)
+          )
+        }
+        value={month.getFullYear()}
+      >
+        {years.map(year => (
+          <option key={year} value={year}>
+            {year}
+          </option>
+        ))}
+      </select>
+      <span style={{ flex: 1 }} />
+      <Button onClick={() => onPreviousClick()}>
+        <Left size={12} />
+      </Button>
+      <Button onClick={() => onNextClick()}>
+        <Right size={12} />
+      </Button>
+    </FelaComponent>
+  );
+};
+
+export class Calendar extends React.Component<FilouDayPickerProps> {
+  state = { month: new Date() };
+  handleYearMonthChange = (month: Date) => {
+    this.setState({ month });
+  };
   render() {
+    const { width, selectedDays } = this.props;
     return (
       <FelaStatic css={css}>
         <FelaComponent
           rule={rule}
+          width={width}
+          selectedDays={selectedDays}
           render={({ className }) => (
             <DayPicker
+              month={this.state.month}
+              navbarElement={
+                <Navbar
+                  {...DE as any}
+                  {...{} as any}
+                  onChange={this.handleYearMonthChange}
+                />
+              }
               showWeekNumbers
               numberOfMonths={4}
               showOutsideDays
               firstDayOfWeek={1}
               {...DE as any}
               {...this.props}
+              selectedDays={selectedDays}
               className={className}
             />
           )}
