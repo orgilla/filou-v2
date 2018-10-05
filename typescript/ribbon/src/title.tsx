@@ -43,7 +43,9 @@ const rule = ({
   alignItems: 'stretch',
   '> .brand': {
     transition: '.3s cubic-bezier(.25,.8,.5,1),color 1ms',
-    marginLeft: isMacFullscreen ? 70 : undefined
+    marginLeft: isMacFullscreen ? 70 : undefined,
+    // Hide first spans padding left => Title
+    paddingLeft: 0
   },
   '-webkit-user-select': 'none',
   '-webkit-app-region': 'drag',
@@ -52,7 +54,7 @@ const rule = ({
   },
   '> a': {
     WebkitAppRegion: 'no-drag',
-    paddingX: 6,
+    paddingX: 10,
     color: theme.light,
     minWidth: 22,
     display: 'flex',

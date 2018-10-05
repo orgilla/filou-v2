@@ -67,6 +67,9 @@ const rule = ({ theme }: { theme: any }) => ({
     verticalAlign: 'middle',
     userSelect: 'none'
   },
+  '> .title': {
+    paddingLeft: 0
+  },
   '& input.ant-input': {
     boxShadow:
       '0px 1px 0px 0px rgb(255, 255, 255), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.75)'
@@ -82,7 +85,11 @@ export const RibbonActions: React.StatelessComponent<RibbonActionProps> = ({
   children
 }) => (
   <FelaComponent rule={rule}>
-    {title ? <Item component="span">{title}</Item> : null}
+    {title ? (
+      <Item component="span" className="title">
+        {title}
+      </Item>
+    ) : null}
     {title ? <Divider dark /> : null}
     {children}
   </FelaComponent>

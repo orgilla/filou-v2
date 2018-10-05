@@ -45,11 +45,13 @@ export const RibbonItem: React.StatelessComponent<RibbonItemProps> = ({
   children,
   onClick,
   to,
+  className,
   component: Link
 }) => (
   <FelaComponent
     rule={rule}
     marginLeft={marginLeft}
+    className={className}
     render={({ className }: { className: string }) =>
       React.createElement(
         (Link as 'a') || 'a',
