@@ -13,6 +13,7 @@ import Extra from './extra';
 import Input from './input';
 
 export interface MenuProps {
+  className?: string;
   color?: string;
   paddingX?: string | number;
   paddingY?: string | number;
@@ -88,7 +89,8 @@ export class Menu extends React.Component<MenuProps> {
       headerPalette,
       headerInverted,
       inverted,
-      palette
+      palette,
+      className
     } = this.props;
     return (
       <FelaComponent
@@ -98,6 +100,7 @@ export class Menu extends React.Component<MenuProps> {
         width={width}
         overflowY={overflowY}
         collapsed={collapsed}
+        className={className}
       >
         {header && (
           <Header

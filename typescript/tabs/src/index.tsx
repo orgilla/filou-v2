@@ -29,11 +29,11 @@ export class Tabs extends React.Component<FilouTabsProps> {
   };
   render() {
     let content: React.ReactNode = null;
-    const children = this.props.children.map((child, index) => {
+    const children = React.Children.map(this.props.children, (child, index) => {
       if (this.state.value === index) {
         content = child['props']['children'];
       }
-      return React.cloneElement(child, {
+      return React.cloneElement(child as any, {
         key: index,
         children: undefined,
         disableRipple: true,

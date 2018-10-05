@@ -51,6 +51,7 @@
     "lp": "yarn build && yarn test && lerna publish --registry https://registry.npmjs.org",
     "lpf": "lerna publish --registry https://registry.npmjs.org",
     "test": "jest",
+    "test:update": "jest --updateSnapshot",
     "coverage": "codecov"
   },
   "devDependencies": {
