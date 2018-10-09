@@ -1,5 +1,5 @@
 {
-  "version": "1.1.4",
+  "version": "1.1.7",
   "name": "@filou/menu",
   "description": "",
   "main": "lib",
@@ -19,7 +19,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@filou/core": "^1.1.4",
+    "@filou/core": "^1.1.7",
     "recompose": "^0.30.0"
   },
   "peerDependencies": {

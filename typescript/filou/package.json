@@ -1,5 +1,5 @@
 {
-  "version": "1.1.6",
+  "version": "1.1.7",
   "name": "filou",
   "description": "",
   "main": "lib",
@@ -18,14 +18,14 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "dependencies": {
-    "@filou/calendar": "^1.1.6",
-    "@filou/scheduler": "^1.1.4",
-    "@filou/color": "^1.1.4",
-    "@filou/core": "^1.1.4",
-    "@filou/electron-router": "^1.1.4",
-    "@filou/grid": "^1.1.4",
-    "@filou/menu": "^1.1.4",
-    "@filou/ribbon": "^1.1.4"
+    "@filou/calendar": "^1.1.7",
+    "@filou/color": "^1.1.7",
+    "@filou/core": "^1.1.7",
+    "@filou/electron-router": "^1.1.7",
+    "@filou/grid": "^1.1.7",
+    "@filou/menu": "^1.1.7",
+    "@filou/ribbon": "^1.1.7",
+    "@filou/scheduler": "^1.1.7"
   },
   "peerDependencies": {
     "react": "^16.4.2",
