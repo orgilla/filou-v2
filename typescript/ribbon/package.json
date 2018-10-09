@@ -1,5 +1,5 @@
 {
-  "version": "1.1.7",
+  "version": "1.2.0",
   "name": "@filou/ribbon",
   "description": "",
   "main": "lib",
@@ -19,7 +19,7 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "@filou/core": "^1.1.7",
+    "@filou/core": "^1.2.0",
     "classnames": "^2.2.6",
     "electron-is": "^3.0.0",
     "is-electron": "^2.1.0"

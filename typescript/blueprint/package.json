@@ -1,5 +1,5 @@
 {
-  "version": "1.1.7",
+  "version": "1.2.0",
   "name": "@filou/blueprint",
   "description": "",
   "main": "lib",
@@ -25,7 +25,7 @@
     "@blueprintjs/core": "^3.7.0",
     "@blueprintjs/icons": "^3.2.0",
     "@blueprintjs/select": "^3.2.0",
-    "@filou/core": "^1.1.7"
+    "@filou/core": "^1.2.0"
   },
   "peerDependencies": {
     "react": "^16.5.2",
