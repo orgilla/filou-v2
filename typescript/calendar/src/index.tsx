@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { FelaStatic, FelaComponent, fade } from '@filou/core';
-import { IconButton as Button } from '@material-ui/core';
 import DayPicker, {
   DayPickerProps,
   NavbarElementProps
@@ -85,8 +84,8 @@ const css = `
   }
   
   .DayPicker-Caption > div {
-    font-weight: 500;
-    font-size: 1.15em;
+    // font-weight: 500;
+    // font-size: 1.15em;
   }
   
   .DayPicker-Weekdays {
@@ -230,6 +229,12 @@ const rule = ({
 }) => ({
   fontFamily: theme.fontFamily,
   width,
+  '& .DayPicker-Day--busy': {
+    fontWeight: 'bold'
+  },
+  '& .DayPicker-Day--monday': {
+    color: theme.dark4
+  },
   '& .DayPicker-Day--today': {
     color: theme.color
   },
@@ -317,12 +322,12 @@ const Navbar: React.StatelessComponent<FilouDayPickerNavProps> = ({
         ))}
       </select>
       <span style={{ flex: 1 }} />
-      <Button onClick={() => onPreviousClick()}>
+      {/*<Button onClick={() => onPreviousClick()}>
         <Left size={12} />
       </Button>
       <Button onClick={() => onNextClick()}>
         <Right size={12} />
-      </Button>
+      </Button>*/}
     </FelaComponent>
   );
 };
@@ -330,7 +335,12 @@ const Navbar: React.StatelessComponent<FilouDayPickerNavProps> = ({
 export class Calendar extends React.Component<FilouDayPickerProps> {
   state = { month: new Date() };
   handleYearMonthChange = (month: Date) => {
-    this.setState({ month });
+    const { onMonthChange } = this.props;
+    if (onMonthChange) {
+      onMonthChange(month);
+    } else {
+      this.setState({ month });
+    }
   };
   render() {
     const { width, selectedDays } = this.props;
@@ -356,6 +366,7 @@ export class Calendar extends React.Component<FilouDayPickerProps> {
               firstDayOfWeek={1}
               {...DE as any}
               {...this.props}
+              onMonthChange={this.handleYearMonthChange}
               selectedDays={selectedDays}
               className={className}
             />
