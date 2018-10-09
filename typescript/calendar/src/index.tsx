@@ -5,8 +5,8 @@ import DayPicker, {
   NavbarElementProps
 } from 'react-day-picker';
 import DE from './de';
-import Left from './icons/left';
-import Right from './icons/right';
+// import Left from './icons/left';
+// import Right from './icons/right';
 
 const css = `
   .DayPicker {
