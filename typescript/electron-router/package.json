@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "@filou/core": "^1.2.0",
     "history": "^4.7.2"
   },
   "peerDependencies": {
