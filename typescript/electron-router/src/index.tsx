@@ -51,7 +51,7 @@ class ElectronRouter extends React.Component {
 
   render() {
     const { children } = this.props;
-    return React.Children.only(children);
+    return <>{children}</>;
   }
 }
 
