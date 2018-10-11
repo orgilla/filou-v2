@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FelaComponent } from '@filou/core';
+import { FelaComponent, isElectron } from '@filou/core';
 import IsMaximized from './is-maximized';
 import Actions from './actions';
 import Tabs from './tabs';
@@ -58,7 +58,9 @@ export class Ribbon extends React.Component<RibbonProps> {
             rule={rule}
             width={width}
             height={height}
-            isMaximized={maximized !== undefined ? maximized : isMaximized}
+            isMaximized={
+              !isElectron || (maximized !== undefined ? maximized : isMaximized)
+            }
           >
             {children}
           </FelaComponent>

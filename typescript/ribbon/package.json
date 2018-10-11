@@ -20,9 +20,7 @@
   },
   "dependencies": {
     "@filou/core": "^1.2.0",
-    "classnames": "^2.2.6",
-    "electron-is": "^3.0.0",
-    "is-electron": "^2.1.0"
+    "classnames": "^2.2.6"
   },
   "peerDependencies": {
     "electron": "^3.0.0",

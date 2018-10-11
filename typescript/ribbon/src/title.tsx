@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { FelaComponent } from '@filou/core';
-import { macOS, windows } from 'electron-is';
+import { FelaComponent, isOSX, isWindows } from '@filou/core';
 import IsMaximized from './is-maximized';
 import Windows from './windows';
 import Divider from './divider';
@@ -17,9 +16,6 @@ export interface RibbonTitleProps {
   brand?: string;
   children?: React.ReactNode;
 }
-
-const isMac = macOS();
-const isWindows = windows();
 
 const rule = ({
   theme,
@@ -113,7 +109,7 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
         rule={rule}
         isMacFullscreen={
           (maximized !== undefined ? maximized : isMaximized) &&
-          (os !== undefined ? os === RibbonOSStyle.MAC : isMac)
+          (os !== undefined ? os === RibbonOSStyle.MAC : isOSX)
         }
         os={os}
         render={({ className }: { className: string }) => (

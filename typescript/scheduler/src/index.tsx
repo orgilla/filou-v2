@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FelaComponent, fade } from '@filou/core';
 import { BigCalendarProps } from 'react-big-calendar';
-export { default as DE } from './de';
+export { default as SCHEDULER_DE } from './de';
 export { default as StaticStyle } from './style';
 
 const Calendar = require('react-big-calendar');

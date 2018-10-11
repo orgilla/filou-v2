@@ -33,7 +33,7 @@ export interface RibbonItemProps {
   marginLeft?: string | boolean | number;
   active?: boolean;
   className?: string;
-  onClick?: string;
+  onClick?: (ev: any) => any;
   to?: string;
   component?: string | React.ComponentClass;
   children?: React.ReactNode;

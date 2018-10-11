@@ -1,39 +1,57 @@
 import * as React from 'react';
-import { createMemoryHistory, MemoryHistory, Location } from 'history';
-import { Router } from 'react-router-dom';
+import { isElectron } from '@filou/core';
+export * from '@reach/router';
+import {
+  createMemorySource,
+  createHistory,
+  History,
+  WindowLocation,
+  HistorySource
+} from '@reach/router';
 
 class ElectronRouter extends React.Component {
-  history: MemoryHistory;
+  history: History;
+  source: HistorySource;
 
-  location: Location;
+  state: { location?: WindowLocation } = {
+    location: undefined
+  };
 
   constructor(props: any) {
     super(props);
-    let url = '/';
-    if (typeof location !== 'undefined' && location.hash) {
-      url = location.hash.substr(1);
-    } else {
-      url = localStorage.getItem('pathname') || url;
+    if (isElectron) {
+      let url = '/';
+      if (typeof location !== 'undefined' && location.hash) {
+        url = location.hash.substr(1);
+      } else {
+        url = localStorage.getItem('pathname') || url;
+      }
+      this.source = createMemorySource(url || '/');
+      this.history = createHistory(this.source);
+      this.state.location = this.source.location;
     }
-    this.history = createMemoryHistory({
-      initialEntries: [url || '/']
-    });
   }
 
   componentDidMount() {
-    this.history.listen(this.listener);
+    if (this.history) {
+      this.history.listen(this.listener);
+    }
   }
 
-  listener = (location: Location) => {
-    if (!this.location || this.location.pathname !== location.pathname) {
+  listener = () => {
+    const location = this.source.location;
+    if (
+      !this.state.location ||
+      this.state.location.pathname !== location.pathname
+    ) {
       localStorage.setItem('pathname', location.pathname);
     }
-    this.location = location;
+    this.setState({ location });
   };
 
   render() {
     const { children } = this.props;
-    return <Router history={this.history}>{children}</Router>;
+    return React.Children.only(children);
   }
 }
 

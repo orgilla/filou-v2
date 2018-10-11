@@ -1,9 +1,8 @@
 import * as React from 'react';
-//@ts-ignore
-import * as isElectron from 'is-electron';
+import { isElectron } from '@filou/core';
 
 let remote: any = null;
-if (typeof window !== 'undefined' && isElectron()) {
+if (isElectron) {
   remote = window['require']('electron').remote;
   //  maximize = win.maximize;
 }

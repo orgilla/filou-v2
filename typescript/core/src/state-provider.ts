@@ -6,7 +6,7 @@ interface IStateMachine {
 }
 
 class StateProvider extends React.Component<IStateMachine> {
-  state = { value: this.props.initialValue || null };
+  state = { value: this.props.initialValue || undefined };
   setter = (value?: any) => {
     this.setState({ value });
   };

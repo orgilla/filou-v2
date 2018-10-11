@@ -1,5 +1,4 @@
-import * as moment from 'moment';
-
+const moment = require('moment');
 const Calendar = require('react-big-calendar');
 
 moment.locale('de');
