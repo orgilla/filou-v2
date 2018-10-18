@@ -26,4 +26,12 @@ import Menu from '../src';
       <Menu.Item onClick={console.log}>Content2</Menu.Item>
       <Menu.Item onClick={console.log}>Content2</Menu.Item>
     </Menu>
+  ))
+  .add('Collapsed', () => (
+    <Menu color="red" collapsed width={72}>
+      <Menu.Item onClick={console.log}>Content2</Menu.Item>
+      <Menu.Item onClick={console.log}>Content2</Menu.Item>
+      <Menu.Item onClick={console.log}>Content2</Menu.Item>
+      <Menu.Item onClick={console.log}>Content2</Menu.Item>
+    </Menu>
   ));

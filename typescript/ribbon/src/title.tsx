@@ -12,7 +12,7 @@ export enum RibbonOSStyle {
 export interface RibbonTitleProps {
   os?: RibbonOSStyle;
   maximized?: boolean;
-  logo?: string | React.ComponentClass;
+  logo?: string | React.ComponentType;
   brand?: string;
   children?: React.ReactNode;
 }

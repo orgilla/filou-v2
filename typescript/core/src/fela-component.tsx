@@ -5,6 +5,12 @@ import { FelaComponent } from 'react-fela';
 interface FelaComponentRenderProps {
   className?: string;
 }
+
+export type IFelaRule<T extends {} = {}> = T & {
+  // '{}' can be replaced with 'any'
+  theme: any;
+};
+
 interface FelaComponentProps {
   className?: string;
   style?: any | ((theme: any) => any);

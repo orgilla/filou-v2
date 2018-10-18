@@ -6,7 +6,7 @@ import Sketch from '@filou/color';
 
 const moment = require('moment');
 
-import Scheduler, { DE, StaticStyle } from '../src';
+import Scheduler, { SCHEDULER_DE, StaticStyle } from '../src';
 
 const createEvents = (amount = 1000) => {
   const events = {};
@@ -50,7 +50,7 @@ const events = createEvents();
   .add('Basic', () => (
     <div style={{ height: 500, width: '100%', display: 'flex' }}>
       <Scheduler
-        localizer={DE}
+        localizer={SCHEDULER_DE}
         events={events[new Date().getFullYear() + '' + new Date().getMonth()]}
         view="month"
       />

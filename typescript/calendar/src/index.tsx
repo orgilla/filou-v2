@@ -229,6 +229,13 @@ const rule = ({
 }) => ({
   fontFamily: theme.fontFamily,
   width,
+  '& .DayPicker-Caption': {
+    color: theme.dark3,
+    fontWeight: 600
+  },
+  '& .DayPicker-Weekday': {
+    fontSize: theme.fontSizeSmall
+  },
   '& .DayPicker-Day--busy': {
     fontWeight: 'bold'
   },
