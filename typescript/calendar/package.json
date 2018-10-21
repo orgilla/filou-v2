@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@filou/core": "^1.2.1",
-    "ficon-core": "^0.2.5",
+    "ficon-core": "^0.2.7",
     "react-day-picker": "^7.2.4"
   }
 }

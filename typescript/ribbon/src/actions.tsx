@@ -11,7 +11,7 @@ const rule = ({ theme }: { theme: any }) => ({
   maxHeight: 48,
   alignContent: 'center',
   alignItems: 'stretch',
-  backgroundColor: 'white',
+  backgroundColor: '#f7f7f7',
   borderBottom: `1px solid ${theme.dark4}`,
   // boxShadow:
   // '0px 1px 0px 0px rgb(255, 255, 255), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.75)',

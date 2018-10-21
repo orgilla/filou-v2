@@ -27,7 +27,7 @@
     "react": "^16.5.2"
   },
   "devDependencies": {
-    "@types/history": "^4.7.0",
+    "@types/history": "^4.7.2",
     "@types/reach__router": "^1.2.0"
   },
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"

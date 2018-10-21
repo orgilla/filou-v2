@@ -66,10 +66,10 @@ const rule = ({
     verticalAlign: 'middle',
     userSelect: 'none',
     '&.active': {
-      backgroundColor: theme.light,
+      backgroundColor: '#f7f7f7',
       color: theme.dark,
       onHover: {
-        backgroundColor: theme.light
+        backgroundColor: '#f7f7f7'
       }
     },
     onHover: {
