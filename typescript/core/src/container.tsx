@@ -18,7 +18,9 @@ const rule = ({
   marginTop,
   position: 'relative',
   marginX: 'auto',
-  paddingX: theme.space2,
+  '> div': {
+    paddingX: theme.space2
+  },
   onAfter: {
     content: '""',
     clear: 'both',
@@ -74,25 +76,30 @@ const rule = ({
 });
 
 export interface IContainer {
-  component?: String;
+  render?: React.ComponentType;
+  className?: string;
   height?: number | string;
   marginTop?: number | string;
   size?: 'small';
 }
 
 export const Container: React.StatelessComponent<IContainer> = ({
-  component = 'div',
+  render,
   marginTop,
   height,
-  size
+  children,
+  size,
+  className
 }) => (
   <FelaComponent
     rule={rule}
     height={height}
     marginTop={marginTop}
     size={size}
-    render={component}
-  />
+    render={render}
+  >
+    <div className={className}>{children}</div>
+  </FelaComponent>
 );
 Container.displayName = 'Container';
 

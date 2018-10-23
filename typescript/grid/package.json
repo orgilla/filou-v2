@@ -10,7 +10,7 @@
     "test": "jest",
     "clean": "rimraf lib es",
     "build": "yarn clean && tsc && tsc --module esnext --outDir es",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch --module esnext --outDir es"
   },
   "author": "Philipp Achenbach <olymp@philipp-achenbach.de>",
   "contributors": [
