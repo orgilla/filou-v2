@@ -1,5 +1,5 @@
 {
-  "version": "1.2.1",
+  "version": "1.2.2",
   "name": "@filou/ribbon",
   "description": "",
   "main": "lib",
@@ -19,7 +19,7 @@
     "dev": "tsc --watch --module esnext --outDir es"
   },
   "dependencies": {
-    "@filou/core": "^1.2.1",
+    "@filou/core": "^1.2.2",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {

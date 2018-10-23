@@ -1,5 +1,5 @@
 {
-  "version": "1.2.1",
+  "version": "1.2.2",
   "name": "@filou/scheduler",
   "description": "",
   "main": "lib",
@@ -22,7 +22,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@filou/core": "^1.2.1",
+    "@filou/core": "^1.2.2",
     "moment": "^2.22.2",
     "react-big-calendar": "^0.20.1"
   },
@@ -31,7 +31,7 @@
     "react-fela": "^8.0.2"
   },
   "devDependencies": {
-    "@filou/color": "^1.2.1",
+    "@filou/color": "^1.2.2",
     "@types/globalize": "^0.0.34",
     "@types/react-big-calendar": "^0.20.0",
     "fela-dom": "^8.0.2",

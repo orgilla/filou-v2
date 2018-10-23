@@ -1,5 +1,5 @@
 {
-  "version": "1.2.1",
+  "version": "1.2.2",
   "name": "@filou/color",
   "description": "",
   "main": "lib",
@@ -22,7 +22,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@filou/core": "^1.2.1",
+    "@filou/core": "^1.2.2",
     "react-color": "^2.14.1"
   },
   "peerDependencies": {
