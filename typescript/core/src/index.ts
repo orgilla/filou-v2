@@ -11,4 +11,5 @@ export { default as isElectron } from './is-electron';
 export { default as isOSX } from './is-osx';
 export { default as isWindows } from './is-windows';
 export { default as Container } from './container';
+export { default as FlexGrid } from './flex-grid';
 export * from './utils';

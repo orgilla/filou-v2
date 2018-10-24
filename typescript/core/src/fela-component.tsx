@@ -1,9 +1,8 @@
 import * as React from 'react';
-//@ts-ignore
-import { FelaComponent } from 'react-fela';
+import { FelaComponent as FelaCom } from 'react-fela';
 
-interface FelaComponentRenderProps {
-  className?: string;
+interface IFelaComponentRender {
+  className: string;
 }
 
 export type IFelaRule<T extends {} = {}> = T & {
@@ -11,19 +10,19 @@ export type IFelaRule<T extends {} = {}> = T & {
   theme: any;
 };
 
-interface FelaComponentProps {
+interface IFelaComponent {
   className?: string;
   style?: any | ((theme: any) => any);
   rule?: (themeAndProps: any) => any;
-  render?: string | ((props: FelaComponentRenderProps) => React.ReactNode);
+  render?: string | ((props: IFelaComponentRender) => React.ReactNode);
   [x: string]: any;
 }
 
-const FilouFelaComponent: React.SFC<FelaComponentProps> = ({
+const FelaComponent: React.SFC<IFelaComponent> = ({
   customClass,
   className,
   ...rest
-}) => <FelaComponent customClass={customClass || className} {...rest} />;
-FilouFelaComponent.displayName = 'FelaComponent';
+}) => <FelaCom customClass={customClass || className} {...rest} />;
+FelaComponent.displayName = 'FelaComponent';
 
-export default FilouFelaComponent;
+export default FelaComponent;
