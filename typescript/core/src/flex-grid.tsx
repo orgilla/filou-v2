@@ -1,17 +1,18 @@
 import * as React from 'react';
 import FelaComponent from './fela-component';
 
-interface IGrid extends React.HTMLAttributes<HTMLDivElement> {
+export interface IGrid extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
   verticalGutter?: number | string;
   gutter?: number;
   children?: React.ReactElement<IGridItem>[] | React.ReactElement<IGridItem>;
 }
 
-interface IGridItem extends React.HTMLAttributes<HTMLDivElement> {
-  component?: React.ComponentType;
+export interface IGridItem extends React.HTMLAttributes<HTMLDivElement> {
+  component?: React.ReactType;
   size?: number;
   gridSize?: number;
+  render?: React.ReactType;
   gutter?: number;
   background?: string;
 }
@@ -28,12 +29,11 @@ const gridItemRule = ({
 });
 const GridItem: React.SFC<IGridItem> = ({
   children,
-  component = 'div',
   className,
+  render,
   gridSize = 12,
   size = 1,
-  gutter = 0,
-  ...rest
+  gutter = 0
 }) => {
   const calcWidth = (100 / gridSize) * size;
   return (
@@ -42,14 +42,10 @@ const GridItem: React.SFC<IGridItem> = ({
       calcWidth={calcWidth}
       gutter={gutter}
       className={className}
-      render={({ className }) =>
-        React.createElement(
-          component as React.ReactType,
-          { ...rest, className },
-          children
-        )
-      }
-    />
+      render={render}
+    >
+      {children}
+    </FelaComponent>
   );
 };
 
@@ -84,6 +80,7 @@ class Grid extends React.Component<IGrid> {
       <FelaComponent
         rule={rule}
         className={className}
+        verticalGutter={verticalGutter}
         render={({ className }) => (
           <div {...rest} className={className}>
             {arr.map(child =>

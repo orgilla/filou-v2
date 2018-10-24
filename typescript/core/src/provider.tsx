@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Provider, ThemeProvider } from 'react-fela';
 import createRenderer from './create-renderer';
-
+const FixedProvider = Provider as any;
 const getTheme = (theme = {}) => ({
   // linkAnimations: animations,
   // Colors
@@ -84,9 +84,9 @@ const FilouProvider: React.ComponentType<FilouProviderProps> = ({
     props['mountNode'] = stylesheet;
   }
   return (
-    <Provider renderer={renderer} rehydrate={rehydrate} {...props}>
+    <FixedProvider renderer={renderer} rehydrate={rehydrate} {...props}>
       <ThemeProvider theme={getTheme(theme)}>{children}</ThemeProvider>
-    </Provider>
+    </FixedProvider>
   );
 };
 export default FilouProvider;
