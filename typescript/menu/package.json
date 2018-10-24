@@ -27,9 +27,9 @@
     "react-fela": "^8.0.2"
   },
   "devDependencies": {
-    "fela-dom": "^8.0.2",
-    "react": "^16.5.2",
-    "react-fela": "^8.0.2"
+    "fela-dom": "^8.0.3",
+    "react": "^16.6.0",
+    "react-fela": "^8.0.3"
   },
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }

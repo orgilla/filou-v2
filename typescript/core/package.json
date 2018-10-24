@@ -18,15 +18,15 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "dependencies": {
-    "fela": "^6.2.1",
-    "fela-plugin-custom-property": "^7.0.3",
-    "fela-plugin-embedded": "^5.2.11",
-    "fela-plugin-extend": "^6.0.9",
-    "fela-plugin-fallback-value": "^5.0.18",
-    "fela-plugin-friendly-pseudo-class": "^5.0.17",
-    "fela-plugin-named-keys": "^1.0.3",
-    "fela-plugin-prefixer": "^5.0.19",
-    "fela-plugin-unit": "^5.0.17",
+    "fela": "^6.2.3",
+    "fela-plugin-custom-property": "^7.0.5",
+    "fela-plugin-embedded": "^5.2.13",
+    "fela-plugin-extend": "^6.0.11",
+    "fela-plugin-fallback-value": "^5.0.20",
+    "fela-plugin-friendly-pseudo-class": "^5.0.18",
+    "fela-plugin-named-keys": "^1.0.4",
+    "fela-plugin-prefixer": "^5.0.21",
+    "fela-plugin-unit": "^5.1.2",
     "tinycolor2": "^1.4.1"
   },
   "peerDependencies": {
