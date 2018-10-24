@@ -18,14 +18,10 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "dependencies": {
-    "@filou/calendar": "^1.2.2",
     "@filou/color": "^1.2.2",
     "@filou/core": "^1.2.2",
     "@filou/electron-router": "^1.2.2",
-    "@filou/grid": "^1.2.2",
-    "@filou/menu": "^1.2.2",
-    "@filou/ribbon": "^1.2.2",
-    "@filou/scheduler": "^1.2.2"
+    "@filou/ribbon": "^1.2.2"
   },
   "peerDependencies": {
     "react": "^16.4.2",
