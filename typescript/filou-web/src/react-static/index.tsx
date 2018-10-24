@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Provider } from '@filou/core';
-import { Document } from 'filou-web';
+import Document from '../document';
 const { renderToSheetList } = require('fela-dom');
 
 export const createReactStaticConfig = (config: any) => ({
