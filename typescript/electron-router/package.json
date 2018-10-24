@@ -1,5 +1,5 @@
 {
-  "version": "1.2.3",
+  "version": "1.2.4",
   "name": "@filou/electron-router",
   "description": "",
   "main": "lib",
@@ -21,7 +21,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@filou/core": "^1.2.3",
+    "@filou/core": "^1.2.4",
     "@reach/router": "^1.2.1",
     "@types/history": "^4.7.2",
     "@types/reach__router": "^1.2.0",

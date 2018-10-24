@@ -1,5 +1,5 @@
 {
-  "version": "1.2.3",
+  "version": "1.2.4",
   "name": "@filou/ribbon",
   "description": "",
   "main": "lib",
@@ -21,7 +21,7 @@
     "dev": "run-p \"ts:* -- --watch\""
   },
   "dependencies": {
-    "@filou/core": "^1.2.3",
+    "@filou/core": "^1.2.4",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {
