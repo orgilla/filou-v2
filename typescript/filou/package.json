@@ -1,5 +1,5 @@
 {
-  "version": "1.2.4",
+  "version": "1.2.5",
   "name": "filou",
   "description": "",
   "main": "lib",
@@ -20,10 +20,10 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "dependencies": {
-    "@filou/color": "^1.2.4",
-    "@filou/core": "^1.2.4",
-    "@filou/electron-router": "^1.2.4",
-    "@filou/ribbon": "^1.2.4"
+    "@filou/color": "^1.2.5",
+    "@filou/core": "^1.2.5",
+    "@filou/electron-router": "^1.2.5",
+    "@filou/ribbon": "^1.2.5"
   },
   "peerDependencies": {
     "react": "^16.4.2",
