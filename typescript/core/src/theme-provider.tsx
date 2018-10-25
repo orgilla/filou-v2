@@ -1,5 +1,4 @@
 import * as React from 'react';
-//@ts-ignore
 import { ThemeProvider } from 'react-fela';
 
 interface FelaThemeProps {

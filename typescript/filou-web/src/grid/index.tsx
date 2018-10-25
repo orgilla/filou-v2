@@ -7,6 +7,8 @@ const Reveal = require('react-reveal/Reveal');
 interface IGrid extends React.HTMLAttributes<HTMLDivElement> {
   id?: string;
   size?: number;
+  titleColor?: boolean | string;
+  container?: boolean;
   padding?: number | string;
   title?: string;
   subtitle?: string;
@@ -51,103 +53,115 @@ const ruleItem = ({ theme, subtitle, background }: IFelaRule<IGridItem>) => ({
   }
 });
 
+const Item: React.StatelessComponent<IGridItem> = ({
+  title = '',
+  subtitle = '',
+  children,
+  img = '',
+  size,
+  gridSize,
+  render,
+  gutter,
+  background = '',
+  className,
+  ...rest
+}) => {
+  const childs = (
+    <>
+      {img && <img width="100%" height="auto" src={img} />}
+      {title && <h3>{title}</h3>}
+      {subtitle && <h4>{subtitle}</h4>}
+      {children}
+    </>
+  );
+  const Element = render || 'div';
+  return (
+    <FelaComponent
+      rule={ruleItem}
+      background={background}
+      subtitle={subtitle}
+      className={className}
+      render={({ className }) => (
+        <FlexGrid.Item
+          gridSize={gridSize}
+          gutter={gutter}
+          size={size}
+          render={({ className }) => (
+            <Element className={className}>{childs}</Element>
+          )}
+          className={className}
+          {...rest}
+        />
+      )}
+    />
+  );
+};
+
 const ruleGrid = ({
   theme,
-  isDark,
   background,
   padding,
   alignTitle,
   align,
   subtitle,
+  titleColor,
   alignText
-}: any) => ({
-  backgroundColor: theme[background] || undefined,
-  padding,
-  position: 'relative',
-  overflow: 'hidden',
-  color: isDark ? theme.light : theme.dark,
-  transition: `all 500ms cubic-bezier(0.165, 0.84, 0.44, 1)`,
-  extend: [
-    {
-      condition: background === 'banner',
-      style: {
-        background: `url(${cloudinary('/banner.jpg')}) no-repeat center center`,
-        backgroundSize: 'cover!important'
-      }
-    }
-  ],
-  '& [data-scroll-anchor]': {
-    position: 'absolute',
-    top: -45
-  },
-  '> div > div > h2': {
-    fontSize: '3em',
-    textAlign:
-      (alignTitle || align) !== 'left' ? alignTitle || align : undefined,
-    color: isDark ? theme.light : undefined,
-    margin: 0,
-    marginBottom: subtitle ? 0 : 20,
-    fontWeight: 300
-  },
-  '> div > div > h3': {
-    fontSize: '2em',
-    textAlign:
-      (alignTitle || align) !== 'left' ? alignTitle || align : undefined,
+}: IFelaRule<IGrid>) => {
+  const isDark =
+    background && ['banner', 'color', 'dark'].indexOf(background) !== -1;
+  titleColor =
+    (titleColor === true ? theme.color : theme[titleColor + '']) ||
+    (isDark ? theme.light : theme.dark);
+  return {
+    backgroundColor: theme[background + ''] || undefined,
+    padding,
+    position: 'relative',
+    overflow: 'hidden',
     color: isDark ? theme.light : theme.dark,
-    opacity: 0.8,
-    margin: 0,
-    marginBottom: 40,
-    fontWeight: 300
-  },
-  '> div > div > div': {
-    textAlign: (alignText || align) !== 'left' ? alignText || align : undefined
-  }
-});
+    transition: `all 500ms cubic-bezier(0.165, 0.84, 0.44, 1)`,
+    extend: [
+      {
+        condition: background === 'banner',
+        style: {
+          background: `url(${cloudinary(
+            '/banner.jpg'
+          )}) no-repeat center center`,
+          backgroundSize: 'cover!important'
+        }
+      }
+    ],
+    '& [data-scroll-anchor]': {
+      position: 'absolute',
+      top: -45
+    },
+    '& .grid-h2': {
+      fontSize: '3em',
+      textAlign:
+        (alignTitle || align) !== 'left' ? alignTitle || align : undefined,
+      color: titleColor,
+      margin: 0,
+      marginBottom: subtitle ? 0 : 20,
+      fontWeight: 300
+    },
+    '& .grid-h3': {
+      fontSize: '2em',
+      textAlign:
+        (alignTitle || align) !== 'left' ? alignTitle || align : undefined,
+      color: titleColor,
+      opacity: 0.8,
+      margin: 0,
+      marginBottom: 40,
+      fontWeight: 300
+    },
+    '> div > div > div': {
+      textAlign:
+        (alignText || align) !== 'left' ? alignText || align : undefined
+    }
+  };
+};
 
 class Grid extends React.Component<IGrid> {
-  static Item: React.StatelessComponent<IGridItem> = ({
-    title = '',
-    subtitle = '',
-    children,
-    img = '',
-    size,
-    gridSize,
-    render,
-    gutter,
-    background = '',
-    className,
-    ...rest
-  }) => {
-    const childs = (
-      <>
-        {img && <img width="100%" height="auto" src={img} />}
-        {title && <h3>{title}</h3>}
-        {subtitle && <h4>{subtitle}</h4>}
-        {children}
-      </>
-    );
-    const Element = render || 'div';
-    return (
-      <FelaComponent
-        rule={ruleItem}
-        background={background}
-        subtitle={subtitle}
-        className={className}
-        render={({ className }) => (
-          <FlexGrid.Item
-            gridSize={gridSize}
-            gutter={gutter}
-            size={size}
-            render={({ className }) => (
-              <Element className={className}>{childs}</Element>
-            )}
-            className={className}
-            {...rest}
-          />
-        )}
-      />
-    );
-  };
+  static Item = Item;
   render() {
     const {
       children,
@@ -163,36 +177,42 @@ class Grid extends React.Component<IGrid> {
       alignText,
       align,
       className,
+      titleColor,
+      container = true,
       ...rest
     } = this.props;
-    const isDark = ['banner', 'color', 'dark'].indexOf(background) !== -1;
+
+    const childs = (
+      <>
+        {id && <span data-scroll-anchor id={id} />}
+        {title && <h2 className="grid-h2">{title}</h2>}
+        {subtitle && <h3 className="grid-h3">{subtitle}</h3>}
+        <FlexGrid
+          {...rest}
+          gutter={2}
+          size={size}
+          verticalGutter={verticalGutter}
+        >
+          {children as any}
+        </FlexGrid>
+      </>
+    );
+
     return (
       <Reveal effect="fadeInUp">
         <FelaComponent
           className={className}
-          isDark={isDark}
           background={background}
           padding={padding}
           alignTitle={alignTitle}
           align={align}
           subtitle={subtitle}
           alignText={alignText}
+          titleColor={titleColor}
           rule={ruleGrid}
         >
           {elements}
-          <Container>
-            {id && <span data-scroll-anchor id={id} />}
-            {title && <h2>{title}</h2>}
-            {subtitle && <h3>{subtitle}</h3>}
-            <FlexGrid
-              {...rest}
-              gutter={2}
-              size={size}
-              verticalGutter={verticalGutter}
-            >
-              {children as any}
-            </FlexGrid>
-          </Container>
+          {container ? <Container>{childs}</Container> : childs}
         </FelaComponent>
       </Reveal>
     );

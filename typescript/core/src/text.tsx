@@ -1,13 +1,12 @@
 import * as React from 'react';
-//@ts-ignore
-import { FelaComponent } from 'react-fela';
+import FelaComponent from './fela-component';
 
 const rule = ({ theme }: { theme: any }) => ({
   fontFamily: theme.fontFamily
 });
 
 export interface TextProps {
-  component?: String;
+  component?: string;
 }
 
 export const Text: React.StatelessComponent<TextProps> = ({

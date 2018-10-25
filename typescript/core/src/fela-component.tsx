@@ -14,33 +14,25 @@ interface IFelaComponent {
   [x: string]: any;
 }
 
-class FelaComponent extends React.Component<IFelaComponent> {
-  /*renderer = ({ className }: { className: string }) => {
-    const { render, children } = this.props;
-    const Element = render || 'div';
-    return <Element className={className}>{children}</Element>;
-  };*/
-  render() {
-    const {
-      customClass,
-      className,
-      children,
-      rule,
-      style,
-      render,
-      ...rest
-    } = this.props;
-    return (
-      <FelaCom
-        customClass={customClass || className}
-        render={render}
-        rule={rule}
-        style={style}
-        children={children}
-        {...rest}
-      />
-    );
-  }
-}
+const FelaComponent: React.SFC<IFelaComponent> = ({
+  customClass,
+  className,
+  children,
+  rule,
+  style,
+  render,
+  ...rest
+}) => {
+  return (
+    <FelaCom
+      customClass={customClass || className}
+      render={render}
+      rule={rule}
+      style={style}
+      children={children}
+      {...rest}
+    />
+  );
+};
 
 export default FelaComponent;

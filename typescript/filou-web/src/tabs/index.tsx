@@ -17,6 +17,12 @@ const rule = ({ inverted = false, state = null }) => ({
   'backface-visibility': 'hidden',
   perspective: 1000,
   textAlign: 'right',
+  '& img': {
+    transform: 'translateX(-25px)',
+    ifSmallDown: {
+      transform: 'none'
+    }
+  },
   ifSmallDown: {
     textAlign: 'center'
   },
@@ -57,14 +63,26 @@ interface ITabs {
   subtitle?: string;
   background?: 'banner' | 'color' | 'light' | 'dark' | 'dark5';
   items: Array<any>;
+  titleColor?: boolean | string;
   keyField?: string;
   valueField?: string;
 }
+
+const style = {
+  // textAlign: 'right',
+  ifSmallDown: {
+    '> div > div > div': {
+      flexDirection: 'column-reverse',
+      textAlign: 'center'
+    }
+  }
+};
 const Tabs: React.SFC<ITabs> = ({
   id,
   title,
   subtitle,
   background,
+  titleColor,
   keyField = 'title',
   valueField = '',
   items = []
@@ -73,52 +91,18 @@ const Tabs: React.SFC<ITabs> = ({
     <StateProvider>
       {(setValue, value = 0) => (
         <FelaComponent
-          style={{
-            textAlign: 'right',
-            ifSmallDown: {
-              textAlign: 'center'
-            }
-          }}
+          style={style}
           render={({ className }) => (
             <Grid
               className={className}
+              titleColor={titleColor}
               id={id}
               size={3}
               background={background}
               title={title}
+              alignTitle="center"
               subtitle={subtitle}
             >
-              <Grid.Item>
-                <FelaComponent
-                  style={{
-                    listStyleType: 'none',
-                    padding: 0,
-                    textAlign: 'right',
-                    ifSmallDown: {
-                      textAlign: 'center'
-                    },
-                    '> li': {
-                      cursor: 'pointer'
-                    },
-                    '> [data-active=true]': {
-                      fontWeight: 'bold'
-                    }
-                  }}
-                  render={({ className }) => (
-                    <ul className={className}>
-                      {items.map((item, i) => (
-                        <li
-                          key={i}
-                          data-active={value === i}
-                          onClick={() => setValue(i)}
-                        >
-                          {item[keyField]}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                />
-              </Grid.Item>
               <Grid.Item size={2}>
                 <TransitionGroup component={null}>
                   <Transition
@@ -142,6 +126,43 @@ const Tabs: React.SFC<ITabs> = ({
                     )}
                   </Transition>
                 </TransitionGroup>
+              </Grid.Item>
+              <Grid.Item>
+                <FelaComponent
+                  rule={({ theme }) => ({
+                    listStyleType: 'none',
+                    padding: 0,
+                    // textAlign: 'right',
+                    ifSmallDown: {
+                      textAlign: 'center'
+                    },
+                    '> li': {
+                      cursor: 'pointer',
+                      transition: theme.transition,
+                      onHover: {
+                        color: theme.color
+                      }
+                    },
+                    '> [data-active=true]': {
+                      color: theme.color,
+                      fontWeight: 'bold'
+                      // transform: 'scale(1.1)'
+                    }
+                  })}
+                  render={({ className }) => (
+                    <ul className={className}>
+                      {items.map((item, i) => (
+                        <li
+                          key={i}
+                          data-active={value === i}
+                          onClick={() => setValue(i)}
+                        >
+                          {item[keyField]}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                />
               </Grid.Item>
             </Grid>
           )}

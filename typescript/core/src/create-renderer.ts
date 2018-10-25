@@ -5,12 +5,10 @@ import prefixer from 'fela-plugin-prefixer';
 import fallbackValue from 'fela-plugin-fallback-value';
 import unit from 'fela-plugin-unit';
 import friendlyPseudoClass from 'fela-plugin-friendly-pseudo-class';
-//@ts-ignore
-import namedKeys from 'fela-plugin-named-keys';
-//@ts-ignore
-import embedded from 'fela-plugin-embedded';
-//@ts-ignore
 import normalize from './normalize';
+
+const namedKeys = require('fela-plugin-named-keys').default;
+const embedded = require('fela-plugin-embedded').default;
 
 interface CreateRendererProps {
   ua?: any;

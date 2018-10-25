@@ -25,6 +25,7 @@ const gridItemRule = ({
   gutter: number;
 }) => ({
   width: `${calcWidth - (calcWidth === 100 ? 0 : gutter)}%`,
+  ifSmallDown: { width: '100%' },
   position: 'relative'
 });
 const GridItem: React.SFC<IGridItem> = ({
@@ -53,9 +54,7 @@ const rule = ({ verticalGutter }: { verticalGutter?: number | string }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   flexWrap: 'wrap',
-  ifSmallDown: { display: 'block' },
   '> *': {
-    ifSmallDown: { width: 'initial' },
     marginBottom: verticalGutter
   },
   '> *:not(:last-child)': {

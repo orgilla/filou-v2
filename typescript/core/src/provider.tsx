@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Provider, ThemeProvider } from 'react-fela';
 import createRenderer from './create-renderer';
+
 const FixedProvider = Provider as any;
 const getTheme = (theme = {}) => ({
   // linkAnimations: animations,

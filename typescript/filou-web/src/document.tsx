@@ -1,11 +1,5 @@
 import * as React from 'react';
 
-const lang = 'de';
-const description =
-  'Ihre Spezialisten für ambulantes und kurzstationäres Operieren - für eine schnelle Genesung in vertrauter Umgebung.';
-const title = 'cooperativ';
-const color = '#215E8B';
-
 interface ISheet {
   type: string;
   css: string;
@@ -17,6 +11,10 @@ interface IRenderMeta {
   sheetList: Array<ISheet>;
 }
 interface IDocument {
+  lang: string;
+  description: string;
+  title: string;
+  color: string;
   Html: React.ComponentType<any>;
   Head: React.ComponentType<any>;
   Body: React.ComponentType<any>;
@@ -27,6 +25,10 @@ interface IDocument {
   prismic?: string;
 }
 const Document: React.SFC<IDocument> = ({
+  lang,
+  description,
+  title,
+  color,
   Html,
   Head,
   Body,
