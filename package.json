@@ -130,5 +130,6 @@
       "cobertura",
       "text"
     ]
-  }
+  },
+  "dependencies": {}
 }
