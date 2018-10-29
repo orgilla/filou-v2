@@ -1,9 +1,7 @@
-import materialColors from './material-colors';
-
 const getTheme = (theme = {}) => ({
-  colors: materialColors.map((color: any) => color.palette),
   palette: 7,
   // linkAnimations: animations,
+
   // Colors
   color: '#8e44ad',
   colorSecondary: '#e67e22',
@@ -56,7 +54,8 @@ const getTheme = (theme = {}) => ({
   fontSizeH4: '1.25rem',
   fontSizeH5: '1.125rem',
   fontSizeH6: '1.05rem',
-  ...theme
+
+  ...theme,
 });
 
 export default getTheme;

@@ -1,6 +1,8 @@
 export { default as FelaComponent, IFelaRule } from './fela-component';
 export { default as FelaStatic } from './fela-static';
 export { default as ThemeProvider } from './theme-provider';
+export { default as defaultTheme } from './default-theme';
+export { default as materialTheme } from './material-theme';
 export { default as createRenderer } from './create-renderer';
 export { default as StateProvider } from './state-provider';
 export { default as Provider } from './provider';

@@ -1,4 +1,4 @@
-export default [
+const materialColors = [
   {
     color: 'Red',
     palette: [
@@ -11,8 +11,8 @@ export default [
       '#E53935',
       '#D32F2F',
       '#C62828',
-      '#B71C1C'
-    ]
+      '#B71C1C',
+    ],
   },
   {
     color: 'Pink',
@@ -26,8 +26,8 @@ export default [
       '#D81B60',
       '#C2185B',
       '#AD1457',
-      '#880E4F'
-    ]
+      '#880E4F',
+    ],
   },
   {
     color: 'Purple',
@@ -41,8 +41,8 @@ export default [
       '#8E24AA',
       '#7B1FA2',
       '#6A1B9A',
-      '#4A148C'
-    ]
+      '#4A148C',
+    ],
   },
   {
     color: 'Deep Purple',
@@ -56,8 +56,8 @@ export default [
       '#5E35B1',
       '#512DA8',
       '#4527A0',
-      '#311B92'
-    ]
+      '#311B92',
+    ],
   },
   {
     color: 'Indigo',
@@ -71,8 +71,8 @@ export default [
       '#3949AB',
       '#303F9F',
       '#283593',
-      '#1A237E'
-    ]
+      '#1A237E',
+    ],
   },
   {
     color: 'Blue',
@@ -86,8 +86,8 @@ export default [
       '#1E88E5',
       '#1976D2',
       '#1565C0',
-      '#0D47A1'
-    ]
+      '#0D47A1',
+    ],
   },
   {
     color: 'Light Blue',
@@ -101,8 +101,8 @@ export default [
       '#039BE5',
       '#0288D1',
       '#0277BD',
-      '#01579B'
-    ]
+      '#01579B',
+    ],
   },
   {
     color: 'Cyan',
@@ -116,8 +116,8 @@ export default [
       '#00ACC1',
       '#0097A7',
       '#00838F',
-      '#006064'
-    ]
+      '#006064',
+    ],
   },
   {
     color: 'Teal',
@@ -131,8 +131,8 @@ export default [
       '#00897B',
       '#00796B',
       '#00695C',
-      '#004D40'
-    ]
+      '#004D40',
+    ],
   },
   {
     color: 'Green',
@@ -146,8 +146,8 @@ export default [
       '#43A047',
       '#388E3C',
       '#2E7D32',
-      '#1B5E20'
-    ]
+      '#1B5E20',
+    ],
   },
   {
     color: 'Light Green',
@@ -161,8 +161,8 @@ export default [
       '#7CB342',
       '#689F38',
       '#558B2F',
-      '#33691E'
-    ]
+      '#33691E',
+    ],
   },
   {
     color: 'Lime',
@@ -176,8 +176,8 @@ export default [
       '#C0CA33',
       '#AFB42B',
       '#9E9D24',
-      '#827717'
-    ]
+      '#827717',
+    ],
   },
   {
     color: 'Yellow',
@@ -191,8 +191,8 @@ export default [
       '#FDD835',
       '#FBC02D',
       '#F9A825',
-      '#F57F17'
-    ]
+      '#F57F17',
+    ],
   },
   {
     color: 'Amber',
@@ -206,8 +206,8 @@ export default [
       '#FFB300',
       '#FFA000',
       '#FF8F00',
-      '#FF6F00'
-    ]
+      '#FF6F00',
+    ],
   },
   {
     color: 'Orange',
@@ -221,8 +221,8 @@ export default [
       '#FB8C00',
       '#F57C00',
       '#EF6C00',
-      '#E65100'
-    ]
+      '#E65100',
+    ],
   },
   {
     color: 'Deep Orange',
@@ -236,8 +236,8 @@ export default [
       '#F4511E',
       '#E64A19',
       '#D84315',
-      '#BF360C'
-    ]
+      '#BF360C',
+    ],
   },
   {
     color: 'Brown',
@@ -251,8 +251,8 @@ export default [
       '#6D4C41',
       '#5D4037',
       '#4E342E',
-      '#3E2723'
-    ]
+      '#3E2723',
+    ],
   },
   {
     color: 'Grey',
@@ -266,8 +266,8 @@ export default [
       '#757575',
       '#616161',
       '#424242',
-      '#212121'
-    ]
+      '#212121',
+    ],
   },
   {
     color: 'Blue Grey',
@@ -281,7 +281,9 @@ export default [
       '#546E7A',
       '#455A64',
       '#37474F',
-      '#263238'
-    ]
-  }
+      '#263238',
+    ],
+  },
 ];
+
+export default materialColors;
