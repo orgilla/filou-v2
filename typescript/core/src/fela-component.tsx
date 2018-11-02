@@ -1,6 +1,5 @@
-import * as React from 'react';
-// @ts-ignore
-import { FelaComponent as FelaCom } from 'react-fela';
+import * as React from "react";
+import { FelaComponent as FelaCom } from "react-fela";
 
 export type IFelaRule<T extends {} = {}> = T & {
   // '{}' can be replaced with 'any'
