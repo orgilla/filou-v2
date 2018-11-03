@@ -9,7 +9,6 @@ import {
   HistorySource,
   RouteComponentProps,
   MatchRenderProps,
-  Router
 } from '@reach/router';
 
 export type IRoute<T extends {} = {}> = T & RouteComponentProps;
