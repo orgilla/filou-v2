@@ -70,6 +70,9 @@ class Sitemap extends React.Component<ISitemapUl> {
   );
   render() {
     const { children, level = 0, className } = this.props;
+    const arr = React.Children.toArray(children) as React.ReactElement<
+      ISitemapItem
+    >[];
     return (
       <FelaComponent
         rule={rule}
@@ -77,8 +80,10 @@ class Sitemap extends React.Component<ISitemapUl> {
         className={className}
         render={({ className }) => (
           <ul className={className}>
-            {React.Children.map(children, child =>
-              React.cloneElement(child as React.ReactElement<any>, { level })
+            {arr.map(child =>
+              React.cloneElement(child, {
+                level
+              })
             )}
           </ul>
         )}

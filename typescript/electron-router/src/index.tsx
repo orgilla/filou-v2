@@ -6,8 +6,14 @@ import {
   createHistory,
   History,
   WindowLocation,
-  HistorySource
+  HistorySource,
+  RouteComponentProps,
+  MatchRenderProps,
+  Router
 } from '@reach/router';
+
+export type IRoute<T extends {} = {}> = T & RouteComponentProps;
+export type IMatch<T extends {} = {}, T2 = any> = T & MatchRenderProps<T2>;
 
 class ElectronRouter extends React.Component {
   history: History;

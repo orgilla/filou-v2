@@ -62,6 +62,11 @@ class Preview extends React.Component<IPreview> {
   state = { api: undefined };
   componentDidMount() {
     const { name } = this.props;
+
+    window['prismic'] = {
+      endpoint: `https://${name}.prismic.io/api/v2`
+    };
+
     Prismic.getApi(`https://${name}.prismic.io/api/v2`).then((api: any) =>
       this.setState({ api })
     );
@@ -69,21 +74,14 @@ class Preview extends React.Component<IPreview> {
 
   render() {
     const { api } = this.state;
-    const { name, render, fetchData, head, history, location } = this.props;
+    const { render, fetchData, head, history, location } = this.props;
     return (
       <>
         {head(
-          <>
-            <script>{`
-            window.prismic = {
-              endpoint: 'https://${name}.prismic.io/api/v2'
-            };
-          `}</script>
-            <script
-              type="text/javascript"
-              src="//static.cdn.prismic.io/prismic.min.js"
-            />
-          </>
+          <script
+            type="text/javascript"
+            src="//static.cdn.prismic.io/prismic.min.js"
+          />
         )}
         {api && <Redirect location={location} history={history} api={api} />}
         {api && (
