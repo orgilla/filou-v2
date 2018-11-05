@@ -48,18 +48,25 @@ export const gradient = (color1: string, color2: string, deg: number) => {
 
 export const getColor = (
   theme: any,
-  color: string | boolean,
+  color?: string | number | boolean,
   palette?: number
-): string => {
+): string | undefined => {
   if (color === true) {
     return theme.color;
   } else if (color === false) {
     return 'transparent';
-  } else if (theme[color]) {
+  } else if (color !== undefined && theme[color]) {
     return theme[color];
-  } else if (theme.colors && theme.colors[color]) {
-    return theme.colors[color][palette !== undefined ? palette : theme.palette];
+  } else if (typeof color === 'number') {
+    if (theme.colors && theme.colors[color]) {
+      return theme.colors[color][
+        palette !== undefined ? palette : theme.palette
+      ];
+    }
+
+    return undefined; // if no color found
   }
+
   return color;
 };
 
