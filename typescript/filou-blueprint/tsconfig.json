@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "lib"
-  },
-  "references": [{ "@filou/blueprint-form": "../blueprint-form/src" }],
-  "include": ["src"]
-}

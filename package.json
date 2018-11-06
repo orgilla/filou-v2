@@ -61,6 +61,7 @@
     "react-dom": "^16.6.0"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.1.0",
     "@babel/preset-typescript": "^7.1.0",
     "@types/classnames": "^2.2.6",
     "fela": "^6.2.3",

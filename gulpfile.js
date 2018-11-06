@@ -22,7 +22,7 @@ const compile = (glp, force) => {};
 gulp.task('watch', () => {
   const force = false;
   const tasks = getDirectories('./typescript').map(p => {
-    const src = resolve(p, 'src', '**/*');
+    const src = resolve(p, 'src', '**/*.(ts|tsx)');
     const dest = resolve(p, 'lib');
     return (
       watch(src, { ignoreInitial: false, dot: true })
@@ -32,7 +32,7 @@ gulp.task('watch', () => {
         // .pipe(sourcemaps.init())
         .pipe(
           babel({
-            presets: ['@babel/typescript']
+            presets: ['@babel/env', '@babel/typescript']
           })
         )
         // .pipe(sourcemaps.write('.'))
