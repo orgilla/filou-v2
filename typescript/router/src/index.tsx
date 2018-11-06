@@ -8,8 +8,10 @@ import {
   WindowLocation,
   HistorySource,
   RouteComponentProps,
-  MatchRenderProps,
+  MatchRenderProps
 } from '@reach/router';
+export { default as ErrorBoundary } from './error-boundary';
+export { default as Section } from './section';
 
 export type IRoute<T extends {} = {}> = T & RouteComponentProps;
 export type IMatch<T extends {} = {}, T2 = any> = T & MatchRenderProps<T2>;

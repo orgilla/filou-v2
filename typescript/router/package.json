@@ -1,6 +1,6 @@
 {
   "version": "1.2.7",
-  "name": "@filou/electron-router",
+  "name": "@filou/router",
   "description": "",
   "main": "lib",
   "esnext": "es",
@@ -24,13 +24,21 @@
     "@filou/core": "^1.2.7",
     "@reach/router": "^1.2.1",
     "@types/history": "^4.7.2",
-    "@types/reach__router": "^1.2.1",
-    "history": "^4.7.2"
+    "@types/reach__router": "^1.2.2",
+    "@types/react-resize-detector": "^3.1.0",
+    "history": "^4.7.2",
+    "react-resize-detector": "^3.2.0",
+    "react-transition-group": "^2.5.0"
   },
   "peerDependencies": {
     "react": "^16.5.2"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^4.0.4",
+    "@storybook/addon-knobs": "^4.0.4",
+    "@storybook/addon-storyshots": "^4.0.4",
+    "@storybook/addon-storyshots-puppeteer": "^4.0.4",
+    "@storybook/react": "^4.0.4",
     "typescript": "^3.1.6"
   },
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
