@@ -29,6 +29,7 @@ const rule = ({ theme, color: backgroundColor, palette }: IFelaRule<IMenu>) => {
   const width = '100%';
 
   return {
+    fontFamily: theme.fontFamily,
     display: 'flex',
     flexGrow: 1,
     flexDirection: 'column',
