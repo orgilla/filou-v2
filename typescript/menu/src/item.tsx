@@ -1,6 +1,4 @@
 import * as React from 'react';
-//@ts-ignore
-import tinycolor from 'tinycolor2';
 import {
   FelaComponent,
   IFelaRule,
@@ -12,6 +10,7 @@ import { IMenuProps } from './menu';
 import Content from './content';
 import Icon from './icon';
 import Extra from './extra';
+const tinycolor = require('tinycolor2');
 
 export interface IMenuItem extends IMenuProps {
   children?: React.ReactNode;
