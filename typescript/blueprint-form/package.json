@@ -21,7 +21,10 @@
     "dev": "run-p \"ts:* -- --watch\""
   },
   "dependencies": {
-    "@filou/core": "^1.2.7"
+    "@filou/blueprint": "^1.2.7",
+    "@filou/core": "^1.2.7",
+    "final-form": "^4.10.0",
+    "react-final-form": "^3.6.7"
   },
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }

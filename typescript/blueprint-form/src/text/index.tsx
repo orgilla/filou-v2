@@ -1,17 +1,16 @@
 import * as React from 'react';
 import { FormGroup, InputGroup } from '@blueprintjs/core';
-import { FieldRenderProps } from 'react-final-form';
-import { FlexGrid, FelaComponent } from 'filou';
-import { Field } from 'react-final-form';
+import { Field, FieldRenderProps } from 'react-final-form';
+import { FlexGrid, FelaComponent } from '@filou/core';
 
-interface IFormText {
+export interface IFormText {
   name: string;
   label: string;
   type?: string;
   size?: number;
   icon?: React.ReactType;
 }
-interface IText extends FieldRenderProps, IFormText {
+export interface IText extends FieldRenderProps, IFormText {
   label: string;
 }
 const Inner = ({

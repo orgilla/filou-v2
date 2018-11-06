@@ -1,6 +1,6 @@
 {
   "version": "1.2.7",
-  "name": "@filou/blueprint-core",
+  "name": "filou-blueprint",
   "description": "",
   "main": "lib",
   "esnext": "es",
@@ -27,7 +27,10 @@
     "@blueprintjs/core": "^3.8.0",
     "@blueprintjs/icons": "^3.3.0",
     "@blueprintjs/select": "^3.2.0",
-    "@filou/core": "^1.2.7"
+    "@filou/core": "^1.2.7",
+    "@filou/blueprint-form": "^1.2.7",
+    "@filou/blueprint-auth": "^1.2.7",
+    "@filou/blueprint": "^1.2.7"
   },
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }

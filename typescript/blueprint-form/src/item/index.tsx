@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { FormGroup } from '@blueprintjs/core';
-import { FieldRenderProps } from 'react-final-form';
-import { FlexGrid, FelaComponent } from 'filou';
-import { Field } from 'react-final-form';
+import { Field, FieldRenderProps } from 'react-final-form';
+import { FlexGrid, FelaComponent } from '@filou/core';
 
-interface IFormItem {
+export interface IFormItem {
   name: string;
   label: string;
   type?: string;
@@ -15,7 +14,7 @@ interface IFormItem {
   component?: any;
   com?: any;
 }
-interface IText extends FieldRenderProps, IFormItem {
+export interface IItem extends FieldRenderProps, IFormItem {
   label: string;
 }
 const Inner = ({
@@ -26,7 +25,7 @@ const Inner = ({
   icon: Icon,
   com: Component,
   ...rest
-}: IText) => (
+}: IItem) => (
   <FelaComponent
     style={{
       '& .bp3-form-content > div': {

@@ -21,7 +21,15 @@
     "dev": "run-p \"ts:* -- --watch\""
   },
   "dependencies": {
-    "@filou/core": "^1.2.7"
+    "@filou/blueprint": "^1.2.7",
+    "@filou/blueprint-form": "^1.2.7",
+    "@filou/core": "^1.2.7",
+    "@filou/router": "^1.2.7",
+    "@types/jwt-decode": "^2.2.1",
+    "@types/validator": "^9.4.2",
+    "axios": "^0.18.0",
+    "jwt-decode": "^2.2.0",
+    "validator": "^10.8.0"
   },
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }

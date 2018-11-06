@@ -3,7 +3,7 @@ import { IRoute, IMatch } from 'filou';
 import { Button } from '@blueprintjs/core';
 import * as isEmail from 'validator/lib/isEmail';
 import axios from 'axios';
-import { Form, FormText } from '@filou/blueprint-form';
+import Form from '@filou/blueprint-form';
 
 interface IAuthLogin {}
 

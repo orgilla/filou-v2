@@ -1,6 +1,6 @@
 {
   "version": "1.2.7",
-  "name": "filou-blueprint",
+  "name": "@filou/blueprint",
   "description": "",
   "main": "lib",
   "esnext": "es",
