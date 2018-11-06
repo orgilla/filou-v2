@@ -1,4 +1,4 @@
-const getTheme = (theme = {}) => ({
+const getTheme = (theme: object = {}) => ({
   palette: 7,
   // linkAnimations: animations,
 
@@ -55,7 +55,7 @@ const getTheme = (theme = {}) => ({
   fontSizeH5: '1.125rem',
   fontSizeH6: '1.05rem',
 
-  ...theme,
+  ...theme
 });
 
 export default getTheme;
