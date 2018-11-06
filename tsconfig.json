@@ -5,6 +5,7 @@
     "target": "es5",
     "lib": ["es6", "es2015", "dom"],
     "allowJs": false,
+    "noEmit": true,
     "jsx": "react",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
