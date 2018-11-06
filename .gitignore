@@ -1,5 +1,6 @@
 .env
 .DS_Store
+.cache
 coverage
 node_modules
 packages/**/lib
