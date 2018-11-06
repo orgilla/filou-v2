@@ -7,17 +7,6 @@
   "module": "es",
   "types": "lib/index.d.js",
   "author": "Orgilla <hi@orgil.la>",
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "jest",
-    "clean": "rimraf lib es",
-    "build": "yarn clean && run-p ts:*",
-    "ts:es": "node ../../tsc --module esnext --outDir es",
-    "ts:lib": "node ../../tsc",
-    "dev": "run-p \"ts:* -- --watch\""
-  },
   "contributors": [
     "Benjamin Kniffler <bkniffler@me.com>",
     "Philipp Achenbach <olymp@philipp-achenbach.de>"

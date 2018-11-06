@@ -12,14 +12,6 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "license": "MIT",
-  "scripts": {
-    "test": "jest",
-    "clean": "rimraf lib es",
-    "build": "yarn clean && run-p ts:*",
-    "ts:es": "node ../../tsc --module esnext --outDir es",
-    "ts:lib": "node ../../tsc",
-    "dev": "run-p \"ts:* -- --watch\""
-  },
   "dependencies": {
     "@types/qs": "^6.5.1",
     "@types/react-transition-group": "^2.0.14",

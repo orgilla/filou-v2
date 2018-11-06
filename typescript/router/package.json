@@ -6,14 +6,6 @@
   "esnext": "es",
   "module": "es",
   "types": "lib/index.d.js",
-  "scripts": {
-    "test": "jest",
-    "clean": "rimraf lib es",
-    "build": "yarn clean && run-p ts:*",
-    "ts:es": "node ../../tsc --module esnext --outDir es",
-    "ts:lib": "node ../../tsc",
-    "dev": "run-p \"ts:* -- --watch\""
-  },
   "author": "Orgilla <hi@orgil.la>",
   "contributors": [
     "Benjamin Kniffler <bkniffler@me.com>",

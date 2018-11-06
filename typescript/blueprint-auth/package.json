@@ -12,14 +12,6 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "license": "MIT",
-  "scripts": {
-    "test": "jest",
-    "clean": "rimraf lib es",
-    "build": "yarn clean && run-p ts:*",
-    "ts:es": "node ../../tsc --module esnext --outDir es",
-    "ts:lib": "node ../../tsc",
-    "dev": "run-p \"ts:* -- --watch\""
-  },
   "dependencies": {
     "@filou/blueprint": "^1.2.7",
     "@filou/blueprint-form": "^1.2.7",
