@@ -1,11 +1,17 @@
 {
   "version": "1.2.7",
-  "name": "filou",
+  "name": "@filou/blueprint-form",
   "description": "",
   "main": "lib",
   "esnext": "es",
   "module": "es",
   "types": "lib/index.d.js",
+  "author": "Orgilla <hi@orgil.la>",
+  "contributors": [
+    "Benjamin Kniffler <bkniffler@me.com>",
+    "Philipp Achenbach <olymp@philipp-achenbach.de>"
+  ],
+  "license": "MIT",
   "scripts": {
     "test": "jest",
     "clean": "rimraf lib es",
@@ -14,18 +20,8 @@
     "ts:lib": "node ../../tsc",
     "dev": "run-p \"ts:* -- --watch\""
   },
-  "author": "Orgilla <hi@orgil.la>",
-  "contributors": [
-    "Benjamin Kniffler <bkniffler@me.com>",
-    "Philipp Achenbach <olymp@philipp-achenbach.de>"
-  ],
   "dependencies": {
-    "@filou/color": "^1.2.7",
-    "@filou/core": "^1.2.7",
-    "@filou/router": "^1.2.7",
-    "@filou/menu": "^1.2.7",
-    "@filou/ribbon": "^1.2.7"
+    "@filou/core": "^1.2.7"
   },
-  "license": "MIT",
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }

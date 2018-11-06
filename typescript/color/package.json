@@ -14,8 +14,8 @@
     "test": "jest",
     "clean": "rimraf lib es",
     "build": "yarn clean && run-p ts:*",
-    "ts:es": "tsc --module esnext --outDir es",
-    "ts:lib": "yarn tsc",
+    "ts:es": "node ../../tsc --module esnext --outDir es",
+    "ts:lib": "node ../../tsc",
     "dev": "run-p \"ts:* -- --watch\""
   },
   "contributors": [
@@ -24,19 +24,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@filou/core": "^1.2.7",
-    "react-color": "^2.14.1",
-    "typescript": "^3.1.6"
-  },
-  "peerDependencies": {
-    "react": "^16.5.2",
-    "react-fela": "^8.0.2"
-  },
-  "devDependencies": {
     "@types/react-color": "^2.13.6",
-    "fela-dom": "^8.0.4",
-    "react": "^16.6.0",
-    "react-fela": "^8.0.4"
+    "@filou/core": "^1.2.7",
+    "react-color": "^2.14.1"
   },
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }

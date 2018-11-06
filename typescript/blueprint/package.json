@@ -1,6 +1,6 @@
 {
   "version": "1.2.7",
-  "name": "@filou/blueprint",
+  "name": "filou-blueprint",
   "description": "",
   "main": "lib",
   "esnext": "es",
@@ -13,8 +13,10 @@
   "scripts": {
     "test": "jest",
     "clean": "rimraf lib es",
-    "build": "yarn clean && tsc && tsc --module esnext --outDir es",
-    "dev": "tsc --watch"
+    "build": "yarn clean && run-p ts:*",
+    "ts:es": "node ../../tsc --module esnext --outDir es",
+    "ts:lib": "node ../../tsc",
+    "dev": "run-p \"ts:* -- --watch\""
   },
   "contributors": [
     "Benjamin Kniffler <bkniffler@me.com>",
@@ -26,15 +28,6 @@
     "@blueprintjs/icons": "^3.3.0",
     "@blueprintjs/select": "^3.2.0",
     "@filou/core": "^1.2.7"
-  },
-  "peerDependencies": {
-    "react": "^16.5.2",
-    "react-fela": "^8.0.2"
-  },
-  "devDependencies": {
-    "fela-dom": "^8.0.2",
-    "react": "^16.5.2",
-    "react-fela": "^8.0.2"
   },
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }

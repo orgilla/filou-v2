@@ -10,8 +10,8 @@
     "test": "jest",
     "clean": "rimraf lib es",
     "build": "yarn clean && run-p ts:*",
-    "ts:es": "tsc --module esnext --outDir es",
-    "ts:lib": "yarn tsc",
+    "ts:es": "node ../../tsc --module esnext --outDir es",
+    "ts:lib": "node ../../tsc",
     "dev": "run-p \"ts:* -- --watch\""
   },
   "author": "Orgilla <hi@orgil.la>",
@@ -29,17 +29,6 @@
     "history": "^4.7.2",
     "react-resize-detector": "^3.2.0",
     "react-transition-group": "^2.5.0"
-  },
-  "peerDependencies": {
-    "react": "^16.5.2"
-  },
-  "devDependencies": {
-    "@storybook/addon-info": "^4.0.4",
-    "@storybook/addon-knobs": "^4.0.4",
-    "@storybook/addon-storyshots": "^4.0.4",
-    "@storybook/addon-storyshots-puppeteer": "^4.0.4",
-    "@storybook/react": "^4.0.4",
-    "typescript": "^3.1.6"
   },
   "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
 }

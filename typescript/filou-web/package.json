@@ -16,11 +16,13 @@
     "test": "jest",
     "clean": "rimraf lib es",
     "build": "yarn clean && run-p ts:*",
-    "ts:es": "tsc --module esnext --outDir es",
-    "ts:lib": "yarn tsc",
+    "ts:es": "node ../../tsc --module esnext --outDir es",
+    "ts:lib": "node ../../tsc",
     "dev": "run-p \"ts:* -- --watch\""
   },
   "dependencies": {
+    "@types/qs": "^6.5.1",
+    "@types/react-transition-group": "^2.0.14",
     "@filou/core": "^1.2.7",
     "google-map-react": "^1.0.9",
     "lodash": "^4.17.11",
@@ -28,21 +30,5 @@
     "qs": "^6.5.2",
     "react-reveal": "^1.2.2",
     "react-transition-group": "^2.5.0"
-  },
-  "peerDependencies": {
-    "fela-dom": "^8.0.4",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-fela": "^8.0.0"
-  },
-  "devDependencies": {
-    "@types/classnames": "^2.2.6",
-    "@types/qs": "^6.5.1",
-    "@types/react-transition-group": "^2.0.14",
-    "fela-dom": "^8.0.4",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-fela": "^8.0.4",
-    "typescript": "^3.1.6"
   }
 }
