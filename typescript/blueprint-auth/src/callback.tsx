@@ -3,8 +3,9 @@ import { Spinner, Button } from '@blueprintjs/core';
 import Form from '@filou/blueprint-form';
 import { Consumer } from './context';
 
-class AuthCallback extends React.Component {
-  constructor(props) {
+class AuthCallback extends React.Component<any> {
+  state: { token?: string; err?: any } = {};
+  constructor(props: any) {
     super(props);
     this.state = { token: props.location.hash.substr(1) };
   }
@@ -15,15 +16,15 @@ class AuthCallback extends React.Component {
     if (token) {
       auth
         .handleToken(token)
-        .then(x => {
+        .then(() => {
           navigate('/');
         })
-        .catch(err => this.setState({ err }));
+        .catch((err: any) => this.setState({ err }));
     }
   };
 
   render() {
-    const { token, type, err } = this.state;
+    const { token, err } = this.state;
     const { navigate } = this.props;
 
     if (err) {
@@ -57,27 +58,17 @@ class AuthCallback extends React.Component {
     }
     return (
       <>
-        <Typography variant="headline">
-          Erfolg, bitte prüfen Sie ihre Mails
-        </Typography>
-        <Typography>
+        <span>Erfolg, bitte prüfen Sie ihre Mails</span>
+        <span>
           Sie erhalten eine Mail mit einem Link. Wenn Sie dem Link folgen, sind
           Sie sofort mit Ihrem Profil angemeldet und können Diego.ONE im Browser
           nutzen.
-        </Typography>
+        </span>
         <br />
-        <Typography>
+        <span>
           Diese Art der Anmeldung im Browser schützt Sie und Ihre Anmeldedaten,
           besonders wenn Sie an öffentlichen PCs arbeiten.
-        </Typography>
-        <br />
-        <Grid container spacing={24}>
-          <Grid item xs={12}>
-            <Button variant="contained" onClick={() => navigate('/auth')}>
-              Zurück
-            </Button>
-          </Grid>
-        </Grid>
+        </span>
       </>
     );
   }

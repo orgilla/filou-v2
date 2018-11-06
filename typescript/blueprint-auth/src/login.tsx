@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IRoute, IMatch } from 'filou';
+import { IRoute, IMatch } from '@filou/router';
 import { Button } from '@blueprintjs/core';
 import * as isEmail from 'validator/lib/isEmail';
 import axios from 'axios';
@@ -57,8 +57,8 @@ function AuthLogin(props: IRoute<IAuthLogin>) {
       }
       description="Geben Sie Ihre E-Mail Adresse an um sich in Ihrem Konto anzumelden oder ein neues zu registrieren."
     >
-      <FormText name="email" label="E-Mail" type="email" />
-      <FormText name="password" label="Passwort" type="password" />
+      <Form.Text name="email" label="E-Mail" type="email" />
+      <Form.Text name="password" label="Passwort" type="password" />
     </Form>
   );
 }

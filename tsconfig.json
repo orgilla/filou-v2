@@ -18,7 +18,22 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "removeComments": false
+    "removeComments": false,
+    "baseUrl": "./typescript",
+    "paths": {
+      "@filou/blueprint": ["./blueprint/src"],
+      "@filou/blueprint-auth": ["./blueprint-auth/src"],
+      "@filou/blueprint-form": ["./blueprint-form/src"],
+      "@filou/color": ["./color/src"],
+      "@filou/core": ["./core/src"],
+      "filou": ["./filou/src"],
+      "filou-blueprint": ["./filou-blueprint/src"],
+      "filou-web": ["./filou-web/src"],
+      "@filou/menu": ["./menu/src"],
+      "@filou/ribbon": ["./ribbon/src"],
+      "@filou/router": ["./router/src"]
+    }
   },
+  "files": [],
   "include": ["typescript"]
 }

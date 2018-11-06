@@ -9,17 +9,17 @@ import Space from './space';
 import Item from './item';
 
 export interface IForm<T = object> {
-  title: string;
+  title?: string;
   additionalButton?: React.ReactNode;
   description: string;
-  initialValues: any;
-  onSubmit: (
+  initialValues?: any;
+  onSubmit?: (
     values: T,
     form: FormApi,
     callback?: ((errors?: object | undefined) => void) | undefined
   ) => void | object | Promise<object | undefined> | undefined;
   validate?: any;
-  children: any;
+  children?: React.ReactNode;
   error?: any;
   submitLabel?: string;
   submitDisabled?: boolean;
@@ -34,6 +34,7 @@ interface IFormInner extends IForm {
   ) => void | object | Promise<object | undefined> | undefined;
 }
 
+const empty = {};
 class BlueprintForm<T> extends React.Component<IForm<T>> {
   static Text = Text;
   static Space = Space;
@@ -41,7 +42,7 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
   render() {
     const {
       title,
-      initialValues,
+      initialValues = empty,
       description,
       additionalButton,
       onSubmit,
@@ -60,13 +61,13 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
         validate={validate}
         render={({ handleSubmit, submitting, pristine, valid }) => (
           <form onSubmit={handleSubmit}>
-            <h1>{title}</h1>
+            {title && <h1>{title}</h1>}
             {/* <Spinner intent={Intent.PRIMARY} /> */}
             <p>{description}</p>
             <br />
             <br />
             <FlexGrid size={size} gutter={2}>
-              {children}
+              {children as any}
               {error && (
                 <FlexGrid.Item size={3}>
                   <Callout title="Fehlerbeschreibung" intent="danger">
