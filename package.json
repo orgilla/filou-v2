@@ -61,11 +61,18 @@
     "react-dom": "^16.6.0"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.1.0",
     "@types/classnames": "^2.2.6",
     "fela": "^6.2.3",
     "fela-dom": "^8.0.4",
     "ficon": "^0.2.15",
     "ficon-fela": "^0.2.15",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-changed": "^3.2.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-watch": "^5.0.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-fela": "^8.0.4"

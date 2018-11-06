@@ -34,6 +34,5 @@
       "@filou/router": ["./router/src"]
     }
   },
-  "files": [],
   "include": ["typescript"]
 }
