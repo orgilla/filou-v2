@@ -1,1 +1,1 @@
-# @filou/grid
+# <%= name %>

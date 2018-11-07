@@ -3,8 +3,7 @@
 .cache
 coverage
 node_modules
-packages/**/lib
-packages/**/es
+typescript/**/lib
 .old/typescript/**/lib
 .old/typescript/**/es
 .old/typescript-eval/**/lib

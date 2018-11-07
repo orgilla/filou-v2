@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IRoute, IMatch } from 'filou';
-import * as isEmail from 'validator/lib/isEmail';
+import isEmail from 'validator/lib/isEmail';
 import axios from 'axios';
 import Form from '@filou/blueprint-form';
 import { Button } from '@blueprintjs/core';

@@ -8,7 +8,7 @@ import Ribbon from '../src';
 
 const getProvider = (fela: any, theme = {}) => {
   const Provider: React.SFC = ({ children }) => (
-    <FelaProvider rehydrate renderer={fela}>
+    <FelaProvider renderer={fela}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </FelaProvider>
   );

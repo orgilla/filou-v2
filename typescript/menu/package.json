@@ -1,23 +1,26 @@
 {
-  "version": "1.2.7",
   "name": "@filou/menu",
-  "description": "",
-  "main": "lib",
-  "esnext": "es",
-  "module": "es",
-  "types": "lib/index.d.js",
+  "main": "lib/index.umd.js",
+  "jsnext:main": "lib/index.js",
+  "esnext": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "Orgilla <hi@orgil.la>",
   "contributors": [
     "Benjamin Kniffler <bkniffler@me.com>",
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "license": "MIT",
+  "scripts": {
+    "clean": "npm del",
+    "rollup": "node ../../node_modules/rollup/bin/rollup -c ../../config/rollup.config.js",
+    "watch": "node ../../node_modules/typescript/bin/tsc -w -p config"
+  },
   "dependencies": {
     "@filou/core": "^1.2.7",
     "@types/react-beautiful-dnd": "^7.1.2",
     "@types/react-portal": "^4.0.1",
     "react-beautiful-dnd": "^9.0.2",
     "react-portal": "^4.1.5"
-  },
-  "gitHead": "a3049932b9c41c04e9b5b0b2b71eadeb8cc12e13"
+  }
 }

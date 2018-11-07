@@ -1,1 +1,1 @@
-# @filou/blueprint
+# <%= name %>

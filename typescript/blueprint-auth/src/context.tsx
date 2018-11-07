@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as jwtDecode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import { navigate } from '@filou/router';
 import axios from 'axios';
 
@@ -12,6 +12,9 @@ export const TOKEN_TYPES = {
   ACCESS: 5
 };
 
+interface ITokenResult {
+  exp: number;
+}
 export const handleAccessToken = (token: string) =>
   axios
     .get(`/api/auth/profile`, {
@@ -23,7 +26,9 @@ export const handleAccessToken = (token: string) =>
       localStorage.setItem('access_token', token);
       localStorage.setItem(
         'access_token_expiry',
-        JSON.stringify(jwtDecode(token)['exp'] * 1000 + new Date().getTime())
+        JSON.stringify(
+          jwtDecode<ITokenResult>(token).exp * 1000 + new Date().getTime()
+        )
       );
       localStorage.setItem('profile', JSON.stringify(data));
       return data;
@@ -40,7 +45,9 @@ export const handleRefreshToken = (token: string) =>
       localStorage.setItem('refresh_token', token);
       localStorage.setItem(
         'refresh_token_expiry',
-        JSON.stringify(jwtDecode(token)['exp'] * 1000 + new Date().getTime())
+        JSON.stringify(
+          jwtDecode<ITokenResult>(token).exp * 1000 + new Date().getTime()
+        )
       );
       return handleAccessToken(data.token);
     });

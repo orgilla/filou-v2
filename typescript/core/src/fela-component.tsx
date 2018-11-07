@@ -1,4 +1,5 @@
 import * as React from "react";
+//@ts-ignore
 import { FelaComponent as FelaCom } from "react-fela";
 
 export type IFelaRule<T extends {} = {}> = T & {
@@ -6,7 +7,7 @@ export type IFelaRule<T extends {} = {}> = T & {
   theme: any;
 };
 
-interface IFelaComponent {
+export interface IFelaComponent {
   className?: string;
   style?: any | ((theme: any) => any);
   rule?: (themeAndProps: any) => any;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+//@ts-ignore
 import { FelaTheme as FelaTh } from 'react-fela';
 
 interface IFelaTheme {
