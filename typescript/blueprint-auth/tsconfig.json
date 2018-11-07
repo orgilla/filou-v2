@@ -2,7 +2,23 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "lib"
+    "outDir": "lib",
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "../blueprint"
+    },
+    {
+      "path": "../blueprint-form"
+    },
+    {
+      "path": "../core"
+    },
+    {
+      "path": "../router"
+    }
+  ]
 }

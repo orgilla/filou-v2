@@ -4,6 +4,7 @@ const pkg = require(require('path').resolve(process.cwd(), './package.json'));
 
 const globals = {
   react: 'React',
+  '@filou/core': '@filou/core',
   '@blueprintjs/core': 'blueprintjs.core',
   '@blueprintjs/select': 'blueprintjs.select'
 };
@@ -22,11 +23,13 @@ export default [
       {
         file: 'lib/index.umd.js',
         format: 'umd',
-        name: 'iloublueprint',
-        exports: 'named'
+        name: pkg.name,
+        exports: 'named',
+        globals,
       }
     ],
     external: [
+      ...Object.keys(globals),
       ...Object.keys(pkg.dependencies || {}),
       ...Object.keys(pkg.peerDependencies || {})
     ],
