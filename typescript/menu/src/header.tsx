@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FelaComponent, IFelaRule, getColor } from 'filou';
+import { FelaComponent, IFelaRule, getColor } from '@filou/core';
 import { IMenuProps } from './menu';
 
 export interface IMenuHeader extends IMenuProps {

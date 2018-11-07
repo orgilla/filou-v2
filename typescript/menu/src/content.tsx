@@ -1,7 +1,5 @@
 import * as React from 'react';
-//@ts-ignore
-import tinycolor from 'tinycolor2';
-import { FelaComponent, IFelaRule } from 'filou';
+import { FelaComponent, IFelaRule } from '@filou/core';
 import { IMenuProps } from './menu';
 
 export interface IMenuContent extends IMenuProps {

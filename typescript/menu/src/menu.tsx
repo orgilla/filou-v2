@@ -9,7 +9,7 @@ import Title from './title';
 import Space from './space';
 import Extra from './extra';
 import Input from './input';
-import { FelaComponent, IFelaRule, getColor } from 'filou';
+import { FelaComponent, IFelaRule, getColor } from '@filou/core';
 
 export interface IMenuProps {
   inverted?: boolean;

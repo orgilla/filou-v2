@@ -4,7 +4,7 @@ import * as test from 'react-test-renderer';
 import { createRenderer, Provider } from '@filou/core';
 import { renderToMarkup } from 'fela-dom';
 
-describe('Grid', () => {
+describe('Filou', () => {
   it('should render correctly', () => {
     const renderer = createRenderer();
     const component = test.create(

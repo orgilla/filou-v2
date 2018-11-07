@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FelaComponent } from 'filou';
+import { FelaComponent } from '@filou/core';
 import Title from './title';
 import { IMenuProps } from './menu';
 

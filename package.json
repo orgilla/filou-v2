@@ -42,10 +42,10 @@
     "up": "yarn upgrade-interactive --latest",
     "netlify": "yarn build && cd example/react && yarn && yarn build",
     "bootstrap": "lerna bootstrap",
-    "watch": "lerna exec --parallel -- node ../../node_modules/typescript/bin/tsc -w -p ./tsconfig.json",
-    "build": "run-p build:*",
-    "build:ts": "lerna exec --parallel -- node ../../node_modules/typescript/bin/tsc -p ./tsconfig.json",
-    "build:bundle": "lerna exec --parallel -- node ../../node_modules/rollup/bin/rollup -c ../../rollup.config.js",
+    "watch": "lerna exec --parallel -- node ../../node_modules/typescript/bin/tsc -w",
+    "build": "run-s build:*",
+    "build:ts": "lerna exec --no-bail --concurrency 1 -- node ../../node_modules/typescript/bin/tsc",
+    "buildaqwd:bundle": "lerna exec --parallel -- node ../../node_modules/rollup/bin/rollup -c ../../rollup.config.js",
     "clean": "run-p clean:*",
     "clean:ts": "lerna exec --parallel -- node ../../node_modules/rimraf/bin.js {__tests__,___tests__,stories,src}/**/*.{d.ts,map,js}",
     "clean:lib": "lerna exec --parallel -- node ../../node_modules/rimraf/bin.js lib",
@@ -109,7 +109,7 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
       "typescript/*/src/**/*.{ts,tsx}"
     ],

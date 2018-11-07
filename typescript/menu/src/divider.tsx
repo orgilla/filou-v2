@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FelaComponent, IFelaRule, border } from 'filou';
+import { FelaComponent, IFelaRule, border } from '@filou/core';
 import { IMenuProps } from './menu';
 
 export interface IMenuDivider extends IMenuProps {

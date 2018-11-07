@@ -1,21 +1,4 @@
 {
-  "compilerOptions": {
-    "noEmit": true,
-    "moduleResolution": "node",
-    "module": "commonjs",
-    "target": "es5",
-    "lib": ["es6", "es2015", "dom"],
-    "jsx": "react",
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "composite": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "removeComments": false
-  }
+  "files": [],
+  "references": [{ "path": "typescript/core" }, { "path": "typescript/menu" }]
 }
