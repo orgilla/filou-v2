@@ -1,5 +1,5 @@
 import * as React from 'react';
-import jwtDecode from 'jwt-decode';
+import * as jwtDecode from 'jwt-decode';
 import { navigate } from '@filou/router';
 import axios from 'axios';
 

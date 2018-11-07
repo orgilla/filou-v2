@@ -1,5 +1,6 @@
 {
   "name": "@filou/core",
+  "version": "1.2.7",
   "main": "lib/index.umd.js",
   "jsnext:main": "lib/index.js",
   "esnext": "lib/index.js",
@@ -11,11 +12,6 @@
     "Philipp Achenbach <olymp@philipp-achenbach.de>"
   ],
   "license": "MIT",
-  "scripts": {
-    "clean": "npm del",
-    "rollup": "node ../../node_modules/rollup/bin/rollup -c ../../config/rollup.config.js",
-    "watch": "node ../../node_modules/typescript/bin/tsc -w -p config"
-  },
   "dependencies": {
     "fela": "^6.2.3",
     "fela-plugin-custom-property": "^7.0.5",

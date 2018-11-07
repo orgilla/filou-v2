@@ -1,20 +1,21 @@
 {
-  "extends": "./config/tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "./typescript",
-    "paths": {
-      "@filou/blueprint": ["./blueprint/src"],
-      "@filou/blueprint-auth": ["./blueprint-auth/src"],
-      "@filou/blueprint-form": ["./blueprint-form/src"],
-      "@filou/color": ["./color/src"],
-      "@filou/core": ["./core/src"],
-      "filou": ["./filou/src"],
-      "filou-blueprint": ["./filou-blueprint/src"],
-      "filou-web": ["./filou-web/src"],
-      "@filou/menu": ["./menu/src"],
-      "@filou/ribbon": ["./ribbon/src"],
-      "@filou/router": ["./router/src"]
-    }
-  },
-  "include": ["typescript"]
+    "noEmit": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es6", "es2015", "dom"],
+    "jsx": "react",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": false
+  }
 }

@@ -1,5 +1,3 @@
-export { default as StaticStyle } from './style';
-
 export * from '@blueprintjs/core';
 export {
   Omnibar,
