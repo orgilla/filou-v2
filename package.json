@@ -43,7 +43,7 @@
     "up": "yarn upgrade-interactive --latest",
     "bootstrap": "lerna bootstrap",
     "dev": "lerna run watch --stream --parallel",
-    "build": "lerna run build",
+    "build": "lerna run compile",
     "clean": "run-p clean:*",
     "clean:ts": "lerna exec --parallel -- node ../../node_modules/rimraf/bin.js {__tests__,___tests__,stories,src}/**/*.{d.ts,map,js}",
     "clean:lib": "lerna exec --parallel -- node ../../node_modules/rimraf/bin.js lib",
