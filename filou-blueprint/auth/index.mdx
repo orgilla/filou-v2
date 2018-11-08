@@ -1,0 +1,53 @@
+---
+menu: Filou Blueprint Components
+name: Auth
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Provider, createRenderer } from '@filou/core';
+import { Button, ThemeProvider } from '@filou/blueprint';
+import '@blueprintjs/core/lib/css/blueprint.css';
+import '@blueprintjs/select/lib/css/blueprint-select.css';
+import Auth, { Provider as AuthProvider } from './src';
+const renderer = createRenderer();
+
+# Auth
+
+...
+
+## Auth
+
+<PropsTable of={Auth} />
+
+## Examples
+
+### Basic
+
+<Playground>
+  <Provider renderer={renderer}>
+    <AuthProvider>
+      <ThemeProvider theme={{ color: '#FBC02D' }}>
+        <Auth
+          height="500px"
+          backgroundImage="https://images.pexels.com/photos/1470168/pexels-photo-1470168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        />
+      </ThemeProvider>
+    </AuthProvider>
+  </Provider>
+</Playground>
+
+### Dark
+
+<Playground>
+  <Provider renderer={renderer}>
+    <AuthProvider>
+      <ThemeProvider theme={{ color: '#FBC02D' }}>
+        <Auth
+          height="500px"
+          inverted
+          backgroundImage="https://images.pexels.com/photos/1473673/pexels-photo-1473673.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        />
+      </ThemeProvider>
+    </AuthProvider>
+  </Provider>
+</Playground>

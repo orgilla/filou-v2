@@ -14,17 +14,26 @@ interface IAuth extends RouteComponentProps {
   backgroundImage?: string;
   title?: string;
   logo?: React.ReactNode;
+  height?: string | number;
   company?: string;
   inverted?: boolean;
 }
 function Auth(props: IAuth) {
-  const { backgroundImage, title, company, logo, inverted = false } = props;
+  const {
+    backgroundImage,
+    title,
+    company,
+    logo,
+    inverted = false,
+    height
+  } = props;
   const { isAuthenticated } = useAuth();
   return isAuthenticated ? (
     <Redirect noThrow to="/" />
   ) : (
     <Layout
       logo={logo}
+      height={height}
       backgroundImage={backgroundImage}
       title={title}
       company={company}

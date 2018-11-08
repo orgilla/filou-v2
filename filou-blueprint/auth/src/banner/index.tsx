@@ -63,7 +63,7 @@ const rule = (theme: any, backgroundImage?: string) =>
       content: "' '",
       backgroundColor: theme.color,
       backgroundImage: `url(${backgroundImage})`,
-      zIndex: -1,
+      zIndex: 0,
       position: 'absolute',
       height: '100%',
       width: '100%',

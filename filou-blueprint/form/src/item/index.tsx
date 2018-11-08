@@ -67,7 +67,7 @@ const Inner: React.SFC<IItem> = ({
   />
 );
 
-export default ({
+function FormItem({
   name = '',
   label = '',
   type = '',
@@ -77,16 +77,20 @@ export default ({
   gutter,
   gridSize,
   ...rest
-}: IFormItem) => (
-  <FlexGrid.Item size={size} gridSize={gridSize} gutter={gutter}>
-    <Field
-      component={Inner as any}
-      com={component}
-      name={name}
-      label={label}
-      type={type}
-      icon={icon}
-      {...rest}
-    />
-  </FlexGrid.Item>
-);
+}: IFormItem) {
+  return (
+    <FlexGrid.Item size={size} gridSize={gridSize} gutter={gutter}>
+      <Field
+        component={Inner as any}
+        com={component}
+        name={name}
+        label={label}
+        type={type}
+        icon={icon}
+        {...rest}
+      />
+    </FlexGrid.Item>
+  );
+}
+
+export default FormItem;

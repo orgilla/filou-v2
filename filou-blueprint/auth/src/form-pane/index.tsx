@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Router, Match } from '@filou/router';
 import { TransitionGroup, Transition } from 'react-transition-group';
-import { Button } from '@blueprintjs/core';
+import { Button } from '@filou/blueprint';
 import { css, cx } from 'emotion';
 
 const padding = (x: number, y = x) =>

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { IRoute, IMatch } from '@filou/router';
 import isEmail from 'validator/lib/isEmail';
+import { Button } from '@filou/blueprint';
 import axios from 'axios';
 import Form from '@filou/blueprint-form';
-import { Button } from '@blueprintjs/core';
 import { useAuth } from './context';
 
 interface IAuthRegister {}
