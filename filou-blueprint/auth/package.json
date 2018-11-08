@@ -33,7 +33,7 @@
     "axios": "^0.18.0",
     "emotion": "^9.2.12",
     "jwt-decode": "^2.2.0",
-    "validator": "^10.8.0"
+    "validator": "^10.9.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
