@@ -17,8 +17,12 @@ export * from './section';
 
 export type IRoute<T extends {} = {}> = T & RouteComponentProps;
 export type IMatch<T extends {} = {}, T2 = any> = T & MatchRenderProps<T2>;
+export interface IApplicationRouter {
+  memory?: boolean;
+  children?: React.ReactNode;
+}
 
-class ElectronRouter extends React.Component {
+class ApplicationRouter extends React.Component<IApplicationRouter> {
   history: History = null as any;
   source: HistorySource = null as any;
 
@@ -26,9 +30,9 @@ class ElectronRouter extends React.Component {
     location: undefined
   };
 
-  constructor(props: any) {
+  constructor(props: IApplicationRouter) {
     super(props);
-    if (isElectron) {
+    if (isElectron || props.memory) {
       let url = '/';
       if (typeof location !== 'undefined' && location.hash) {
         url = location.hash.substr(1);
@@ -64,4 +68,4 @@ class ElectronRouter extends React.Component {
   }
 }
 
-export default ElectronRouter;
+export default ApplicationRouter;
