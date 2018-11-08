@@ -1,0 +1,178 @@
+---
+menu: Filou Components
+name: Menu
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Provider, ThemeProvider } from '@filou/core';
+import { FaStar } from 'ficon';
+import FiconProvider from 'ficon-fela';
+import Menu from './src';
+
+# Menu
+
+Buttons make common actions more obvious and help users more easily perform them. Buttons use labels and sometimes icons to communicate the action that will occur when the user touches them.
+
+### Best practices
+
+- Group buttons logically into sets based on usage and importance.
+- Ensure that button actions are clear and consistent.
+- The main action of a group set can be a primary button.
+- Select a single button variation and do not mix them.
+
+## Menu
+
+<PropsTable of={Menu} />
+
+## Menu.Item
+
+<PropsTable of={Menu.Item} />
+
+## Examples
+
+### Menu
+
+<Playground>
+  <Provider>
+    <FiconProvider>
+      <div style={{ maxWidth: 400 }}>
+        <Menu color="dark" inverted>
+          <Menu.Header>
+            <FaStar />
+            Header & Logo
+          </Menu.Header>
+          <Menu.Header color>
+            <Menu.Item icon={FaStar} size="large" extra="yeah">
+              Item as Header
+            </Menu.Item>
+          </Menu.Header>
+          <Menu.List title="List with title">
+            <Menu.Item icon={FaStar} color inverted={false}>
+              Item #1
+            </Menu.Item>
+            <Menu.Item icon={FaStar} color inverted={false}>
+              Item #2
+            </Menu.Item>
+          </Menu.List>
+          <Menu.List title="List with title and extra" extra={FaStar}>
+            <Menu.Item icon={FaStar} color inverted={false}>
+              Item #3
+            </Menu.Item>
+            <Menu.Item icon={FaStar} color inverted={false}>
+              Item #4
+            </Menu.Item>
+          </Menu.List>
+          <Menu.Divider />
+          <Menu.Item color="light4">The begining...</Menu.Item>
+          <Menu.Space />
+          <Menu.Input />
+          <Menu.Space />
+          <Menu.Item color="light4">...the end!</Menu.Item>
+        </Menu>
+      </div>
+    </FiconProvider>
+  </Provider>
+</Playground>
+
+### Menu (Complex)
+
+<Playground>
+  <Provider>
+    <FiconProvider>
+      <div style={{ maxWidth: 400 }}>
+        <Menu>
+          <Menu.List title="Content">
+            <Menu.Item>Item</Menu.Item>
+            <Menu.Item subtitle="subtitle">Item with subtitle</Menu.Item>
+            <Menu.Item icon={FaStar}>Item with Icon</Menu.Item>
+            <Menu.Item extra="extra">Item with extra</Menu.Item>
+            <Menu.Item extra={<FaStar />}>Item with extra Icon</Menu.Item>
+            <Menu.Item>
+              Item with clickable extra
+              <Menu.Extra onClick={() => {}}>click</Menu.Extra>
+            </Menu.Item>
+            <Menu.Item>
+              Item with clickable extra Icon
+              <Menu.Extra onClick={() => {}}>
+                <FaStar />
+              </Menu.Extra>
+            </Menu.Item>
+          </Menu.List>
+
+          <Menu.List title="Colors">
+            <Menu.Item icon={FaStar}>Item</Menu.Item>
+            <Menu.Item icon={FaStar} color>
+              Theme colored Icon
+            </Menu.Item>
+            <Menu.Item icon={FaStar} color="dark3">
+              Other theme colors
+            </Menu.Item>
+            <Menu.Item icon={FaStar} color={5} palette={4}>
+              MaterialUI colors
+            </Menu.Item>
+            <Menu.Item icon={FaStar} color="pink">
+              CSS colors
+            </Menu.Item>
+            <Menu.Item icon={FaStar} color={5} palette={9} inverted>
+              Inverted
+            </Menu.Item>
+          </Menu.List>
+
+          <Menu.List title="Icons/Images">
+            <Menu.Item icon={FaStar} color>
+              Item with Icon
+            </Menu.Item>
+            <Menu.Item
+              icon={
+                <img src="https://avatars2.githubusercontent.com/u/12184856?s=400&u=d70035b4ffbc2ff21b8c50e3ec964f43529128cf&v=4" />
+              }
+              color
+            >
+              Item with Image
+            </Menu.Item>
+            <Menu.Item color>
+              <Menu.Icon size="small">
+                <FaStar />
+              </Menu.Icon>
+              Item with small Icon
+            </Menu.Item>
+            <Menu.Item color>
+              <Menu.Icon size={36}>
+                <FaStar />
+              </Menu.Icon>
+              Item with custom Icon size
+            </Menu.Item>
+          </Menu.List>
+
+          <Menu.List title="Sizes">
+            <Menu.Item icon={FaStar} subtitle="subtitle" color size="small">
+              Small Item
+            </Menu.Item>
+            <Menu.Item icon={FaStar} subtitle="subtitle" color>
+              Medium Item
+            </Menu.Item>
+            <Menu.Item icon={FaStar} subtitle="subtitle" color size="large">
+              Large Item
+            </Menu.Item>
+          </Menu.List>
+
+          <Menu.List title="States">
+            <Menu.Item icon={FaStar} color>
+              Item
+            </Menu.Item>
+            <Menu.Item icon={FaStar} color active>
+              Active Item
+            </Menu.Item>
+            <Menu.Item icon={FaStar} color disabled>
+              Disabled Item
+            </Menu.Item>
+            <Menu.Item icon={FaStar} color loading>
+              Loading Item
+            </Menu.Item>
+          </Menu.List>
+        </Menu>
+      </div>
+    </FiconProvider>
+
+  </Provider>
+</Playground>

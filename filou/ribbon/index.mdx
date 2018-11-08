@@ -1,0 +1,121 @@
+---
+name: Ribbon
+menu: Filou Components
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Provider, ThemeProvider } from '@filou/core';
+import Ribbon from './src';
+
+# Ribbon
+
+...
+
+### Best practices
+
+- Group buttons logically into sets based on usage and importance.
+- Ensure that button actions are clear and consistent.
+- The main action of a group set can be a primary button.
+- Select a single button variation and do not mix them.
+
+## Ribbon
+
+<PropsTable of={Ribbon} />
+
+## Ribbon.Title
+
+<PropsTable of={Ribbon.Title} />
+
+## Ribbon.Item
+
+<PropsTable of={Ribbon.Item} />
+
+## Ribbon.Divider
+
+<PropsTable of={Ribbon.Divider} />
+
+## Examples
+
+### Mac (Maximized)
+
+<Playground>
+  <Provider>
+    <Ribbon width="100%" height="500px">
+      <Ribbon.Title maximized os={Ribbon.OSStyle.MAC} brand="Mac Ribbon">
+        <Ribbon.Item>Left Item</Ribbon.Item>
+        <Ribbon.Divider />
+        <Ribbon.Item>Left Item</Ribbon.Item>
+        <Ribbon.Item>Left Item</Ribbon.Item>
+        <Ribbon.Space />
+        <Ribbon.Item>Right Item</Ribbon.Item>
+      </Ribbon.Title>
+      <Ribbon.Actions title="Actions">
+        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Divider />
+        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Space />
+      </Ribbon.Actions>
+    </Ribbon>
+  </Provider>
+</Playground>
+
+### Mac
+
+<Playground>
+  <Provider>
+    <Ribbon width="100%" height="500px">
+      <Ribbon.Title os={Ribbon.OSStyle.MAC} brand="Mac Ribbon">
+        <Ribbon.Item>Left Item</Ribbon.Item>
+        <Ribbon.Space />
+        <Ribbon.Item>Right Item</Ribbon.Item>
+      </Ribbon.Title>
+      <Ribbon.Actions>
+        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Space />
+      </Ribbon.Actions>
+    </Ribbon>
+  </Provider>
+</Playground>
+
+### Windows
+
+<Playground>
+  <Provider>
+    <Ribbon width="100%" height="500px">
+      <Ribbon.Title os={Ribbon.OSStyle.WIN} brand="Mac Ribbon">
+        <Ribbon.Item>Left Item</Ribbon.Item>
+        <Ribbon.Space />
+        <Ribbon.Item>Right Item</Ribbon.Item>
+      </Ribbon.Title>
+      <Ribbon.Actions>
+        <Ribbon.Item>Hallo</Ribbon.Item>
+        <Ribbon.Space />
+      </Ribbon.Actions>
+    </Ribbon>
+  </Provider>
+</Playground>
+
+### Themed
+
+<Playground>
+  <Provider>
+    <ThemeProvider theme={{ color: '#666' }}>
+      <Ribbon width="100%" height="500px">
+        <Ribbon.Title os={Ribbon.OSStyle.WIN} brand="Windows Ribbon">
+          <Ribbon.Item>Left Item</Ribbon.Item>
+          <Ribbon.Divider />
+          <Ribbon.Item>Left Item</Ribbon.Item>
+          <Ribbon.Item>Left Item</Ribbon.Item>
+          <Ribbon.Space />
+          <Ribbon.Item>Right Item</Ribbon.Item>
+        </Ribbon.Title>
+        <Ribbon.Actions title="Actions">
+          <Ribbon.Item>Hallo</Ribbon.Item>
+          <Ribbon.Divider />
+          <Ribbon.Item>Hallo</Ribbon.Item>
+          <Ribbon.Space />
+        </Ribbon.Actions>
+      </Ribbon>
+    </ThemeProvider>
+  </Provider>
+</Playground>
