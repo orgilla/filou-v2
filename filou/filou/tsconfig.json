@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "../color"
+    },
+    {
+      "path": "../core"
+    },
+    {
+      "path": "../router"
+    },
+    {
+      "path": "../menu"
+    },
+    {
+      "path": "../ribbon"
+    }
+  ]
+}

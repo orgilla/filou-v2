@@ -1,0 +1,44 @@
+{
+  "name": "filou-web",
+  "version": "1.2.7",
+  "main": "lib/index.umd.js",
+  "jsnext:main": "lib/index.js",
+  "esnext": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Orgilla <hi@orgil.la>",
+  "contributors": [
+    "Benjamin Kniffler <bkniffler@me.com>",
+    "Philipp Achenbach <olymp@philipp-achenbach.de>"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "run-s compile bundle",
+    "compile": "run-p compile:*",
+    "watch": "run-p \"compile:* -- --watch\"",
+    "compile:babel": "babel --out-dir ./lib --extensions .ts,.tsx ./src",
+    "compile:tsc": "tsc -b .",
+    "bundle": "rollup -c ../../rollup.config.js"
+  },
+  "babel": {
+    "extends": "../../.babelrc"
+  },
+  "dependencies": {
+    "@types/qs": "^6.5.1",
+    "@types/react-transition-group": "^2.0.14",
+    "@filou/core": "^1.2.7",
+    "google-map-react": "^1.0.9",
+    "lodash": "^4.17.11",
+    "prismic-javascript": "^1.5.0",
+    "qs": "^6.5.2",
+    "react-reveal": "^1.2.2",
+    "react-transition-group": "^2.5.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "npm-run-all": "^4.1.3",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.67.0",
+    "typescript": "^3.1.6"
+  }
+}
