@@ -4,10 +4,11 @@ name: Menu
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Provider, ThemeProvider } from '@filou/core';
+import { Provider, ThemeProvider, createRenderer } from '@filou/core';
 import { FaStar } from 'ficon';
 import FiconProvider from 'ficon-fela';
 import Menu from './src';
+const renderer = createRenderer();
 
 # Menu
 
@@ -33,7 +34,7 @@ Buttons make common actions more obvious and help users more easily perform them
 ### Menu
 
 <Playground>
-  <Provider>
+  <Provider renderer={renderer}>
     <FiconProvider>
       <div style={{ maxWidth: 400 }}>
         <Menu color="dark" inverted>
@@ -77,7 +78,7 @@ Buttons make common actions more obvious and help users more easily perform them
 ### Menu (Complex)
 
 <Playground>
-  <Provider>
+  <Provider renderer={renderer}>
     <FiconProvider>
       <div style={{ maxWidth: 400 }}>
         <Menu>

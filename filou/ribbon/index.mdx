@@ -4,8 +4,9 @@ menu: Filou Components
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Provider, ThemeProvider } from '@filou/core';
+import { Provider, ThemeProvider, createRenderer } from '@filou/core';
 import Ribbon from './src';
+const renderer = createRenderer();
 
 # Ribbon
 
@@ -39,7 +40,7 @@ import Ribbon from './src';
 ### Mac (Maximized)
 
 <Playground>
-  <Provider>
+  <Provider renderer={renderer}>
     <Ribbon width="100%" height="500px">
       <Ribbon.Title maximized os={Ribbon.OSStyle.MAC} brand="Mac Ribbon">
         <Ribbon.Item>Left Item</Ribbon.Item>
@@ -62,7 +63,7 @@ import Ribbon from './src';
 ### Mac
 
 <Playground>
-  <Provider>
+  <Provider renderer={renderer}>
     <Ribbon width="100%" height="500px">
       <Ribbon.Title os={Ribbon.OSStyle.MAC} brand="Mac Ribbon">
         <Ribbon.Item>Left Item</Ribbon.Item>
@@ -80,7 +81,7 @@ import Ribbon from './src';
 ### Windows
 
 <Playground>
-  <Provider>
+  <Provider renderer={renderer}>
     <Ribbon width="100%" height="500px">
       <Ribbon.Title os={Ribbon.OSStyle.WIN} brand="Mac Ribbon">
         <Ribbon.Item>Left Item</Ribbon.Item>
@@ -98,7 +99,7 @@ import Ribbon from './src';
 ### Themed
 
 <Playground>
-  <Provider>
+  <Provider renderer={renderer}>
     <ThemeProvider theme={{ color: '#666' }}>
       <Ribbon width="100%" height="500px">
         <Ribbon.Title os={Ribbon.OSStyle.WIN} brand="Windows Ribbon">

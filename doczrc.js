@@ -1,4 +1,4 @@
 module.exports = {
-  title: 'Docz Typescript',
+  title: 'Filou',
   typescript: true
 };
