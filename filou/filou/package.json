@@ -1,6 +1,6 @@
 {
   "name": "filou",
-  "version": "1.2.8",
+  "version": "1.3.0",
   "main": "lib/index.umd.js",
   "jsnext:main": "lib/index.js",
   "esnext": "lib/index.js",
@@ -24,11 +24,11 @@
     "extends": "../../.babelrc"
   },
   "dependencies": {
-    "@filou/color": "^1.2.8",
-    "@filou/core": "^1.2.8",
-    "@filou/menu": "^1.2.8",
-    "@filou/ribbon": "^1.2.8",
-    "@filou/router": "^1.2.8"
+    "@filou/color": "^1.3.0",
+    "@filou/core": "^1.3.0",
+    "@filou/menu": "^1.3.0",
+    "@filou/ribbon": "^1.3.0",
+    "@filou/router": "^1.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
