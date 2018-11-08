@@ -1,6 +1,6 @@
 {
   "name": "@filou/blueprint",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "main": "lib/index.umd.js",
   "jsnext:main": "lib/index.js",
   "esnext": "lib/index.js",
@@ -27,7 +27,7 @@
     "@blueprintjs/core": "^3.8.0",
     "@blueprintjs/icons": "^3.3.0",
     "@blueprintjs/select": "^3.2.0",
-    "@filou/core": "^1.2.7"
+    "@filou/core": "^1.2.8"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
