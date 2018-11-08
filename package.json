@@ -48,7 +48,8 @@
     "clean:ts": "lerna exec --parallel -- node ../../node_modules/rimraf/bin.js {__tests__,___tests__,stories,src}/**/*.{d.ts,map,js}",
     "clean:lib": "lerna exec --parallel -- node ../../node_modules/rimraf/bin.js lib",
     "lp": "yarn build && yarn test && lerna publish --registry https://registry.npmjs.org",
-    "lpf": "lerna publish --registry https://registry.npmjs.org",
+    "lp:untested": "lerna publish --registry https://registry.npmjs.org",
+    "lpf": "yarn build && yarn test && lerna publish --registry https://registry.npmjs.org --force-publish",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
     "coverage": "codecov"
