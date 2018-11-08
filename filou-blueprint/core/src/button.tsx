@@ -1,27 +1,34 @@
 import * as React from 'react';
-import { FelaComponent, fade } from '@filou/core';
-import { Button as BPButton, IButtonProps } from '@blueprintjs/core';
+import { FelaComponent, IFelaRule } from 'filou';
+import { Button as BButton, IButtonProps } from '@blueprintjs/core';
 
-const rule = ({ theme, minimal }: { theme: any; minimal: boolean }) => ({
-  '&.bp3-button:not([class*="bp3-intent-"])': minimal
-    ? undefined
-    : {
-        backgroundColor: fade(theme.color, 5)
-      }
+interface IBlueprintButton extends IButtonProps {
+  children?: React.ReactNode;
+}
+
+const rule = ({ theme }: IFelaRule<IButtonProps>) => ({
+  borderRadius: 0,
+
+  '&.bp3-button.bp3-minimal.bp3-intent-primary': {
+    color: theme.color,
+    ':hover': {
+      color: theme.color,
+      backgroundColor: 'rgb(254, 212, 32, 0.2)'
+    }
+  }
 });
 
-export class Button extends React.Component<IButtonProps> {
-  render() {
-    return (
-      <FelaComponent
-        rule={rule}
-        minimal={this.props.minimal}
-        render={({ className }: { className: string }) => (
-          <BPButton {...this.props} className={className} />
-        )}
-      />
-    );
-  }
+function Button({ children, intent, ...rest }: IBlueprintButton) {
+  return (
+    <FelaComponent
+      rule={rule}
+      render={({ className }) => (
+        <BButton intent={intent} className={className} {...rest}>
+          {children}
+        </BButton>
+      )}
+    />
+  );
 }
 
 export default Button;
