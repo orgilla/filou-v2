@@ -39,7 +39,7 @@
   ],
   "scripts": {
     "docz": "docz dev",
-    "netlify": "yarn bootstrap && docz build",
+    "netlify": "yarn bootstrap && yarn build && docz build",
     "up": "yarn upgrade-interactive --latest",
     "bootstrap": "lerna bootstrap",
     "dev": "lerna run watch --stream --parallel",
