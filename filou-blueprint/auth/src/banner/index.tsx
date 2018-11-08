@@ -16,42 +16,36 @@ const rule = (theme: any, backgroundImage?: string) =>
     position: 'relative',
     overflow: 'hidden',
     color: 'white',
-    paddingY: theme.space4,
+    paddingTop: theme.space4,
+    paddingBottom: theme.space4,
     '& a': {
       color: theme.light,
       textDecoration: 'none'
     },
     '> div': {
       zIndex: 1,
+      position: 'absolute',
       cursor: 'default',
+      height: '100%',
+      width: '100%',
+      // opacity: 0.6,
+      top: 0,
+      left: 0,
       userSelect: 'none',
       '> div > div': {
         flexDirection: 'row',
+        alignItems: 'center',
         display: 'flex'
       },
       paddingLeft: 10,
       '& h1': {
         fontSize: 80,
-        marginY: 0,
+        marginTop: 0,
+        marginBottom: 0,
         borderBottom: 0,
         color: theme.light
       },
       fontWeight: theme.headerFontWeight
-    },
-    ':before': {
-      pointerEvents: 'none',
-      content: "' '",
-      backgroundColor: 'gray',
-      /* backgroundColor: tinyColor(theme.color)
-      .saturate(30)
-      .toString(), */
-      zIndex: -1,
-      position: 'absolute',
-      height: '100%',
-      width: '100%',
-      top: 0,
-      left: 0,
-      overflow: 'hidden'
     },
     /* onHover: {
     onAfter: {

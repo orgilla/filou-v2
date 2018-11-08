@@ -1,4 +1,5 @@
 export { default as useAxios } from './use-axios';
+export { default as useStorage } from './use-storage';
 export { default as FelaComponent } from './fela-component';
 export * from './fela-component';
 export { default as FelaTheme } from './fela-theme';

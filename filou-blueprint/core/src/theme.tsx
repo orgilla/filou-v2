@@ -2,8 +2,12 @@ import * as React from 'react';
 
 const Context = React.createContext({});
 
-export function useTheme<T>() {
-  return React['useContext'](Context) as T;
+export function useTheme<T>(field?: string) {
+  const theme = React['useContext'](Context);
+  if (field) {
+    return theme[field] as T;
+  }
+  return theme as T;
 }
 
 export interface IThemeProvider {

@@ -2,11 +2,11 @@ import * as React from 'react';
 import { FlexGrid } from '@filou/core';
 import { Form } from 'react-final-form';
 import { FormApi } from 'final-form';
-import { Button } from '@filou/blueprint';
+import { Button, Text } from '@filou/blueprint';
 import { Callout } from '@blueprintjs/core';
-import Text from './text';
-import Space from './space';
-import Item from './item';
+import FormText from './text';
+import FormSpace from './space';
+import FormItem from './item';
 
 export interface IForm<T = object> {
   title?: string;
@@ -36,9 +36,9 @@ interface IFormInner extends IForm {
 
 const empty = {};
 class BlueprintForm<T> extends React.Component<IForm<T>> {
-  static Text = Text;
-  static Space = Space;
-  static Item = Item;
+  static Text = FormText;
+  static Space = FormSpace;
+  static Item = FormItem;
   render() {
     const {
       title,
@@ -61,7 +61,7 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
         validate={validate}
         render={({ handleSubmit, submitting, pristine, valid }) => (
           <form onSubmit={handleSubmit}>
-            {title && <h1>{title}</h1>}
+            {title && <Text type="h1">{title}</Text>}
             {/* <Spinner intent={Intent.PRIMARY} /> */}
             <p>{description}</p>
             <br />

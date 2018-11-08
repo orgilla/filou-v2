@@ -5,7 +5,7 @@ import { TransitionGroup, Transition } from 'react-transition-group';
 import ResizeHandler from 'react-resize-detector';
 import ErrorBoundary from '../error-boundary';
 
-const length = 1000;
+const length = 250;
 const opacity = 'opacity';
 const transform = 'transfaorm';
 

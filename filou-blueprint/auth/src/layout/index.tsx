@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { Container, FelaComponent } from '@filou/core';
+import { Container } from '@filou/core';
+import { useTheme, Text } from '@filou/blueprint';
+import { css } from 'emotion';
 import Banner from '../banner';
 
 interface IAuthLayout {
@@ -11,35 +13,39 @@ interface IAuthLayout {
   company?: string;
 }
 
-const rule = ({ height = '100%' }: IAuthLayout) => ({
-  alignItems: 'stretch',
-  flexDirection: 'row',
-  display: 'flex',
-  flex: 1,
-  overflow: 'hidden',
-  width: '100%',
-  height: height
-});
+const rule = (height: string | number = '100%') =>
+  css({
+    '& h1': {
+      fontWeight: useTheme('fontWeight')
+    },
+    alignItems: 'stretch',
+    flexDirection: 'row',
+    display: 'flex',
+    flex: 1,
+    overflow: 'hidden',
+    width: '100%',
+    height: height
+  });
+
 function AuthLayout({
   children,
   backgroundImage,
   logo,
   height,
-  title = 'Welcome',
-  company = 'Company'
+  title = 'Welcome'
 }: IAuthLayout) {
   return (
-    <FelaComponent rule={rule} height={height}>
+    <div className={rule(height)}>
       <Banner backgroundImage={backgroundImage}>
         <Container>
           {logo}
-          <h1>{title}</h1>
+          <Text type="h1">{title}</Text>
           {/*Melden Sie sich mit Ihren Benutzerdaten an oder registrieren
           Sie sich.*/}
         </Container>
       </Banner>
       {children}
-    </FelaComponent>
+    </div>
   );
 }
 
