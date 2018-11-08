@@ -4,6 +4,7 @@ import { Button } from '@blueprintjs/core';
 import isEmail from 'validator/lib/isEmail';
 import axios from 'axios';
 import Form from '@filou/blueprint-form';
+import { useAuth } from './context';
 
 interface IAuthLogin {}
 
@@ -11,11 +12,12 @@ function AuthLogin(props: IRoute<IAuthLogin>) {
   const { navigate } = props as IMatch<IAuthLogin>;
   const [loginType, setLoginType] = React['useState'](null);
   const [error, setError] = React['useState'](null);
+  const { apiEndpoint } = useAuth();
 
   const onSubmit = React['useCallback'](
     (values: any) => {
       return axios
-        .post(`/api/auth/login`, values)
+        .post(`${apiEndpoint}/login`, values)
         .then(({ data }) => {
           navigate(`/auth/callback${data.token ? `#${data.token}` : ''}`);
         })

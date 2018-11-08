@@ -15,9 +15,9 @@ export const TOKEN_TYPES = {
 interface ITokenResult {
   exp: number;
 }
-export const handleAccessToken = (token: string) =>
+export const handleAccessToken = (apiEndpoint: string, token: string) =>
   axios
-    .get(`/api/auth/profile`, {
+    .get(`${apiEndpoint}/profile`, {
       headers: {
         authorization: token
       }
@@ -34,9 +34,9 @@ export const handleAccessToken = (token: string) =>
       return data;
     });
 
-export const handleRefreshToken = (token: string) =>
+export const handleRefreshToken = (apiEndpoint: string, token: string) =>
   axios
-    .get(`/api/auth/access-token`, {
+    .get(`${apiEndpoint}/access-token`, {
       headers: {
         authorization: token
       }
@@ -49,19 +49,19 @@ export const handleRefreshToken = (token: string) =>
           jwtDecode<ITokenResult>(token).exp * 1000 + new Date().getTime()
         )
       );
-      return handleAccessToken(data.token);
+      return handleAccessToken(apiEndpoint, data.token);
     });
 
-export const handleRegisterToken = (token: string) =>
+export const handleRegisterToken = (apiEndpoint: string, token: string) =>
   axios
-    .get(`/api/auth/refresh-token`, {
+    .get(`${apiEndpoint}/refresh-token`, {
       headers: {
         authorization: token
       }
     })
-    .then(({ data }) => handleRefreshToken(data.token));
+    .then(({ data }) => handleRefreshToken(apiEndpoint, data.token));
 
-export const verify = () => {
+export const verify = (apiEndpoint: string) => {
   const refreshToken = localStorage.getItem('refresh_token');
   const refreshTokenExp = JSON.parse(
     localStorage.getItem('refresh_token_expiry') || 'null'
@@ -72,10 +72,10 @@ export const verify = () => {
   );
   // const profile = JSON.parse(localStorage.getItem('profile') || 'null');
   if (accessToken && accessTokenExp > new Date()) {
-    return handleAccessToken(accessToken);
+    return handleAccessToken(apiEndpoint, accessToken);
   }
   if (refreshToken && refreshTokenExp > new Date()) {
-    return handleRefreshToken(refreshToken);
+    return handleRefreshToken(apiEndpoint, refreshToken);
   }
   return logout();
 };
@@ -96,7 +96,13 @@ export function useAuth(): IAuthState {
   return context;
 }
 
+interface IAuthReact {
+  skip?: boolean;
+  apiEndpoint?: string;
+}
+
 interface IAuthState {
+  apiEndpoint: string;
   login: () => void;
   logout: () => void;
   isAuthenticated: boolean;
@@ -105,18 +111,24 @@ interface IAuthState {
   handleToken: (token: string) => Promise<void>;
 }
 
-class AuthReact extends React.Component {
+class AuthReact extends React.Component<IAuthReact> {
   auth = {
     isAuthenticated: () => false
   };
 
+  static defaultProps = {
+    apiEndpoint: '/api/auth'
+  };
+
   state: IAuthState;
 
-  constructor(props: any) {
+  constructor(props: IAuthReact) {
     super(props);
-    verify();
+    const apiEndpoint = props.apiEndpoint || AuthReact.defaultProps.apiEndpoint;
+    verify(apiEndpoint);
     const user = this.isAuthenticated();
     this.state = {
+      apiEndpoint,
       login: this.login,
       logout: this.logout,
       isAuthenticated: !!user,
@@ -129,12 +141,14 @@ class AuthReact extends React.Component {
   handleToken = async (token: string) => {
     const { t } = jwtDecode(token);
     if (t === TOKEN_TYPES.REGISTER || t === TOKEN_TYPES.VERIFY) {
-      return handleRegisterToken(token).then(this.login);
+      return handleRegisterToken(this.state.apiEndpoint, token).then(
+        this.login
+      );
     }
   };
 
   login = async () => {
-    await verify();
+    await verify(this.state.apiEndpoint);
     const user = this.isAuthenticated();
     this.setState({
       isAuthenticated: !!user,
@@ -154,6 +168,9 @@ class AuthReact extends React.Component {
   };
 
   isAuthenticated = () => {
+    if (this.props.skip) {
+      return true;
+    }
     const expiresAt = JSON.parse(
       localStorage.getItem('access_token_expiry') || 'null'
     );

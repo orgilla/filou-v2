@@ -4,17 +4,19 @@ import isEmail from 'validator/lib/isEmail';
 import axios from 'axios';
 import Form from '@filou/blueprint-form';
 import { Button } from '@blueprintjs/core';
+import { useAuth } from './context';
 
 interface IAuthRegister {}
 
 function AuthRegister(props: IRoute<IAuthRegister>) {
   const { navigate } = props as IMatch<IAuthRegister>;
   const [error, setError] = React['useState'](null);
+  const { apiEndpoint } = useAuth();
 
   const onSubmit = React['useCallback'](
     (values: any) => {
       return axios
-        .post(`/api/auth/register`, values)
+        .post(`${apiEndpoint}/register`, values)
         .then(({ data }) => {
           navigate(`/auth/callback${data.token ? `#${data.token}` : ''}`);
         })
