@@ -5,11 +5,14 @@ import JSXAddon from 'storybook-addon-jsx';
 // addDecorator(withKnobs);
 setAddon(JSXAddon);
 
+const loadFoalder = req => {
+  req.keys().forEach(filename => req(filename));
+};
 // automatically import all files ending in *.stories.js
-const req = require.context('../typescript', true, /.stories.tsx$/);
 function loadStories() {
   require('./welcome');
-  req.keys().forEach(filename => req(filename));
+  loadFoalder(require.context(`../filou`, true, /.stories.tsx$/));
+  loadFoalder(require.context(`../filou-blueprint`, true, /.stories.tsx$/));
 }
 
 configure(loadStories, module);

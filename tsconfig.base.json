@@ -13,16 +13,15 @@
     // Emit declarations only since we're using Babel to transpile
     "emitDeclarationOnly": true,
     //
-    "lib": [
-      "es6",
-      "es2015",
-      "dom"
-    ],
+    "lib": ["es6", "es2015", "dom"],
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "moduleResolution": "node"
+    // "noEmit": true,
   }
 }

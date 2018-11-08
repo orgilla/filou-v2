@@ -1,5 +1,5 @@
 // import sourcemaps from 'rollup-plugin-sourcemaps';
-// import resolve from 'rollup-plugin-node-resolve';
+import nodeResolve from 'rollup-plugin-node-resolve';
 const pkg = require(require('path').resolve(process.cwd(), './package.json'));
 
 const globals = {
@@ -25,8 +25,13 @@ export default [
         format: 'umd',
         name: pkg.name,
         exports: 'named',
-        globals,
+        globals
       }
+    ],
+    plugins: [
+      nodeResolve({
+        modulesOnly: true
+      })
     ],
     external: [
       ...Object.keys(globals),
