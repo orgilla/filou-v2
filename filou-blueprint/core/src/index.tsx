@@ -11,5 +11,7 @@ export {
   ItemListPredicate
 } from '@blueprintjs/select';
 
+export { default as ThemeProvider } from './theme';
+export * from './theme';
 export { default as Button } from './button';
 export { default as Tabs } from './tabs';

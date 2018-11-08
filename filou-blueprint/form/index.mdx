@@ -1,0 +1,58 @@
+---
+menu: Filou Blueprint Components
+name: Form
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Provider, createRenderer } from '@filou/core';
+import { Button, ThemeProvider } from '@filou/blueprint';
+import '@blueprintjs/core/lib/css/blueprint.css';
+import '@blueprintjs/select/lib/css/blueprint-select.css';
+import Form from './src';
+const renderer = createRenderer();
+
+# Form
+
+...
+
+### Best practices
+
+- Group buttons logically into sets based on usage and importance.
+- Ensure that button actions are clear and consistent.
+- The main action of a group set can be a primary button.
+- Select a single button variation and do not mix them.
+
+## Form
+
+<PropsTable of={Form} />
+
+## Examples
+
+### Form
+
+<Playground>
+  <Provider renderer={renderer}>
+    <ThemeProvider theme={{ color: '#673AB7' }}>
+      <Form
+        onSubmit={() => null}
+        initialValues={{ email: '' }}
+        title="Anmeldung"
+        error={null}
+        submitLabel="Anmelden"
+        additionalButton={
+          <Button
+            intent="primary"
+            minimal
+            onClick={() => navigate('/auth/register')}
+          >
+            Registrieren
+          </Button>
+        }
+        description="Geben Sie Ihre E-Mail Adresse an um sich in Ihrem Konto anzumelden oder ein neues zu registrieren."
+      >
+        <Form.Text name="email" label="E-Mail" type="email" />
+        <Form.Text name="password" label="Passwort" type="password" />
+      </Form>
+    </ThemeProvider>
+  </Provider>
+</Playground>
