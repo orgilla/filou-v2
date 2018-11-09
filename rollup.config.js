@@ -1,12 +1,11 @@
 // import sourcemaps from 'rollup-plugin-sourcemaps';
+import { camelCase } from 'lodash';
 import nodeResolve from 'rollup-plugin-node-resolve';
 const pkg = require(require('path').resolve(process.cwd(), './package.json'));
 
+const convertName = name => camelCase(name.replace('@', '$').replace('/', '-'));
 const globals = {
-  react: 'React',
-  '@filou/core': '@filou/core',
-  '@blueprintjs/core': 'blueprintjs.core',
-  '@blueprintjs/select': 'blueprintjs.select'
+  '@filou/core': convertName('@filou/core')
 };
 
 const onwarn = message => {
@@ -18,12 +17,12 @@ const onwarn = message => {
 
 export default [
   {
-    input: 'lib/index.js',
+    input: 'lib/es/index.js',
     output: [
       {
-        file: 'lib/index.umd.js',
-        format: 'umd',
-        name: pkg.name,
+        file: 'lib/iife/index.js',
+        format: 'iife',
+        name: convertName(pkg.name),
         exports: 'named',
         globals
       }

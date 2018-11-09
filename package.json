@@ -46,6 +46,7 @@
     "build": "lerna run build",
     "clean": "run-p clean:*",
     "clean:ts": "lerna exec --parallel -- node ../../node_modules/rimraf/bin.js {__tests__,___tests__,stories,src}/**/*.{d.ts,map,js}",
+    "clean:ye": "lerna exec --parallel -- node ../../node_modules/rimraf/bin.js yarn-error.log",
     "clean:lib": "lerna exec --parallel -- node ../../node_modules/rimraf/bin.js lib",
     "lp": "yarn build && yarn test && lerna publish --registry https://registry.npmjs.org",
     "lp:untested": "lerna publish --registry https://registry.npmjs.org",
@@ -106,6 +107,11 @@
     "typescript": "^3.1.6"
   },
   "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.test.json"
+      }
+    },
     "preset": "ts-jest",
     "collectCoverage": false,
     "collectCoverageFrom": [

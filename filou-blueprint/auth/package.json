@@ -1,11 +1,14 @@
 {
   "name": "@filou/blueprint-auth",
   "version": "1.3.3",
-  "main": "lib/index.umd.js",
-  "jsnext:main": "lib/index.js",
-  "esnext": "lib/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/cjs/index.js",
+  "jsnext:main": "lib/es/index.js",
+  "esnext": "lib/es/index.js",
+  "module": "lib/es/index.js",
+  "types": "lib/typings/index.d.ts",
+  "babel": {
+    "extends": "../../babelrc.js"
+  },
   "author": "Orgilla <hi@orgil.la>",
   "contributors": [
     "Benjamin Kniffler <bkniffler@me.com>",
@@ -18,13 +21,11 @@
   "scripts": {
     "build": "run-s compile bundle",
     "compile": "run-p compile:*",
-    "watch": "run-p \"compile:* -- --watch\"",
-    "compile:babel": "babel --out-dir ./lib --extensions .ts,.tsx ./src",
+    "watch": "run-p \"compile:* --watch\"",
+    "compile:es": "babel --out-dir ./lib/es --modules false --extensions .ts,.tsx ./src",
+    "compile:cjs": "babel --out-dir ./lib/cjs --modules commonjs --extensions .ts,.tsx ./src",
     "compile:tsc": "tsc -b .",
     "bundle": "rollup -c ../../rollup.config.js"
-  },
-  "babel": {
-    "extends": "../../.babelrc"
   },
   "dependencies": {
     "@filou/blueprint": "^1.3.3",
