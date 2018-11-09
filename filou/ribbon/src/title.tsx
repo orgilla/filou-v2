@@ -3,6 +3,7 @@ import { FelaComponent, isOSX, isWindows } from '@filou/core';
 import IsMaximized from './is-maximized';
 import Windows from './windows';
 import Divider from './divider';
+import { useDark } from './context';
 
 export enum RibbonOSStyle {
   WIN = 'win',
@@ -20,11 +21,13 @@ export interface RibbonTitleProps {
 const rule = ({
   theme,
   isMacFullscreen,
-  os
+  os,
+  dark = false
 }: {
   theme: any;
   isMacFullscreen?: boolean;
   os?: RibbonOSStyle;
+  dark?: boolean;
 }) => ({
   backgroundColor: theme.color,
   // backgroundColor: '#24292e',
@@ -65,13 +68,21 @@ const rule = ({
     position: 'relative',
     verticalAlign: 'middle',
     userSelect: 'none',
-    '&.active': {
-      backgroundColor: '#f7f7f7',
-      color: theme.dark,
-      onHover: {
-        backgroundColor: '#f7f7f7'
-      }
-    },
+    '&.active': dark
+      ? {
+          backgroundColor: '#222',
+          color: theme.light,
+          onHover: {
+            backgroundColor: '#222'
+          }
+        }
+      : {
+          backgroundColor: '#f7f7f7',
+          color: theme.dark,
+          onHover: {
+            backgroundColor: '#f7f7f7'
+          }
+        },
     onHover: {
       backgroundColor: theme.light4
     }
@@ -102,41 +113,45 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
   maximized,
   os,
   brand
-}) => (
-  <IsMaximized>
-    {({ isMaximized }) => (
-      <FelaComponent
-        rule={rule}
-        isMacFullscreen={
-          (maximized !== undefined ? maximized : isMaximized) &&
-          (os !== undefined ? os === RibbonOSStyle.MAC : isOSX)
-        }
-        os={os}
-        render={({ className }: { className: string }) => (
-          <nav className={className}>
-            {Logo ? (
-              <span className="brand logo">
-                <Logo color="white" size={16} />
-              </span>
-            ) : null}
-            {brand ? <span className="brand">{brand}</span> : null}
-            {brand || Logo ? <Divider /> : null}
-            {children}
-            {(os !== undefined ? (
-              os === RibbonOSStyle.WIN
-            ) : (
-              isWindows
-            )) ? (
-              <Windows
-                maximized={maximized !== undefined ? maximized : isMaximized}
-              />
-            ) : null}
-          </nav>
-        )}
-      />
-    )}
-  </IsMaximized>
-);
+}) => {
+  const dark = useDark();
+  return (
+    <IsMaximized>
+      {({ isMaximized }) => (
+        <FelaComponent
+          rule={rule}
+          dark={dark}
+          isMacFullscreen={
+            (maximized !== undefined ? maximized : isMaximized) &&
+            (os !== undefined ? os === RibbonOSStyle.MAC : isOSX)
+          }
+          os={os}
+          render={({ className }: { className: string }) => (
+            <nav className={className}>
+              {Logo ? (
+                <span className="brand logo">
+                  <Logo color="white" size={16} />
+                </span>
+              ) : null}
+              {brand ? <span className="brand">{brand}</span> : null}
+              {brand || Logo ? <Divider /> : null}
+              {children}
+              {(os !== undefined ? (
+                os === RibbonOSStyle.WIN
+              ) : (
+                isWindows
+              )) ? (
+                <Windows
+                  maximized={maximized !== undefined ? maximized : isMaximized}
+                />
+              ) : null}
+            </nav>
+          )}
+        />
+      )}
+    </IsMaximized>
+  );
+};
 RibbonTitle.displayName = 'RibbonTitle';
 
 export default RibbonTitle;

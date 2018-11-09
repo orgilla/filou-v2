@@ -8,11 +8,13 @@ import Spacer from './spacer';
 import Item from './item';
 import Foot from './foot';
 import Divider from './divider';
+import DarkProvider from './context';
 
 interface RibbonProps {
   maximized?: boolean;
   width?: string;
   height?: string;
+  dark?: boolean;
 }
 
 const rule = ({
@@ -50,22 +52,25 @@ export class Ribbon extends React.Component<RibbonProps> {
   static displayName = 'Ribbon';
 
   render() {
-    const { children, maximized, width, height } = this.props;
+    const { children, maximized, width, height, dark = false } = this.props;
     return (
-      <IsMaximized>
-        {({ isMaximized }) => (
-          <FelaComponent
-            rule={rule}
-            width={width}
-            height={height}
-            isMaximized={
-              !isElectron || (maximized !== undefined ? maximized : isMaximized)
-            }
-          >
-            {children}
-          </FelaComponent>
-        )}
-      </IsMaximized>
+      <DarkProvider dark={dark}>
+        <IsMaximized>
+          {({ isMaximized }) => (
+            <FelaComponent
+              rule={rule}
+              width={width}
+              height={height}
+              isMaximized={
+                !isElectron ||
+                (maximized !== undefined ? maximized : isMaximized)
+              }
+            >
+              {children}
+            </FelaComponent>
+          )}
+        </IsMaximized>
+      </DarkProvider>
     );
   }
 }

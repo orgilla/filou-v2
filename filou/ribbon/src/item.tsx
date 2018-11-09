@@ -52,6 +52,7 @@ export const RibbonItem: React.StatelessComponent<RibbonItemProps> = ({
     rule={rule}
     marginLeft={marginLeft}
     className={className}
+    active={active}
     render={({ className }: { className: string }) =>
       React.createElement(
         (Link as 'a') || 'a',
@@ -59,7 +60,7 @@ export const RibbonItem: React.StatelessComponent<RibbonItemProps> = ({
           href: Link ? undefined : 'javascript:;',
           onClick,
           to,
-          className: cn(className, active && 'active')
+          className: cn(className, active ? 'active' : undefined)
         },
         children
       )

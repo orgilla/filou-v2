@@ -16,17 +16,10 @@ interface IAuth extends RouteComponentProps {
   logo?: React.ReactNode;
   height?: string | number;
   company?: string;
-  inverted?: boolean;
+  dark?: boolean;
 }
 function Auth(props: IAuth) {
-  const {
-    backgroundImage,
-    title,
-    company,
-    logo,
-    inverted = false,
-    height
-  } = props;
+  const { backgroundImage, title, company, logo, dark = false, height } = props;
   const { isAuthenticated } = useAuth();
   return isAuthenticated ? (
     <Redirect noThrow to="/" />
@@ -38,7 +31,7 @@ function Auth(props: IAuth) {
       title={title}
       company={company}
     >
-      <FormPane company={company} inverted={inverted}>
+      <FormPane company={company} dark={dark}>
         <Callback path="callback" />
         <Register path="register" />
         <Login default />

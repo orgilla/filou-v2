@@ -12,14 +12,14 @@ const padding = (x: number, y = x) =>
     padding-bottom: ${y}px;
   `);
 
-const rule = (theme: any, inverted?: boolean) =>
+const rule = (theme: any, dark?: boolean) =>
   css(
     `
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: ${inverted ? '#222' : 'rgb(247, 247, 247)'};
-    color: ${inverted ? 'white' : undefined};
+    background-color: ${dark ? '#222' : 'rgb(247, 247, 247)'};
+    color: ${dark ? 'white' : undefined};
     min-width: 400px;
     max-width: 400px;
     & a: {
@@ -84,11 +84,11 @@ const ruleInner = (state: string, invertedAnim = false) => {
 interface IFormPane {
   company?: string;
   children?: React.ReactNode;
-  inverted?: boolean;
+  dark?: boolean;
 }
-function FormPane({ children, company, inverted }: IFormPane) {
+function FormPane({ children, company, dark = false }: IFormPane) {
   return (
-    <div className={cx(rule({}, inverted), { 'bp3-dark': inverted })}>
+    <div className={cx(rule({}, dark), { 'bp3-dark': dark })}>
       <Match path="*">
         {({ match, location }) => (
           <TransitionGroup component={null}>

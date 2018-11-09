@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { css } from 'emotion';
+import { useTheme } from '@filou/core';
 
 interface IBanner {
   children?: React.ReactNode;
@@ -74,8 +75,9 @@ const rule = (theme: any, backgroundImage?: string) =>
   });
 
 function Banner({ children, className, backgroundImage }: IBanner) {
+  const theme = useTheme();
   return (
-    <div className={rule({}, backgroundImage)}>
+    <div className={rule(theme, backgroundImage)}>
       <div>{children}</div>
     </div>
   );

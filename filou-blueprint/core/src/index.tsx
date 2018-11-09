@@ -4,15 +4,7 @@ export {
   MultiSelect,
   QueryList,
   Suggest,
-  Select,
-  ItemRenderer,
-  ItemPredicate,
-  ItemListRenderer,
-  ItemListPredicate
+  Select
 } from '@blueprintjs/select';
-
-export { default as ThemeProvider } from './theme';
-export * from './theme';
 export { default as Button } from './button';
 export { default as Tabs } from './tabs';
-export { default as Text } from './text';

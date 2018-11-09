@@ -24,6 +24,7 @@
     "extends": "../../.babelrc"
   },
   "dependencies": {
+    "emotion": "^9.2.12",
     "fela": "^6.2.3",
     "fela-plugin-custom-property": "^7.0.5",
     "fela-plugin-embedded": "^5.2.13",
@@ -33,6 +34,7 @@
     "fela-plugin-named-keys": "^1.0.4",
     "fela-plugin-prefixer": "^5.0.21",
     "fela-plugin-unit": "^5.1.2",
+    "polished": "^2.3.0",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {

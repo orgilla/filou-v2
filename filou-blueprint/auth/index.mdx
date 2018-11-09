@@ -4,8 +4,8 @@ name: Auth
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Provider, createRenderer } from '@filou/core';
-import { Button, ThemeProvider } from '@filou/blueprint';
+import { Provider, createRenderer, ThemeProvider } from '@filou/core';
+import { Button } from '@filou/blueprint';
 import RouterProvider from '@filou/router';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/select/lib/css/blueprint-select.css';
@@ -47,7 +47,7 @@ const renderer = createRenderer();
       <AuthProvider>
         <ThemeProvider theme={{ color: '#FBC02D', fontWeight: 300 }}>
           <Auth
-            inverted
+            dark
             height="500px"
             backgroundImage="https://images.pexels.com/photos/1473673/pexels-photo-1473673.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
           />

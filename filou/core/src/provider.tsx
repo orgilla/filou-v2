@@ -1,6 +1,7 @@
 import * as React from 'react';
 // @ts-ignore
-import { Provider, ThemeProvider } from 'react-fela';
+import { Provider } from 'react-fela';
+import ThemeProvider from './theme-provider';
 import createRenderer from './create-renderer';
 import defaultTheme from './default-theme';
 
@@ -16,7 +17,7 @@ const FilouProvider: React.ComponentType<FilouProviderProps> = ({
   theme,
   children,
   renderer = createRenderer({}),
-  rehydrate = true,
+  rehydrate = true
 }) => {
   const props = {};
   if (typeof document !== 'undefined') {

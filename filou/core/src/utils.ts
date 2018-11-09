@@ -19,9 +19,9 @@ export const fade = (color: string, percent = 67) =>
     .toRgbString();
 
 // BORDERS
+
 export const border = (theme: any, color: string) =>
   `${theme.borderWidth}px ${theme.borderStyle} ${color || theme.borderColor}`;
-
 // SHADOWS
 export const boxShadow = (color = 'rgba(0, 0, 0, 0.1)', intense = 10) =>
   `0px 0px ${intense}px 0px ${tinycolor(color).toRgbString()}`;

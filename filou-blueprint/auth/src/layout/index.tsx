@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Container } from '@filou/core';
-import { useTheme, Text } from '@filou/blueprint';
+import { Container, useTheme, Text } from '@filou/core';
 import { css } from 'emotion';
 import Banner from '../banner';
 

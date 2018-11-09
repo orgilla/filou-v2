@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button as BlueprintButton, IButtonProps } from '@blueprintjs/core';
 import { css } from 'emotion';
-import { useTheme } from './theme';
+import { useTheme } from '@filou/core';
 
 interface IBlueprintButton extends IButtonProps {
   children?: React.ReactNode;

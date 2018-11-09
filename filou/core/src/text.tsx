@@ -1,17 +1,36 @@
 import * as React from 'react';
-import FelaComponent from './fela-component';
+import { css } from 'emotion';
+import { useTheme } from './theme';
 
-const rule = ({ theme }: { theme: any }) => ({
-  fontFamily: theme.fontFamily
-});
-
-export interface TextProps {
-  component?: string;
+interface IText {
+  children?: React.ReactNode;
+  className?: string;
+  type?:
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'p'
+    | 'span'
+    | 'strong'
+    | 'small';
 }
 
-export const Text: React.StatelessComponent<TextProps> = ({
-  component = 'span'
-}) => <FelaComponent rule={rule} render={component} />;
-Text.displayName = 'Text';
+function Text({ type = 'span', children, className }: IText) {
+  return React.createElement(
+    type,
+    {
+      className: css(
+        `
+          font-weight: ${useTheme('fontWeight')};
+        `,
+        className
+      )
+    },
+    children
+  );
+}
 
 export default Text;

@@ -11,6 +11,12 @@
     },
     {
       "path": "../form"
+    },
+    {
+      "path": "../../filou/core"
+    },
+    {
+      "path": "../../filou/router"
     }
   ]
 }

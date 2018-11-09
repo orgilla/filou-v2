@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { FlexGrid } from '@filou/core';
+import { FlexGrid, Text } from '@filou/core';
 import { Form } from 'react-final-form';
 import { FormApi } from 'final-form';
-import { Button, Text } from '@filou/blueprint';
+import { Button } from '@filou/blueprint';
 import { Callout } from '@blueprintjs/core';
 import FormText from './text';
 import FormSpace from './space';
@@ -25,6 +25,28 @@ export interface IForm<T = object> {
   submitDisabled?: boolean;
   size?: number;
 }
+
+const getErrorText = (obj: any): any => {
+  if (!obj) {
+    return obj;
+  }
+  if (obj.message) {
+    return obj.message;
+  }
+  if (obj.type) {
+    return obj.type;
+  }
+  if (obj.code) {
+    return obj.code;
+  }
+  if (typeof obj.error === 'string') {
+    return obj.error;
+  }
+  if (obj.error) {
+    return getErrorText(obj.error);
+  }
+  return null;
+};
 
 interface IFormInner extends IForm {
   onSubmit: (
@@ -71,8 +93,7 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
               {error && (
                 <FlexGrid.Item size={3}>
                   <Callout title="Fehlerbeschreibung" intent="danger">
-                    {' '}
-                    {error.error || error.message || error.type}
+                    {getErrorText(error) + ''}
                   </Callout>
                 </FlexGrid.Item>
               )}
