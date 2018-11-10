@@ -36,6 +36,7 @@ const rule = ({ theme, color: backgroundColor, palette }: IFelaRule<IMenu>) => {
     width,
     maxWidth: width,
     minWidth: width,
+    height: '100%',
     color: inverted ? theme.light : theme.dark,
     backgroundColor: getColor(theme, backgroundColor, palette),
     padding: theme.space2,
@@ -68,22 +69,18 @@ class Menu extends React.Component<IMenu> {
     } = this.props;
     return (
       <FelaComponent rule={rule} className={className} color={color}>
-        {React.Children.map(
-          children,
-          child =>
-            React.isValidElement(child)
-              ? React.cloneElement(child as React.ReactElement<any>, {
-                  collapsed,
-                  inverted:
-                    child.props['inverted'] !== undefined
-                      ? child.props['inverted']
-                      : inverted,
-                  size:
-                    child.props['size'] !== undefined
-                      ? child.props['size']
-                      : size
-                })
-              : child
+        {React.Children.map(children, child =>
+          React.isValidElement(child)
+            ? React.cloneElement(child as React.ReactElement<any>, {
+                collapsed,
+                inverted:
+                  child.props['inverted'] !== undefined
+                    ? child.props['inverted']
+                    : inverted,
+                size:
+                  child.props['size'] !== undefined ? child.props['size'] : size
+              })
+            : child
         )}
       </FelaComponent>
     );
