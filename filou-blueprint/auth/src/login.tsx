@@ -10,11 +10,11 @@ interface IAuthLogin {}
 
 function AuthLogin(props: IRoute<IAuthLogin>) {
   const { navigate } = props as IMatch<IAuthLogin>;
-  const [loginType, setLoginType] = React['useState'](null);
-  const [error, setError] = React['useState'](null);
+  const [loginType, setLoginType] = React.useState(null);
+  const [error, setError] = React.useState(null);
   const { apiEndpoint } = useAuth();
 
-  const onSubmit = React['useCallback'](
+  const onSubmit = React.useCallback(
     (values: any) => {
       return axios
         .post(`${apiEndpoint}/login`, values)
@@ -25,7 +25,7 @@ function AuthLogin(props: IRoute<IAuthLogin>) {
     },
     [loginType]
   );
-  const validate = React['useCallback'](
+  const validate = React.useCallback(
     (values: any) => {
       const errors: any = {};
       setError(null);

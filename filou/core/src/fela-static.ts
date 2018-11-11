@@ -12,7 +12,7 @@ export class FelaStatic extends React.Component<FelaStaticProps> {
   static displayName = 'FelaStatic';
   constructor(props: FelaStaticProps, context: any) {
     super(props, context);
-    this.context.renderer.renderStatic(props.css);
+    context.renderer.renderStatic(props.css);
   }
   render() {
     return React.Children.only(this.props.children);

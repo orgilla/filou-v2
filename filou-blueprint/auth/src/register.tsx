@@ -10,10 +10,10 @@ interface IAuthRegister {}
 
 function AuthRegister(props: IRoute<IAuthRegister>) {
   const { navigate } = props as IMatch<IAuthRegister>;
-  const [error, setError] = React['useState'](null);
+  const [error, setError] = React.useState(null);
   const { apiEndpoint } = useAuth();
 
-  const onSubmit = React['useCallback'](
+  const onSubmit = React.useCallback(
     (values: any) => {
       return axios
         .post(`${apiEndpoint}/register`, values)
@@ -24,7 +24,7 @@ function AuthRegister(props: IRoute<IAuthRegister>) {
     },
     [1]
   );
-  const validate = React['useCallback'](
+  const validate = React.useCallback(
     (values: any) => {
       const errors: any = {};
       if (!values.email) {

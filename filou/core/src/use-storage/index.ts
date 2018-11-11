@@ -1,7 +1,9 @@
 import * as React from 'react';
 
 function useStorage<T>(key: string, initialValue: T): [T, (value: T) => void] {
-  const [value, onChange]: [T, (value: T) => void] = React['useState']();
+  const [value, onChange]: [T, (value: T) => void] = React.useState(
+    initialValue
+  );
 
   function getInitialValue(key: string, initialValue?: T) {
     const storedValue = localStorage.getItem(key);
@@ -38,7 +40,7 @@ function useStorage<T>(key: string, initialValue: T): [T, (value: T) => void] {
     );
   }
 
-  React['useEffect'](() => {
+  React.useEffect(() => {
     window.addEventListener('storage', listenToStorage);
     window.addEventListener(`storage:${key}`, listenToLocal);
     if (value === undefined) {

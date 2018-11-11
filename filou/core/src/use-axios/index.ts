@@ -11,16 +11,16 @@ const useAxios = <T>(
   url: string,
   headers = {},
   cacheBuster: Array<any> = []
-): [T, any | undefined, boolean] => {
-  const [state, set] = React['useState']<AsyncState<T>>({
+): [T | undefined, any | undefined, boolean] => {
+  const [state, set] = React.useState<AsyncState<T>>({
     loading: true
   });
-  const memoized = React['useCallback'](() => axios.get(url, { headers }), [
+  const memoized = React.useCallback(() => axios.get(url, { headers }), [
     url,
     ...cacheBuster
   ]);
 
-  React['useEffect'](
+  React.useEffect(
     () => {
       let mounted = true;
       const promise = memoized();

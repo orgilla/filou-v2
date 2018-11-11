@@ -88,11 +88,11 @@ export const logout = () => {
   localStorage.removeItem('profile');
 };
 
-const Context = React.createContext({});
+const Context = React.createContext<IAuthState>({} as any);
 
 export const { Consumer } = Context;
 export function useAuth(): IAuthState {
-  const context = React['useContext']<IAuthState>(Context);
+  const context = React.useContext<IAuthState>(Context);
   return context;
 }
 
