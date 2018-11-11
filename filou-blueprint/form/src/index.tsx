@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FlexGrid, Text } from '@filou/core';
+import { FlexGrid, Text, ElementType, createElement } from '@filou/core';
 import { Form } from 'react-final-form';
 import { FormApi } from 'final-form';
 import { Button } from '@filou/blueprint';
@@ -24,6 +24,7 @@ export interface IForm<T = object> {
   submitLabel?: string;
   submitDisabled?: boolean;
   size?: number;
+  errorIcon?: ElementType;
 }
 
 const getErrorText = (obj: any): any => {
@@ -73,7 +74,8 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
       error,
       submitLabel,
       submitDisabled,
-      size = 3
+      size = 3,
+      errorIcon
     } = this.props as IFormInner;
 
     return (
@@ -92,7 +94,11 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
               {children as any}
               {error && (
                 <FlexGrid.Item size={3}>
-                  <Callout title="Fehlerbeschreibung" intent="danger">
+                  <Callout
+                    title="Fehlerbeschreibung"
+                    intent="danger"
+                    icon={createElement(errorIcon) as React.ReactElement<{}>}
+                  >
                     {getErrorText(error) + ''}
                   </Callout>
                 </FlexGrid.Item>

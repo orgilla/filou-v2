@@ -128,52 +128,56 @@ const MenuItem = ({
     inverted={inverted}
     size={size}
     disabled={disabled}
-    onClick={disabled ? undefined : onClick}
-    ref={_ref || innerRef || ref}
+    onClick={onClick}
     {...rest}
-  >
-    {!!icon && (
-      <Icon size={size} inverted={inverted}>
-        {createElement(icon)}
-      </Icon>
-    )}
-    {React.Children.map(
-      children,
-      child =>
-        React.isValidElement(child) ? (
-          React.cloneElement(child as React.ReactElement<any>, {
-            inverted:
-              child.props['inverted'] !== undefined
-                ? child.props['inverted']
-                : inverted,
-            size: child.props['size'] !== undefined ? child.props['size'] : size
-          })
-        ) : (
-          <Content inverted={inverted} subtitle={subtitle}>
-            {child}
-          </Content>
-        )
-    )}
-    {!!extra &&
-      !loading && (
-        <Extra disabled={disabled} inverted={inverted}>
-          {typeof extra === 'string' ? (
-            extra
+    render={({ className }) => (
+      <div
+        className={className}
+        ref={_ref || innerRef || ref}
+        onClick={disabled ? undefined : onClick}
+      >
+        {!!icon && (
+          <Icon size={size} inverted={inverted}>
+            {createElement(icon)}
+          </Icon>
+        )}
+        {React.Children.map(children, child =>
+          React.isValidElement(child) ? (
+            React.cloneElement(child as React.ReactElement<any>, {
+              inverted:
+                child.props['inverted'] !== undefined
+                  ? child.props['inverted']
+                  : inverted,
+              size:
+                child.props['size'] !== undefined ? child.props['size'] : size
+            })
           ) : (
+            <Content inverted={inverted} subtitle={subtitle}>
+              {child}
+            </Content>
+          )
+        )}
+        {!!extra && !loading && (
+          <Extra disabled={disabled} inverted={inverted}>
+            {typeof extra === 'string' ? (
+              extra
+            ) : (
+              <Icon extra inverted={inverted}>
+                {createElement(extra)}
+              </Icon>
+            )}
+          </Extra>
+        )}
+        {loading && (
+          <Extra disabled={disabled} inverted={inverted}>
             <Icon extra inverted={inverted}>
-              {createElement(extra)}
+              ...
             </Icon>
-          )}
-        </Extra>
-      )}
-    {loading && (
-      <Extra disabled={disabled} inverted={inverted}>
-        <Icon extra inverted={inverted}>
-          ...
-        </Icon>
-      </Extra>
+          </Extra>
+        )}
+      </div>
     )}
-  </FelaComponent>
+  />
 );
 
 export default MenuItem;
