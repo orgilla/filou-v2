@@ -1,6 +1,6 @@
 {
   "name": "@filou/router",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
@@ -26,7 +26,7 @@
     "bundle": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
-    "@filou/core": "^1.4.0",
+    "@filou/core": "^1.5.0",
     "@reach/router": "^1.2.1",
     "@types/history": "^4.7.2",
     "@types/reach__router": "^1.2.2",
