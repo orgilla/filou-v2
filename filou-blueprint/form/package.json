@@ -1,6 +1,6 @@
 {
   "name": "@filou/blueprint-form",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",

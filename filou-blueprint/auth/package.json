@@ -1,6 +1,6 @@
 {
   "name": "@filou/blueprint-auth",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@filou/blueprint": "^1.5.0",
-    "@filou/blueprint-form": "^1.5.0",
+    "@filou/blueprint-form": "^1.5.1",
     "@filou/core": "^1.5.0",
     "@filou/router": "^1.5.0",
     "@types/jwt-decode": "^2.2.1",
