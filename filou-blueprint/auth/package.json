@@ -1,6 +1,7 @@
 {
   "name": "@filou/blueprint-auth",
   "version": "1.4.0",
+  "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
   "esnext": "lib/es/index.js",
