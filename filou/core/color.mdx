@@ -51,7 +51,7 @@ const renderer = createRenderer();
                 <FelaComponent
                   rule={({ theme, color, palette }) => ({
                     backgroundColor: color.palette[palette],
-                    color: color.inverted[palette] ? theme.light : theme.dark,
+                    color: color.isDark[palette] ? theme.light : theme.dark,
                     padding: theme.space1,
                     margin: theme.space1,
                     minWidth: '10%'
