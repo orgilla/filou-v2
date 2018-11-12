@@ -14,77 +14,46 @@ const Button = ({
   color,
   palette,
   ...rest
-}: IBlueprintButton) => {
-  const theme = useTheme() as any;
-
-  return (
-    <BlueprintButton
-      intent={intent}
-      className={css({
-        '&.bp3-button': {
-          borderRadius: theme.borderRadius,
-          boxShadow: 'none',
-          backgroundImage: 'none',
+}: IBlueprintButton) => (
+  <BlueprintButton
+    intent={intent}
+    className={css({
+      '&.bp3-button': {
+        borderRadius: useTheme('borderRadius'),
+        boxShadow: 'none',
+        backgroundImage: 'none',
+        padding: `${useTheme('space2')} ${useTheme('space3')}`,
+        minHeight: 'auto',
+        ':hover': {
+          boxShadow: 'none'
+        },
+        '&.bp3-minimal': {
+          color: getColor(color, palette) || useTheme('dark'),
           ':hover': {
-            boxShadow: 'none'
-          },
-          '&.bp3-minimal': {
-            color: getColor(color, palette) || theme.dark,
-            ':hover': {
-              backgroundColor: getColor(color, 1) || theme.dark5,
-              color:
-                getColor(color, (palette || theme.palette) + 3) || theme.dark
-            }
-          },
-          ':not(.bp3-minimal)': {
-            backgroundColor: getColor(color, palette) || theme.dark5,
-            color: isDark(color, palette) ? theme.light : theme.dark,
-            ':hover': {
-              backgroundColor:
-                getColor(color, (palette || theme.palette) + 2) || theme.dark4,
-              color: isDark(color, palette) ? theme.light1 : theme.dark1
-            }
+            backgroundColor: getColor(color, 1) || useTheme('dark5'),
+            color:
+              getColor(color, (palette || useTheme('palette') || 7) + 3) ||
+              useTheme('dark')
+          }
+        },
+        ':not(.bp3-minimal)': {
+          backgroundColor: getColor(color, palette) || useTheme('dark5'),
+          color: isDark(color, palette) ? useTheme('light') : useTheme('dark'),
+          ':hover': {
+            backgroundColor:
+              getColor(color, (palette || useTheme('palette') || 7) + 2) ||
+              useTheme('dark4'),
+            color: isDark(color, palette)
+              ? useTheme('light1')
+              : useTheme('dark1')
           }
         }
-      })}
-      /*className={css(
-        (theme, c) => `
-        &.bp3-button {
-          border-radius: ${
-            typeof theme.borderRadius === 'number'
-              ? theme.borderRadius + 'px'
-              : theme.borderRadius
-          };
-          background-color: ${
-            color !== undefined ? c(color, palette) : theme.dark4
-          };
-
-          &:hover {
-            
-          }
-        } 
-
-        /* &.bp3-intent-primary:not(.bp3-minimal) {
-          color: ${theme.light};
-          background-color: ${theme.color};
-          :hover {
-            background-color: ${theme.dark4};
-          }
-        }
-        &.bp3-minimal.bp3-intent-primary {
-          color: ${theme.color};
-          background-color: 'transparent';
-          :hover {
-            background-color: ${theme.dark4};
-          }
-        }
-      `
-      )} */
-      {...rest}
-    >
-      {children}
-    </BlueprintButton>
-  );
-};
+      }
+    })}
+    {...rest}
+  >
+    {children}
+  </BlueprintButton>
+);
 
 export default Button;
