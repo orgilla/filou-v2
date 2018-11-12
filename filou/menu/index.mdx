@@ -4,7 +4,7 @@ name: Menu
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Provider, ThemeProvider, createRenderer } from '@filou/core';
+import { Provider, createRenderer } from '@filou/core';
 import { FaStar } from 'ficon';
 import FiconProvider from 'ficon-fela';
 import Menu from './src';
@@ -36,7 +36,14 @@ Buttons make common actions more obvious and help users more easily perform them
 <Playground>
   <Provider renderer={renderer}>
     <FiconProvider>
-      <div style={{ maxWidth: 400 }}>
+      <div
+        style={{
+          maxWidth: 400,
+          minHeight: 700,
+          display: 'flex',
+          flexDirection: 'column'
+        }}
+      >
         <Menu color="dark" inverted>
           <Menu.Header>
             <FaStar />
