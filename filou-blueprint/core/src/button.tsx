@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button as BlueprintButton, IButtonProps } from '@blueprintjs/core';
-import { css, useTheme, getColor } from '@filou/core';
+import { css, useTheme, getColor, isDark } from '@filou/core';
 
 interface IBlueprintButton extends IButtonProps {
   children?: React.ReactNode;
@@ -23,18 +23,27 @@ const Button = ({
       className={css({
         '&.bp3-button': {
           borderRadius: theme.borderRadius,
-          backgroundColor:
-            color !== undefined ? getColor(color, palette) : theme.dark5,
-          // color: getDark(color, palette) ? theme.light : theme.dark,
           boxShadow: 'none',
           backgroundImage: 'none',
           ':hover': {
-            backgroundColor:
-              color !== undefined
-                ? getColor(color, (palette || theme.palette) + 2)
-                : theme.dark4,
-            // color: getDark(color, palette) ? theme.light1 : theme.dark1,
             boxShadow: 'none'
+          },
+          '&.bp3-minimal': {
+            color: getColor(color, palette) || theme.dark,
+            ':hover': {
+              backgroundColor: getColor(color, 1) || theme.dark5,
+              color:
+                getColor(color, (palette || theme.palette) + 3) || theme.dark
+            }
+          },
+          ':not(.bp3-minimal)': {
+            backgroundColor: getColor(color, palette) || theme.dark5,
+            color: isDark(color, palette) ? theme.light : theme.dark,
+            ':hover': {
+              backgroundColor:
+                getColor(color, (palette || theme.palette) + 2) || theme.dark4,
+              color: isDark(color, palette) ? theme.light1 : theme.dark1
+            }
           }
         }
       })}

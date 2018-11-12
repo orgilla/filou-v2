@@ -4,7 +4,14 @@ name: Theming & Colors
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Provider, FelaComponent, createRenderer } from '@filou/core';
+import {
+  Provider,
+  ThemeProvider,
+  FelaComponent,
+  createRenderer,
+  materialTheme,
+  css
+} from '@filou/core';
 import { Button } from '@filou/blueprint';
 import materialColors from './src/material-colors';
 import '@blueprintjs/core/lib/css/blueprint.css';
@@ -15,15 +22,27 @@ const renderer = createRenderer();
 
 # Colors
 
+- getColors():
+- isDark():
+
 ## Usage
 
 <Playground>
   <Provider renderer={renderer}>
-    <Button>test</Button>
-    <Button color={0}>test</Button>
-    <Button color={0} minimal>
-      test
-    </Button>
+    <ThemeProvider theme={materialTheme()}>
+      <div
+        className={css({ display: 'flex', justifyContent: 'space-between' })}
+      >
+        <Button>Standart-Button</Button>
+        <Button color={0}>Button (color: 0)</Button>
+        <Button color={0} palette={4}>
+          Button (color: 0 palette: 4)
+        </Button>
+        <Button color={0} minimal>
+          Minimaler Button (color: 0)
+        </Button>
+      </div>
+    </ThemeProvider>
   </Provider>
 </Playground>
 
@@ -38,13 +57,15 @@ const renderer = createRenderer();
             color: color.palette[7],
             textAlign: 'center',
             display: 'flex',
-            flexDirection: 'column'
+            flexDirection: 'column',
+            flexGrow: 1,
+            flexBasis: '20%'
           }}
           color={color}
           key={color.palette[7]}
           render={({ className }) => (
-            <div>
-              <h4 className={className}>
+            <div className={className}>
+              <h4>
                 {j}: {color.color}
               </h4>
               {color.palette.map((palette, i) => (
@@ -53,8 +74,7 @@ const renderer = createRenderer();
                     backgroundColor: color.palette[palette],
                     color: color.isDark[palette] ? theme.light : theme.dark,
                     padding: theme.space1,
-                    margin: theme.space1,
-                    minWidth: '10%'
+                    margin: theme.space1
                   })}
                   color={color}
                   palette={i}

@@ -60,7 +60,8 @@ export const getColor = (
     return theme[color];
   } else if (typeof color === 'number') {
     if (theme.colors && theme.colors[color]) {
-      const p = palette !== undefined ? palette : theme.palette;
+      let p = palette !== undefined ? palette : theme.palette;
+      if (p > 9) p = 9;
 
       return theme.colors[color].palette[p];
     }
@@ -85,9 +86,10 @@ export const isDark = (
     return tinycolor(theme[color]).isLighten();
   } else if (typeof color === 'number') {
     if (color !== undefined && theme.colors && theme.colors[color]) {
-      const p = palette !== undefined ? palette : theme.palette;
+      let p = palette !== undefined ? palette : theme.palette;
+      if (p > 9) p = 9;
 
-      return theme.colors[color].inverted[p];
+      return theme.colors[color].isDark[p];
     }
   }
 

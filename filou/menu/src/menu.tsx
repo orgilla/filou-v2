@@ -9,7 +9,7 @@ import Title from './title';
 import Space from './space';
 import Extra from './extra';
 import Input from './input';
-import { FelaComponent, IFelaRule, getColor } from '@filou/core';
+import { css, cx, getColor, useTheme } from '@filou/core';
 
 export interface IMenuProps {
   inverted?: boolean;
@@ -24,12 +24,11 @@ interface IMenu extends IMenuProps {
   collapsed?: boolean;
 }
 
-const rule = ({ theme, color: backgroundColor, palette }: IFelaRule<IMenu>) => {
-  const { inverted } = theme;
+const rule = (color?: string | number | boolean, palette?: number) => {
   const width = '100%';
 
-  return {
-    fontFamily: theme.fontFamily,
+  return css({
+    fontFamily: useTheme('fontFamily'),
     display: 'flex',
     flexGrow: 1,
     flexDirection: 'column',
@@ -37,54 +36,49 @@ const rule = ({ theme, color: backgroundColor, palette }: IFelaRule<IMenu>) => {
     maxWidth: width,
     minWidth: width,
     height: '100%',
-    color: inverted ? theme.light : theme.dark,
-    backgroundColor: getColor(backgroundColor, palette),
-    padding: theme.space2,
+    color: useTheme('inverted') ? useTheme('light') : useTheme('dark'),
+    backgroundColor: getColor(color, palette),
+    padding: useTheme('space2'),
     overflowY: 'auto',
     overflowX: 'hidden',
     transition: 'all 200ms cubic-bezier(0.165, 0.84, 0.44, 1)'
-  };
+  });
 };
 
-class Menu extends React.Component<IMenu> {
-  static Item = Item;
-  static Content = Content;
-  static Icon = Icon;
-  static List = List;
-  static Title = Title;
-  static Extra = Extra;
-  static Space = Space;
-  static Header = Header;
-  static Divider = Divider;
-  static Input = Input;
+const Menu = ({
+  inverted,
+  size = 'medium',
+  color,
+  palette,
+  collapsed,
+  className,
+  children
+}: IMenu) => (
+  <div className={cx(rule(color, palette), className)}>
+    {React.Children.map(children, child =>
+      React.isValidElement(child)
+        ? React.cloneElement(child as React.ReactElement<any>, {
+            collapsed,
+            inverted:
+              child.props['inverted'] !== undefined
+                ? child.props['inverted']
+                : inverted,
+            size: child.props['size'] !== undefined ? child.props['size'] : size
+          })
+        : child
+    )}
+  </div>
+);
 
-  render() {
-    const {
-      inverted,
-      size = 'medium',
-      color,
-      collapsed,
-      className,
-      children
-    } = this.props;
-    return (
-      <FelaComponent rule={rule} className={className} color={color}>
-        {React.Children.map(children, child =>
-          React.isValidElement(child)
-            ? React.cloneElement(child as React.ReactElement<any>, {
-                collapsed,
-                inverted:
-                  child.props['inverted'] !== undefined
-                    ? child.props['inverted']
-                    : inverted,
-                size:
-                  child.props['size'] !== undefined ? child.props['size'] : size
-              })
-            : child
-        )}
-      </FelaComponent>
-    );
-  }
-}
+Menu.Item = Item;
+Menu.Content = Content;
+Menu.Icon = Icon;
+Menu.List = List;
+Menu.Title = Title;
+Menu.Extra = Extra;
+Menu.Space = Space;
+Menu.Header = Header;
+Menu.Divider = Divider;
+Menu.Input = Input;
 
 export default Menu;
