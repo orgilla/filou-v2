@@ -85,7 +85,7 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
         validate={validate}
         render={({ handleSubmit, submitting, pristine, valid }) => (
           <form onSubmit={handleSubmit}>
-            {title && <Text type="h1">{title}</Text>}
+            {title && <Text type="h2">{title}</Text>}
             {/* <Spinner intent={Intent.PRIMARY} /> */}
             <p>{description}</p>
             <br />

@@ -15,7 +15,8 @@ interface IAuthLayout {
 const rule = (height: string | number = '100%') =>
   css({
     '& h1': {
-      fontWeight: useTheme('fontWeight')
+      fontWeight: useTheme('fontWeight'),
+      textShadow: `0 0 10px ${useTheme('dark')}`
     },
     alignItems: 'stretch',
     flexDirection: 'row',
