@@ -1,4 +1,5 @@
 const tinycolor = require('tinycolor2');
+import { useTheme } from './theme';
 
 // COLOR-TRANSFORMATIONS
 export const lighten = (color: string, percent?: number) =>
@@ -46,10 +47,11 @@ export const gradient = (color1: string, color2: string, deg: number) => {
 };
 
 export const getColor = (
-  theme: any,
-  color?: string | number | boolean,
+  color: string | number | boolean | undefined,
   palette?: number
 ): string | undefined => {
+  const theme = useTheme() as any;
+
   if (color === true) {
     return theme.color;
   } else if (color === false) {
@@ -58,9 +60,9 @@ export const getColor = (
     return theme[color];
   } else if (typeof color === 'number') {
     if (theme.colors && theme.colors[color]) {
-      return theme.colors[color][
-        palette !== undefined ? palette : theme.palette
-      ];
+      const p = palette !== undefined ? palette : theme.palette;
+
+      return theme.colors[color].palette[p];
     }
 
     return undefined; // if no color found
@@ -69,6 +71,25 @@ export const getColor = (
   return color;
 };
 
-export const color = getColor;
+export const isDark = (
+  color: string | number | boolean | undefined,
+  palette?: number
+): boolean | undefined => {
+  const theme = useTheme() as any;
 
-export default getColor;
+  if (color === true) {
+    return tinycolor(theme.color).isLighten();
+  } else if (color === false) {
+    return undefined;
+  } else if (color !== undefined && theme[color]) {
+    return tinycolor(theme[color]).isLighten();
+  } else if (typeof color === 'number') {
+    if (color !== undefined && theme.colors && theme.colors[color]) {
+      const p = palette !== undefined ? palette : theme.palette;
+
+      return theme.colors[color].inverted[p];
+    }
+  }
+
+  return undefined; // if no color found
+};

@@ -22,7 +22,7 @@ const rule = ({ theme, color, palette, inverted }: IFelaRule<IMenuHeader>) => ({
   paddingTop: theme.space2,
   marginBottom: theme.space2,
   paddingBottom: theme.space2,
-  backgroundColor: getColor(theme, color, palette),
+  backgroundColor: getColor(color, palette),
   color: inverted ? theme.light : theme.dark,
   '> *': {
     width: '100%'

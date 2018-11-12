@@ -41,7 +41,7 @@ const rule = ({
   size,
   inverted
 }: IFelaRule<IMenuItem>) => {
-  const bgColor = getColor(theme, color, palette);
+  const bgColor = getColor(color, palette);
   const alpha = tinycolor(bgColor).getAlpha();
   const hoverColor = !bgColor
     ? inverted

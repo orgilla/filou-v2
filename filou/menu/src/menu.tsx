@@ -38,7 +38,7 @@ const rule = ({ theme, color: backgroundColor, palette }: IFelaRule<IMenu>) => {
     minWidth: width,
     height: '100%',
     color: inverted ? theme.light : theme.dark,
-    backgroundColor: getColor(theme, backgroundColor, palette),
+    backgroundColor: getColor(backgroundColor, palette),
     padding: theme.space2,
     overflowY: 'auto',
     overflowX: 'hidden',

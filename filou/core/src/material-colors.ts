@@ -11,8 +11,9 @@ const materialColors = [
       '#E53935',
       '#D32F2F',
       '#C62828',
-      '#B71C1C',
+      '#B71C1C'
     ],
+    isDark: [false, false, false, false, false, true, true, true, true, true]
   },
   {
     color: 'Pink',
@@ -26,8 +27,9 @@ const materialColors = [
       '#D81B60',
       '#C2185B',
       '#AD1457',
-      '#880E4F',
+      '#880E4F'
     ],
+    isDark: [false, false, false, false, true, true, true, true, true, true]
   },
   {
     color: 'Purple',
@@ -41,8 +43,9 @@ const materialColors = [
       '#8E24AA',
       '#7B1FA2',
       '#6A1B9A',
-      '#4A148C',
+      '#4A148C'
     ],
+    isDark: [false, false, false, false, true, true, true, true, true, true]
   },
   {
     color: 'Deep Purple',
@@ -56,8 +59,9 @@ const materialColors = [
       '#5E35B1',
       '#512DA8',
       '#4527A0',
-      '#311B92',
+      '#311B92'
     ],
+    isDark: [false, false, false, false, true, true, true, true, true, true]
   },
   {
     color: 'Indigo',
@@ -71,8 +75,9 @@ const materialColors = [
       '#3949AB',
       '#303F9F',
       '#283593',
-      '#1A237E',
+      '#1A237E'
     ],
+    isDark: [false, false, false, false, true, true, true, true, true, true]
   },
   {
     color: 'Blue',
@@ -86,8 +91,9 @@ const materialColors = [
       '#1E88E5',
       '#1976D2',
       '#1565C0',
-      '#0D47A1',
+      '#0D47A1'
     ],
+    isDark: [false, false, false, false, false, true, true, true, true, true]
   },
   {
     color: 'Light Blue',
@@ -101,8 +107,9 @@ const materialColors = [
       '#039BE5',
       '#0288D1',
       '#0277BD',
-      '#01579B',
+      '#01579B'
     ],
+    isDark: [false, false, false, false, false, true, true, true, true, true]
   },
   {
     color: 'Cyan',
@@ -116,8 +123,9 @@ const materialColors = [
       '#00ACC1',
       '#0097A7',
       '#00838F',
-      '#006064',
+      '#006064'
     ],
+    isDark: [false, false, false, false, false, false, true, true, true, true]
   },
   {
     color: 'Teal',
@@ -131,8 +139,9 @@ const materialColors = [
       '#00897B',
       '#00796B',
       '#00695C',
-      '#004D40',
+      '#004D40'
     ],
+    isDark: [false, false, false, false, true, true, true, true, true, true]
   },
   {
     color: 'Green',
@@ -146,8 +155,9 @@ const materialColors = [
       '#43A047',
       '#388E3C',
       '#2E7D32',
-      '#1B5E20',
+      '#1B5E20'
     ],
+    isDark: [false, false, false, false, false, false, true, true, true, true]
   },
   {
     color: 'Light Green',
@@ -161,8 +171,9 @@ const materialColors = [
       '#7CB342',
       '#689F38',
       '#558B2F',
-      '#33691E',
+      '#33691E'
     ],
+    isDark: [false, false, false, false, false, false, false, false, true, true]
   },
   {
     color: 'Lime',
@@ -176,8 +187,20 @@ const materialColors = [
       '#C0CA33',
       '#AFB42B',
       '#9E9D24',
-      '#827717',
+      '#827717'
     ],
+    isDark: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ]
   },
   {
     color: 'Yellow',
@@ -191,8 +214,20 @@ const materialColors = [
       '#FDD835',
       '#FBC02D',
       '#F9A825',
-      '#F57F17',
+      '#F57F17'
     ],
+    isDark: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
   },
   {
     color: 'Amber',
@@ -206,8 +241,20 @@ const materialColors = [
       '#FFB300',
       '#FFA000',
       '#FF8F00',
-      '#FF6F00',
+      '#FF6F00'
     ],
+    isDark: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
   },
   {
     color: 'Orange',
@@ -221,8 +268,20 @@ const materialColors = [
       '#FB8C00',
       '#F57C00',
       '#EF6C00',
-      '#E65100',
+      '#E65100'
     ],
+    isDark: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ]
   },
   {
     color: 'Deep Orange',
@@ -236,8 +295,9 @@ const materialColors = [
       '#F4511E',
       '#E64A19',
       '#D84315',
-      '#BF360C',
+      '#BF360C'
     ],
+    isDark: [false, false, false, false, false, false, true, true, true, true]
   },
   {
     color: 'Brown',
@@ -251,8 +311,9 @@ const materialColors = [
       '#6D4C41',
       '#5D4037',
       '#4E342E',
-      '#3E2723',
+      '#3E2723'
     ],
+    isDark: [false, false, false, false, true, true, true, true, true, true]
   },
   {
     color: 'Grey',
@@ -266,8 +327,9 @@ const materialColors = [
       '#757575',
       '#616161',
       '#424242',
-      '#212121',
+      '#212121'
     ],
+    isDark: [false, false, false, false, false, false, true, true, true, true]
   },
   {
     color: 'Blue Grey',
@@ -281,9 +343,10 @@ const materialColors = [
       '#546E7A',
       '#455A64',
       '#37474F',
-      '#263238',
+      '#263238'
     ],
-  },
+    isDark: [false, false, false, false, false, true, true, true, true, true]
+  }
 ];
 
 export default materialColors;

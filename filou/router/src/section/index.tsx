@@ -60,7 +60,7 @@ const ruleInner = ({
   position: 'absolute',
   display: 'flex',
   flexDirection: flexDirection || 'row',
-  backgroundColor: getColor(theme, backgroundColor),
+  backgroundColor: getColor(backgroundColor),
   width,
   height,
   top: 0,

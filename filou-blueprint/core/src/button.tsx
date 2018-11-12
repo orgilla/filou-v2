@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button as BlueprintButton, IButtonProps } from '@blueprintjs/core';
-import { css, getColor, getInverted } from '@filou/core';
+import { css, useTheme, getColor } from '@filou/core';
 
 interface IBlueprintButton extends IButtonProps {
   children?: React.ReactNode;
@@ -14,28 +14,31 @@ const Button = ({
   color,
   palette,
   ...rest
-}: IBlueprintButton) => (
-  <BlueprintButton
-    intent={intent}
-    className={css(theme => ({
-      '&.bp3-button': {
-        borderRadius: theme.borderRadius,
-        backgroundColor:
-          color !== undefined ? getColor(color, palette) : theme.dark5,
-        color: getInverted(color, palette) ? theme.light : theme.dark,
-        boxShadow: 'none',
-        backgroundImage: 'none',
-        ':hover': {
+}: IBlueprintButton) => {
+  const theme = useTheme() as any;
+
+  return (
+    <BlueprintButton
+      intent={intent}
+      className={css({
+        '&.bp3-button': {
+          borderRadius: theme.borderRadius,
           backgroundColor:
-            color !== undefined
-              ? getColor(color, (palette || theme.palette) + 2)
-              : theme.dark4,
-          color: getInverted(color, palette) ? theme.light1 : theme.dark1,
-          boxShadow: 'none'
+            color !== undefined ? getColor(color, palette) : theme.dark5,
+          // color: getDark(color, palette) ? theme.light : theme.dark,
+          boxShadow: 'none',
+          backgroundImage: 'none',
+          ':hover': {
+            backgroundColor:
+              color !== undefined
+                ? getColor(color, (palette || theme.palette) + 2)
+                : theme.dark4,
+            // color: getDark(color, palette) ? theme.light1 : theme.dark1,
+            boxShadow: 'none'
+          }
         }
-      }
-    }))}
-    /*className={css(
+      })}
+      /*className={css(
         (theme, c) => `
         &.bp3-button {
           border-radius: ${
@@ -68,10 +71,11 @@ const Button = ({
         }
       `
       )} */
-    {...rest}
-  >
-    {children}
-  </BlueprintButton>
-);
+      {...rest}
+    >
+      {children}
+    </BlueprintButton>
+  );
+};
 
 export default Button;
