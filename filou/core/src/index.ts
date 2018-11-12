@@ -18,7 +18,7 @@ export { default as isOSX } from './is-osx';
 export { default as isWindows } from './is-windows';
 export { default as Container } from './container';
 export { default as FlexGrid } from './flex-grid';
-export { cx } from 'emotion';
+export { css, cx } from 'emotion';
 export * from './flex-grid';
 export { default as createElement } from './create-element';
 export * from './create-element';

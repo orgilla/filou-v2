@@ -1,14 +1,6 @@
 import * as React from 'react';
-import { css as c, Interpolation } from 'emotion';
 
 const Context = React.createContext({});
-
-export function css(content: ((theme: object) => Interpolation)): string {
-  const theme = React['useContext'](Context) || {};
-
-  if (typeof content === 'function') return c(content(theme));
-  return c(content);
-}
 
 export function useTheme<T>(field?: string) {
   const theme = React['useContext'](Context);
