@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { css as c, Interpolation } from 'emotion';
-import { getColor } from './utils';
 
 const Context = React.createContext({});
 
-export function css(content: ((utils: object) => Interpolation)): string {
+export function css(content: ((theme: object) => Interpolation)): string {
   const theme = React['useContext'](Context) || {};
 
-  if (typeof content === 'function') return c(content({ theme, getColor }));
+  if (typeof content === 'function') return c(content(theme));
   return c(content);
 }
 
