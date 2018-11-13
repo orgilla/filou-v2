@@ -1,4 +1,4 @@
-const getTheme = (theme: object = {}) => ({
+const theme = {
   palette: 7,
   // linkAnimations: animations,
 
@@ -53,9 +53,7 @@ const getTheme = (theme: object = {}) => ({
   fontSizeH3: '1.375rem',
   fontSizeH4: '1.25rem',
   fontSizeH5: '1.125rem',
-  fontSizeH6: '1.05rem',
+  fontSizeH6: '1.05rem'
+};
 
-  ...theme
-});
-
-export default getTheme;
+export default theme;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { css } from 'emotion';
+import { css, cx } from 'emotion';
 import { useTheme } from '@filou/core';
 
 interface IBanner {
@@ -77,7 +77,7 @@ const rule = (theme: any, backgroundImage?: string) =>
 function Banner({ children, className, backgroundImage }: IBanner) {
   const theme = useTheme();
   return (
-    <div className={rule(theme, backgroundImage)}>
+    <div className={cx(className, rule(theme, backgroundImage))}>
       <div>{children}</div>
     </div>
   );

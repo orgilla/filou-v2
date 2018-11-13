@@ -33,7 +33,9 @@ const FilouProvider: React.ComponentType<FilouProviderProps> = ({
   }
   return (
     <FixedProvider renderer={renderer} rehydrate={rehydrate} {...props}>
-      <ThemeProvider theme={defaultTheme(theme)}>{children}</ThemeProvider>
+      <ThemeProvider theme={{ ...defaultTheme, ...theme }}>
+        {children}
+      </ThemeProvider>
     </FixedProvider>
   );
 };
