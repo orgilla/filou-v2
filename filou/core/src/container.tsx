@@ -16,9 +16,11 @@ const rule = ({
   height,
   marginTop,
   position: 'relative',
-  marginX: 'auto',
+  marginLeft: 'auto',
+  marginRight: 'auto',
   '> div': {
-    paddingX: theme.space2
+    paddingLeft: theme.space2,
+    paddingRight: theme.space2
   },
   onAfter: {
     content: '""',

@@ -9,7 +9,8 @@ const rule = ({
   theme: any;
   marginLeft: string | boolean | number;
 }) => ({
-  paddingX: 8,
+  paddingLeft: 8,
+  paddingRight: 8,
   color: theme.light,
   minWidth: 22,
   height: 22,

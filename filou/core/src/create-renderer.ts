@@ -19,7 +19,7 @@ export default ({ ua }: CreateRendererProps = {}) => {
     window['renderer'].clear();
     return window['renderer'];
   }
-  const browser = ua && ua.getBrowser && ua.getBrowser();
+  /* const browser = ua && ua.getBrowser && ua.getBrowser();
   const isBrowser = (type: string, maxVersion: number, minVersion?: number) => {
     if (!browser) {
       return false;
@@ -33,7 +33,7 @@ export default ({ ua }: CreateRendererProps = {}) => {
     }
 
     return browser.name === type && parseInt(browser.major, 10) <= maxVersion;
-  };
+  }; */
 
   const renderer = createRenderer({
     // selectorPrefix: 'o-',
@@ -63,7 +63,7 @@ export default ({ ua }: CreateRendererProps = {}) => {
       friendlyPseudoClass(),
       //@ts-ignore
       customProperty({
-        size: (size?: Number | string) => ({
+        /* size: (size?: Number | string) => ({
           width: size,
           height: size
         }),
@@ -176,7 +176,7 @@ export default ({ ua }: CreateRendererProps = {}) => {
           }
 
           return { display: 'block' };
-        }
+        } */
       })
       // removeUndefined(),
     ]

@@ -46,7 +46,8 @@ const rule = ({ theme, extra, inverted, size: s }: IFelaRule<IMenuIcon>) => {
       color: inverted ? theme.light : theme.dark
     },
     '& img': {
-      size: Math.floor(size * 1.4),
+      width: Math.floor(size * 1.4),
+      height: Math.floor(size * 1.4),
       borderRadius: theme.borderRadius
     }
   };

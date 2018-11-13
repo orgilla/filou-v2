@@ -3,8 +3,6 @@ import { FelaComponent, IFelaRule } from '@filou/core';
 import { IMenuProps } from './menu';
 
 export interface IMenuExtra extends IMenuProps {
-  children?: React.ReactNode;
-  className?: string;
   onClick?: any;
   disabled?: boolean;
 }
@@ -20,18 +18,25 @@ const rule = ({
   inverted,
   isString
 }: IFelaRule<IMenuExtraRule>) => ({
-  size: !isString && 22,
+  width: !isString && 22,
+  height: !isString && 22,
   padding: isString && theme.space1,
   marginRight: 0,
   borderRadius: isString ? theme.borderRadius : '50%',
   position: 'relative',
   cursor: onClick && !disabled ? 'pointer' : undefined,
   opacity: disabled ? 0.67 : 1,
-  ellipsis: true,
+  whiteSpace: 'nowrap',
+  overflowX: 'hidden',
+  textOverflow: 'ellipsis',
+  maxWidth: '100%',
   color: inverted ? theme.light2 : theme.dark2,
   fontSize: '80%',
   '> *': {
-    center: true
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
   },
   onHover: {
     backgroundColor:

@@ -10,15 +10,16 @@ import Extra from './extra';
 import { IMenuProps } from './menu';
 
 export interface IMenuTitle extends IMenuProps {
-  children?: React.ReactNode;
-  className?: string;
   onClick?: any;
   extra?: ElementType;
 }
 
 const rule = ({ theme, inverted }: IFelaRule<IMenuTitle>) => ({
   color: inverted ? theme.light2 : theme.dark2,
-  ellipsis: true,
+  whiteSpace: 'nowrap',
+  overflowX: 'hidden',
+  textOverflow: 'ellipsis',
+  maxWidth: '100%',
   textTransform: 'uppercase',
   fontSize: theme.fontSizeSmall,
   margin: theme.space1,

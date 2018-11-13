@@ -15,8 +15,10 @@ const rule = ({ theme }: { theme: any }) => ({
     // boxShadow: '0 1px 0 #ebebec',
     border: 0,
     borderRadius: theme.borderRadius,
-    paddingY: theme.space1,
-    paddingX: 0,
+    paddingTop: theme.space1,
+    paddingBottom: theme.space1,
+    paddingLeft: 0,
+    paddingRight: 0,
     '> legend': {
       fontSize: '0.87055rem',
       color: theme.light
@@ -35,7 +37,8 @@ const rule = ({ theme }: { theme: any }) => ({
     fontSize: theme.fontSize,
     fontFamily: theme.fontFamily,
     fontWeight: theme.fontWeight,
-    paddingY: 5,
+    paddingTop: 5,
+    paddingBottom: 5,
     marginBottom: 5
   },
   '> fieldset > textarea': {
@@ -53,8 +56,10 @@ const rule = ({ theme }: { theme: any }) => ({
   '> button': {
     backgroundColor: theme.light,
     marginTop: 10,
-    paddingX: 20,
-    paddingY: 5,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 5,
+    paddingBottom: 5,
     color: theme.color,
     fontSize: theme.fontSize,
     fontFamily: theme.fontFamily,

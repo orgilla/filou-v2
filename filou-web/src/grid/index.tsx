@@ -39,13 +39,15 @@ const ruleItem = ({ theme, subtitle, background }: IFelaRule<IGridItem>) => ({
   textDecoration: 'none',
   backgroundColor: background,
   '> h3': {
-    paddingX: background ? 5 : 0,
+    paddingLeft: background ? 5 : 0,
+    paddingRight: background ? 5 : 0,
     margin: 0,
     marginBottom: subtitle ? 5 : 20,
     fontWeight: 300
   },
   '> h4': {
-    paddingX: background ? 5 : 0,
+    paddingLeft: background ? 5 : 0,
+    paddingRight: background ? 5 : 0,
     margin: 0,
     marginBottom: 20,
     opacity: 0.8,

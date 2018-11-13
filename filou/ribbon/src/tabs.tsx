@@ -6,7 +6,8 @@ const rule = ({ theme }: { theme: any }) => ({
   flexDirection: 'row',
   minHeight: 22,
   maxHeight: 22,
-  // paddingX: 12,
+  // paddingLeft: 12,
+  // paddingRight: 12,
   backgroundColor: theme.color,
   '> .active': {
     backgroundColor: 'white',

@@ -7,7 +7,8 @@ import { useDark } from './context';
 const rule = ({ theme, dark = false }: { theme: any; dark: boolean }) => ({
   display: 'flex',
   flexDirection: 'row',
-  paddingX: 8,
+  paddingLeft: 8,
+  paddingRight: 8,
   minHeight: 48,
   maxHeight: 48,
   alignContent: 'center',
@@ -40,9 +41,12 @@ const rule = ({ theme, dark = false }: { theme: any; dark: boolean }) => ({
         }
       },
   '> a': {
-    marginY: 8,
-    marginX: 0,
-    paddingX: 12,
+    marginTop: 8,
+    marginBottom: 8,
+    marginLeft: 0,
+    marginRight: 0,
+    paddingLeft: 12,
+    paddingRight: 12,
     color: dark ? theme.light : theme.dark,
     minWidth: 22,
     display: 'flex',
@@ -60,9 +64,12 @@ const rule = ({ theme, dark = false }: { theme: any; dark: boolean }) => ({
     }
   },
   '> span': {
-    marginY: 6,
-    marginX: 0,
-    paddingX: 6,
+    marginTop: 6,
+    marginBottom: 6,
+    marginLeft: 0,
+    marginRight: 0,
+    paddingLeft: 6,
+    paddingRight: 6,
     color: dark ? theme.light : theme.dark,
     minWidth: 22,
     display: 'flex',

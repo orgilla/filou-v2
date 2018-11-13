@@ -38,7 +38,8 @@ const NavBar: React.SFC<INavBar> = ({ logo: Logo, nav = [] }) => (
             top: 0,
             left: 0,
             width: '100%',
-            marginY: 20,
+            marginTop: 20,
+            marginBottom: 20,
             boxShadow: top > 50 + 28 ? theme.boxShadow : undefined
           })}
         >

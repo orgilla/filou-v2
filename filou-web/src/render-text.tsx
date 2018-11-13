@@ -27,7 +27,8 @@ const renderText = (item: any = [], index: any = 0): React.ReactNode => {
           ifSmallDown: {
             width: '100%',
             maxWidth: 200,
-            marginX: 'auto',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             float: 'initial'
           }
         }}

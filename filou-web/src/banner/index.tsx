@@ -22,7 +22,8 @@ const Banner: React.SFC<IBanner> = ({ src, title, description }) => (
         margin: 0
       },
       '> div > div': {
-        paddingY: 20
+        paddingTop: 20,
+        paddingBottom: 20
       },
       overflow: 'hidden',
       background: `url(${src}) no-repeat center center`,

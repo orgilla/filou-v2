@@ -3,19 +3,24 @@ import { FelaComponent, IFelaRule } from '@filou/core';
 import { IMenuProps } from './menu';
 
 export interface IMenuContent extends IMenuProps {
-  children?: React.ReactNode;
-  className?: string;
   subtitle?: string;
 }
 
 const rule = ({ theme, inverted }: IFelaRule<IMenuContent>) => ({
-  ellipsis: true,
+  whiteSpace: 'nowrap',
+  overflowX: 'hidden',
+  textOverflow: 'ellipsis',
+  maxWidth: '100%',
   flexGrow: 1,
   overflowY: 'hidden',
   color: inverted ? theme.light : theme.dark,
-  marginX: theme.space1,
+  marginLeft: theme.space1,
+  marginRight: theme.space1,
   '> small': {
-    ellipsis: true,
+    whiteSpace: 'nowrap',
+    overflowX: 'hidden',
+    textOverflow: 'ellipsis',
+    maxWidth: '100%',
     display: 'block',
     marginTop: `-${theme.space1}`,
     color: inverted ? theme.light2 : theme.dark2

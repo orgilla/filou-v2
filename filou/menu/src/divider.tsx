@@ -2,9 +2,7 @@ import * as React from 'react';
 import { FelaComponent, IFelaRule, border } from '@filou/core';
 import { IMenuProps } from './menu';
 
-export interface IMenuDivider extends IMenuProps {
-  className?: string;
-}
+export interface IMenuDivider extends IMenuProps {}
 
 const rule = ({ theme, inverted }: IFelaRule<IMenuDivider>) => ({
   width: '100%',
