@@ -35,13 +35,14 @@ const rule = ({
   active,
   onClick,
   color,
-  palette,
+  // palette,
   disabled,
   collapsed,
   size,
   inverted
 }: IFelaRule<IMenuItem>) => {
-  const bgColor = getColor(color, palette);
+  // const bgColor = getColor(color, palette);
+  const bgColor = color;
   const alpha = tinycolor(bgColor).getAlpha();
   const hoverColor = !bgColor
     ? inverted

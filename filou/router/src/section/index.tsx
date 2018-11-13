@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Router, Match } from '@reach/router';
-import { FelaComponent, IFelaRule, getColor } from '@filou/core';
+import { FelaComponent, IFelaRule } from '@filou/core';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import ResizeHandler from 'react-resize-detector';
 import ErrorBoundary from '../error-boundary';
@@ -47,7 +47,7 @@ const rule = ({
 });
 
 const ruleInner = ({
-  theme,
+  // theme,
   flexDirection,
   state,
   app,
@@ -60,7 +60,8 @@ const ruleInner = ({
   position: 'absolute',
   display: 'flex',
   flexDirection: flexDirection || 'row',
-  backgroundColor: getColor(backgroundColor),
+  // backgroundColor: getColor(backgroundColor),
+  backgroundColor,
   width,
   height,
   top: 0,
