@@ -2,18 +2,9 @@ import * as React from 'react';
 import { cx, css, getColor, useTheme } from '@filou/core';
 import { IMenuProps } from './menu';
 
-export interface IMenuHeader extends IMenuProps {
-  children?: React.ReactNode;
-  className?: string;
-  color?: string | number | boolean;
-  palette?: number;
-}
+export interface IMenuHeader extends IMenuProps {}
 
-const rule = (
-  color?: string | number | boolean,
-  palette?: number,
-  inverted?: boolean
-) =>
+const rule = ({ color, palette, inverted }: IMenuHeader) =>
   css({
     // minHeight: 72,
     display: 'flex',
@@ -21,25 +12,29 @@ const rule = (
     flexShrink: 0,
     alignItems: 'center',
     fontSize: '120%',
-    marginX: -9,
-    // paddingX: 9,
+    marginLeft: -9,
+    marginRight: -9,
+    // paddingLeft: 9,
+    // paddingRight: 9,
     marginTop: `-${useTheme('space2')}`,
     paddingTop: useTheme('space2'),
     marginBottom: useTheme('space2'),
     paddingBottom: useTheme('space2'),
     backgroundColor: getColor(color, palette),
-    color: inverted ? useTheme('light') : useTheme('dark')
-    /* '> *': {
+    color: inverted ? useTheme('light') : useTheme('dark'),
+    '> *': {
       width: '100%'
     },
     '& svg': {
-      size: 36,
-      fill: inverted ? useTheme('light') : useTheme('dark')
+      width: 36,
+      height: 36,
+      fill: (inverted ? useTheme('light') : useTheme('dark')) + ''
     },
     '& img': {
-      size: 48,
+      width: 48,
+      height: 48,
       borderRadius: useTheme('borderRadius')
-    } */
+    }
   });
 
 const MenuHeader = ({
@@ -49,7 +44,7 @@ const MenuHeader = ({
   palette,
   inverted
 }: IMenuHeader) => (
-  <div className={cx(rule(color, palette, inverted), className)}>
+  <div className={cx(rule({ color, palette, inverted }), className)}>
     {children}
   </div>
 );

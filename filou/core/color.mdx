@@ -9,11 +9,11 @@ import {
   ThemeProvider,
   FelaComponent,
   createRenderer,
-  materialTheme,
-  css
+  materialColors,
+  css,
+  defaultTheme
 } from '@filou/core';
 import { Button } from '@filou/blueprint';
-import materialColors from './src/material-colors';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/select/lib/css/blueprint-select.css';
 const renderer = createRenderer();
@@ -29,17 +29,17 @@ const renderer = createRenderer();
 
 <Playground>
   <Provider renderer={renderer}>
-    <ThemeProvider theme={materialTheme()}>
+    <ThemeProvider theme={{ ...defaultTheme, colors: materialColors }}>
       <div
         className={css({ display: 'flex', justifyContent: 'space-between' })}
       >
-        <Button>Standart-Button</Button>
+        <Button>Standart Button</Button>
         <Button color={0}>Button (color: 0)</Button>
         <Button color={0} palette={4}>
           Button (color: 0 palette: 4)
         </Button>
         <Button color={0} minimal>
-          Minimaler Button (color: 0)
+          Minimal Button (color: 0)
         </Button>
       </div>
     </ThemeProvider>

@@ -12,19 +12,18 @@ import Input from './input';
 import { css, cx, getColor, useTheme } from '@filou/core';
 
 export interface IMenuProps {
-  inverted?: boolean;
-  size?: 'large' | 'medium' | 'small';
-}
-
-interface IMenu extends IMenuProps {
   children?: React.ReactNode;
   className?: string;
+  inverted?: boolean;
+  size?: 'large' | 'medium' | 'small';
   color?: string | number | boolean;
   palette?: number;
   collapsed?: boolean;
 }
 
-const rule = (color?: string | number | boolean, palette?: number) => {
+interface IMenu extends IMenuProps {}
+
+const rule = ({ color, palette }: IMenu) => {
   const width = '100%';
 
   return css({
@@ -54,7 +53,7 @@ const Menu = ({
   className,
   children
 }: IMenu) => (
-  <div className={cx(rule(color, palette), className)}>
+  <div className={cx(rule({ color, palette }), className)}>
     {React.Children.map(children, child =>
       React.isValidElement(child)
         ? React.cloneElement(child as React.ReactElement<any>, {

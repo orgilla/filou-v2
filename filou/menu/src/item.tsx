@@ -1,9 +1,11 @@
 import * as React from 'react';
 import {
-  FelaComponent,
-  IFelaRule,
+  cx,
+  css,
   ElementType,
-  createElement
+  createElement,
+  getColor,
+  useTheme
 } from '@filou/core';
 import { IMenuProps } from './menu';
 import Content from './content';
@@ -12,41 +14,34 @@ import Extra from './extra';
 const tinycolor = require('tinycolor2');
 
 export interface IMenuItem extends IMenuProps {
-  children?: React.ReactNode;
-  className?: string;
   subtitle?: string;
   icon?: ElementType;
   extra?: ElementType;
   _ref?: (element: HTMLElement | null) => any;
   innerRef?: React.RefObject<HTMLDivElement>;
   ref?: React.RefObject<HTMLDivElement>;
-  color?: string | number | boolean;
-  palette?: number;
   onClick?: any;
   loading?: boolean;
   active?: boolean;
   disabled?: boolean;
-  collapsed?: boolean;
 }
 
 const rule = ({
-  theme,
   active,
   onClick,
   color,
-  // palette,
+  palette,
   disabled,
   collapsed,
   size,
   inverted
-}: IFelaRule<IMenuItem>) => {
-  // const bgColor = getColor(color, palette);
-  const bgColor = color;
+}: IMenuItem) => {
+  const bgColor = getColor(color, palette);
   const alpha = tinycolor(bgColor).getAlpha();
   const hoverColor = !bgColor
     ? inverted
-      ? theme.light4
-      : theme.dark4
+      ? useTheme('light4')
+      : useTheme('dark4')
     : (alpha === 1 &&
         (inverted
           ? tinycolor(bgColor)
@@ -74,36 +69,42 @@ const rule = ({
       break;
   }
 
-  return {
-    width: collapsed && height,
+  console.log(size === 'small' ? 2 : useTheme('space1'));
+
+  return css({
+    width: collapsed ? height : 'auto',
     height,
     flexShrink: 0,
-    marginY: size === 'small' ? 2 : theme.space1,
-    paddingLeft: theme.space1,
-    paddingRight: theme.space2,
+    marginTop: size === 'small' ? 2 : useTheme('space1'),
+    marginBottom: size === 'small' ? 2 : useTheme('space1'),
+    paddingLeft: useTheme('space1'),
+    paddingRight: useTheme('space2'),
     display: 'flex',
     alignItems: 'center',
-    alignSelf: collapsed && 'center',
-    justifyContent: collapsed && 'center',
-    cursor: !!onClick && !disabled && 'pointer',
-    borderRadius: collapsed ? '50%' : theme.borderRadius,
+    alignSelf: collapsed ? 'center' : 'initial',
+    justifyContent: collapsed ? 'center' : 'initial',
+    cursor: !!onClick && !disabled ? 'pointer' : 'initial',
+    borderRadius: collapsed ? '50%' : useTheme('borderRadius'),
     opacity: disabled ? 0.67 : 1,
     backgroundColor:
       (!!bgColor && !!active && hoverColor) ||
       bgColor ||
-      (!!active && theme.dark4),
-    color: inverted ? theme.light : theme.dark,
+      (!!active && useTheme('dark4')),
+    color: (inverted ? useTheme('light') : useTheme('dark')) + '',
     userSelect: 'none',
     onHover: {
       backgroundColor: !!onClick && !disabled && hoverColor
     },
     '> *': collapsed && {
-      ellipsis: true,
+      whiteSpace: 'nowrap',
+      overflowX: 'hidden',
+      textOverflow: 'ellipsis',
+      maxWidth: '100%',
       '&:not(:first-child)': {
         display: 'none'
       }
     }
-  };
+  });
 };
 
 const MenuItem = ({
@@ -120,64 +121,67 @@ const MenuItem = ({
   className,
   inverted,
   size,
-  ...rest
+  active,
+  color,
+  palette,
+  collapsed
 }: IMenuItem) => (
-  <FelaComponent
-    rule={rule}
-    className={className}
-    inverted={inverted}
-    size={size}
-    disabled={disabled}
-    onClick={onClick}
-    {...rest}
-    render={({ className }) => (
-      <div
-        className={className}
-        ref={_ref || innerRef || ref}
-        onClick={disabled ? undefined : onClick}
-      >
-        {!!icon && (
-          <Icon size={size} inverted={inverted}>
-            {createElement(icon)}
+  <div
+    className={cx(
+      rule({
+        active,
+        onClick,
+        color,
+        palette,
+        disabled,
+        collapsed,
+        size,
+        inverted
+      }),
+      className
+    )}
+    ref={_ref || innerRef || ref}
+    onClick={disabled ? undefined : onClick}
+  >
+    {!!icon && (
+      <Icon size={size} inverted={inverted}>
+        {createElement(icon)}
+      </Icon>
+    )}
+    {React.Children.map(children, child =>
+      React.isValidElement(child) ? (
+        React.cloneElement(child as React.ReactElement<any>, {
+          inverted:
+            child.props['inverted'] !== undefined
+              ? child.props['inverted']
+              : inverted,
+          size: child.props['size'] !== undefined ? child.props['size'] : size
+        })
+      ) : (
+        <Content inverted={inverted} subtitle={subtitle}>
+          {child}
+        </Content>
+      )
+    )}
+    {!!extra && !loading && (
+      <Extra disabled={disabled} inverted={inverted}>
+        {typeof extra === 'string' ? (
+          extra
+        ) : (
+          <Icon extra inverted={inverted}>
+            {createElement(extra)}
           </Icon>
         )}
-        {React.Children.map(children, child =>
-          React.isValidElement(child) ? (
-            React.cloneElement(child as React.ReactElement<any>, {
-              inverted:
-                child.props['inverted'] !== undefined
-                  ? child.props['inverted']
-                  : inverted,
-              size:
-                child.props['size'] !== undefined ? child.props['size'] : size
-            })
-          ) : (
-            <Content inverted={inverted} subtitle={subtitle}>
-              {child}
-            </Content>
-          )
-        )}
-        {!!extra && !loading && (
-          <Extra disabled={disabled} inverted={inverted}>
-            {typeof extra === 'string' ? (
-              extra
-            ) : (
-              <Icon extra inverted={inverted}>
-                {createElement(extra)}
-              </Icon>
-            )}
-          </Extra>
-        )}
-        {loading && (
-          <Extra disabled={disabled} inverted={inverted}>
-            <Icon extra inverted={inverted}>
-              ...
-            </Icon>
-          </Extra>
-        )}
-      </div>
+      </Extra>
     )}
-  />
+    {loading && (
+      <Extra disabled={disabled} inverted={inverted}>
+        <Icon extra inverted={inverted}>
+          ...
+        </Icon>
+      </Extra>
+    )}
+  </div>
 );
 
 export default MenuItem;
