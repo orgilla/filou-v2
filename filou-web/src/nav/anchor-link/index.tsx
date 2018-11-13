@@ -8,7 +8,7 @@ interface IAnchorLink {
 }
 const rule = ({ theme, active }: IFelaRule<IAnchorLink>) => ({
   marginLeft: 20,
-  ifMediumDown: {
+  '@media (max-width: 991px)': {
     marginLeft: 10
   },
   color: theme.dark,

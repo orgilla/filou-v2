@@ -45,7 +45,7 @@ export default ({ ua }: CreateRendererProps = {}) => {
       unit(),
       namedKeys({
         // From
-        ifHugeUp: '@media (min-width: 1200px)',
+        /* ifHugeUp: '@media (min-width: 1200px)',
         ifLargeUp: '@media (min-width: 992px)',
         ifMediumUp: '@media (min-width: 768px)',
         ifSmallUp: '@media (min-width: 480px)',
@@ -58,7 +58,7 @@ export default ({ ua }: CreateRendererProps = {}) => {
         ifLarge: '@media (max-width: 1199px, min-width: 992)',
         ifMedium: '@media (max-width: 991px, min-width: 768)',
         ifSmall: '@media (max-width: 767px, min-width: 480)',
-        ifMini: '@media (max-width: 479px)'
+        ifMini: '@media (max-width: 479px)' */
       }),
       friendlyPseudoClass(),
       //@ts-ignore

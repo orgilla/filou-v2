@@ -8,7 +8,7 @@ const NavBarNav: React.StatelessComponent = ({ children }) => (
   <FelaComponent
     style={{
       display: 'flex',
-      ifSmallDown: {
+      '@media (max-width: 767px)': {
         display: 'none'
       }
     }}

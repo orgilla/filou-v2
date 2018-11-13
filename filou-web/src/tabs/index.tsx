@@ -19,11 +19,11 @@ const rule = ({ inverted = false, state = null }) => ({
   textAlign: 'right',
   '& img': {
     transform: 'translateX(-25px)',
-    ifSmallDown: {
+    '@media (max-width: 767px)': {
       transform: 'none'
     }
   },
-  ifSmallDown: {
+  '@media (max-width: 767px)': {
     textAlign: 'center'
   },
   extend: [
@@ -70,7 +70,7 @@ interface ITabs {
 
 const style = {
   // textAlign: 'right',
-  ifSmallDown: {
+  '@media (max-width: 767px)': {
     '> div > div > div': {
       flexDirection: 'column-reverse',
       textAlign: 'center'
@@ -133,7 +133,7 @@ const Tabs: React.SFC<ITabs> = ({
                     listStyleType: 'none',
                     padding: 0,
                     // textAlign: 'right',
-                    ifSmallDown: {
+                    '@media (max-width: 767px)': {
                       textAlign: 'center'
                     },
                     '> li': {

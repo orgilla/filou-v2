@@ -1,5 +1,5 @@
-import * as React from "react";
-import FelaComponent from "./fela-component";
+import * as React from 'react';
+import FelaComponent from './fela-component';
 
 export interface IGrid extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
@@ -25,8 +25,8 @@ const gridItemRule = ({
   gutter: number;
 }) => ({
   width: `${calcWidth - (calcWidth === 100 ? 0 : gutter)}%`,
-  ifSmallDown: { width: "100%" },
-  position: "relative"
+  '@media (max-width: 767px)': { width: '100%' },
+  position: 'relative'
 });
 const GridItem: React.SFC<IGridItem> = ({
   children,
@@ -51,14 +51,14 @@ const GridItem: React.SFC<IGridItem> = ({
 };
 
 const rule = ({ verticalGutter }: { verticalGutter?: number | string }) => ({
-  display: "flex",
-  justifyContent: "space-between",
-  flexWrap: "wrap",
-  "> *": {
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexWrap: 'wrap',
+  '> *': {
     marginBottom: verticalGutter
   },
-  "> *:not(:last-child)": {
-    ifSmallDown: { marginBottom: "2em" }
+  '> *:not(:last-child)': {
+    '@media (max-width: 767px)': { marginBottom: '2em' }
   }
 });
 class Grid extends React.Component<IGrid> {

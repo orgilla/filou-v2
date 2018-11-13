@@ -24,7 +24,7 @@ const renderText = (item: any = [], index: any = 0): React.ReactNode => {
           float: 'left',
           width: '200px',
           height: 'auto',
-          ifSmallDown: {
+          '@media (max-width: 767px)': {
             width: '100%',
             maxWidth: 200,
             marginLeft: 'auto',
