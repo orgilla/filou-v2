@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   FelaComponent,
   IFelaRule,
-  getColor,
   ElementType,
   createElement
 } from '@filou/core';
