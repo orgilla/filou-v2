@@ -4,7 +4,7 @@
     "filou/*",
     "filou-blueprint/*"
   ],
-  "version": "1.5.1",
+  "version": "1.5.2",
   "npmClient": "yarn",
   "useWorkspaces": true
 }
