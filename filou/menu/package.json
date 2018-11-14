@@ -29,7 +29,7 @@
     "@filou/core": "^1.5.2",
     "@types/react-beautiful-dnd": "^7.1.2",
     "@types/react-portal": "^4.0.1",
-    "react-beautiful-dnd": "^10.0.0",
+    "react-beautiful-dnd": "^10.0.1",
     "react-portal": "^4.1.5"
   },
   "devDependencies": {
