@@ -26,3 +26,5 @@ export * from './utils';
 export { default as electronErrorReporter } from './electron-error-reporter';
 export { default as electronPopup } from './electron-popup';
 export * from './theme';
+export { default as DarkProvider } from './dark';
+export * from './dark';
