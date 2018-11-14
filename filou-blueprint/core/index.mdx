@@ -1,0 +1,53 @@
+---
+menu: Filou Blueprint Components
+name: Button
+---
+
+import { Playground, PropsTable } from 'docz';
+import {
+  DarkProvider,
+  Provider,
+  createRenderer,
+  ThemeProvider
+} from '@filou/core';
+import '@blueprintjs/core/lib/css/blueprint.css';
+import '@blueprintjs/select/lib/css/blueprint-select.css';
+import { Button } from './src';
+const renderer = createRenderer();
+
+# Button
+
+...
+
+## Button
+
+<PropsTable of={Button} />
+
+## Examples
+
+### Basic
+
+<Playground>
+  <Provider renderer={renderer}>
+    <ThemeProvider theme={{ color: '#FBC02D', fontWeight: 300, dark: '#000' }}>
+      <Button>Default</Button>
+      <Button minimal intent="primary">
+        Minimal Primary
+      </Button>
+      <Button minimal intent="danger">
+        Minimal Danger
+      </Button>
+      <div style={{ backgroundColor: 'black' }}>
+        <DarkProvider dark>
+          <Button>Default</Button>
+          <Button minimal intent="primary">
+            Minimal Primary
+          </Button>
+          <Button minimal intent="danger">
+            Minimal Danger
+          </Button>
+        </DarkProvider>
+      </div>
+    </ThemeProvider>
+  </Provider>
+</Playground>
