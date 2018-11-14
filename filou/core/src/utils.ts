@@ -21,6 +21,68 @@ export const fade = (color: string, percent = 67) =>
 
 // BORDERS
 
+export type Orientation = 'X' | 'Y';
+const TOP = 'Top';
+const RIGHT = 'Right';
+const BOTTOM = 'Bottom';
+const LEFT = 'Left';
+const paddingMarginBase = (
+  property: 'padding' | 'margin',
+  top: string | number,
+  right?: string | number | Orientation,
+  bottom?: string | number,
+  left?: string | number
+) => {
+  if (!right) {
+    return {
+      [property + TOP]: top,
+      [property + RIGHT]: top,
+      [property + BOTTOM]: top,
+      [property + LEFT]: top
+    };
+  }
+  if (right === 'X') {
+    return { [property + RIGHT]: top, [property + LEFT]: top };
+  }
+  if (right === 'Y') {
+    return { [property + TOP]: top, [property + BOTTOM]: top };
+  }
+  if (bottom) {
+    return {
+      [property + TOP]: top,
+      [property + RIGHT]: right,
+      [property + BOTTOM]: bottom
+    };
+  }
+  if (left) {
+    return {
+      [property + TOP]: top,
+      [property + RIGHT]: right,
+      [property + BOTTOM]: bottom,
+      [property + LEFT]: left
+    };
+  }
+  return {
+    [property + TOP]: top,
+    [property + RIGHT]: right,
+    [property + BOTTOM]: top,
+    [property + LEFT]: right
+  };
+};
+
+export const padding = (
+  top: string | number,
+  right?: string | number | Orientation,
+  bottom?: string | number,
+  left?: string | number
+) => paddingMarginBase('padding', top, right, bottom, left);
+export const margin = (
+  top: string | number,
+  right?: string | number | Orientation,
+  bottom?: string | number,
+  left?: string | number
+) => paddingMarginBase('margin', top, right, bottom, left);
+
 export const border = (theme: any, color: string) =>
   `${theme.borderWidth}px ${theme.borderStyle} ${color || theme.borderColor}`;
 // SHADOWS
