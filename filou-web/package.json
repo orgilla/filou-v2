@@ -13,7 +13,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "run-s compile bundle",
+    "build": "run-s compile",
     "compile": "run-p compile:*",
     "watch": "run-p \"compile:* -- --watch\"",
     "compile:babel": "babel --out-dir ./lib --extensions .ts,.tsx ./src",
