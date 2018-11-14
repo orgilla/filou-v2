@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Redirect, RouteComponentProps } from '@filou/router';
+import { DarkProvider } from 'filou';
 import { useAuth } from './context';
 import Login from './login';
 import Register from './register';
@@ -24,19 +25,21 @@ function Auth(props: IAuth) {
   return isAuthenticated ? (
     <Redirect noThrow to="/" />
   ) : (
-    <Layout
-      logo={logo}
-      height={height}
-      backgroundImage={backgroundImage}
-      title={title}
-      company={company}
-    >
-      <FormPane company={company} dark={dark}>
-        <Callback path="callback" />
-        <Register path="register" />
-        <Login default />
-      </FormPane>
-    </Layout>
+    <DarkProvider dark={dark}>
+      <Layout
+        logo={logo}
+        height={height}
+        backgroundImage={backgroundImage}
+        title={title}
+        company={company}
+      >
+        <FormPane company={company}>
+          <Callback path="callback" />
+          <Register path="register" />
+          <Login default />
+        </FormPane>
+      </Layout>
+    </DarkProvider>
   );
 }
 export default Auth;

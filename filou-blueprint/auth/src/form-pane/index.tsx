@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Router, Match } from '@filou/router';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import { Button } from '@filou/blueprint';
+import { useDark } from '@filou/core';
 import { css, cx } from 'emotion';
 
 const padding = (x: number, y = x) =>
@@ -84,9 +85,9 @@ const ruleInner = (state: string, invertedAnim = false) => {
 interface IFormPane {
   company?: string;
   children?: React.ReactNode;
-  dark?: boolean;
 }
-function FormPane({ children, company, dark = false }: IFormPane) {
+function FormPane({ children, company }: IFormPane) {
+  const dark = useDark();
   return (
     <div className={cx(rule({}, dark), { 'bp3-dark': dark })}>
       <Match path="*">
