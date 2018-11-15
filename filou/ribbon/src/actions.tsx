@@ -103,6 +103,7 @@ const rule = ({
 
 export interface RibbonActionProps {
   title?: string | React.ReactNode;
+  className?: string;
   dark?: boolean;
   color?: string | boolean;
 }
@@ -111,7 +112,8 @@ export const RibbonActions: React.StatelessComponent<RibbonActionProps> = ({
   title,
   children,
   dark,
-  color
+  color,
+  className
 }) => {
   dark = dark !== undefined ? dark : useDark();
   return (
@@ -120,6 +122,7 @@ export const RibbonActions: React.StatelessComponent<RibbonActionProps> = ({
       dark={dark || color}
       color={color}
       rule={rule}
+      className={className}
     >
       {title ? (
         <Item component="span" className="title">
