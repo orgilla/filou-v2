@@ -12,7 +12,7 @@ export interface IForm<T = object> {
   className?: string;
   title?: string;
   additionalButton?: React.ReactNode;
-  description: string;
+  description?: string;
   initialValues?: any;
   onSubmit?: (
     values: T,
