@@ -31,7 +31,7 @@
   "dependencies": {
     "@filou/blueprint": "^1.5.3",
     "@filou/core": "^1.5.3",
-    "final-form": "^4.10.0",
+    "final-form": "^4.11.0",
     "react-final-form": "^3.6.7"
   },
   "devDependencies": {

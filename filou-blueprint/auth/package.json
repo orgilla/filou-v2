@@ -34,7 +34,7 @@
     "@filou/core": "^1.5.3",
     "@filou/router": "^1.5.3",
     "@types/jwt-decode": "^2.2.1",
-    "@types/validator": "^9.4.2",
+    "@types/validator": "^9.4.3",
     "axios": "^0.18.0",
     "emotion": "^9.2.12",
     "jwt-decode": "^2.2.0",
