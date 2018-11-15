@@ -9,6 +9,7 @@ import FormSpace from './space';
 import FormItem from './item';
 
 export interface IForm<T = object> {
+  className?: string;
   title?: string;
   additionalButton?: React.ReactNode;
   description: string;
@@ -75,6 +76,7 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
       submitLabel,
       submitDisabled,
       size = 3,
+      className,
       errorIcon
     } = this.props as IFormInner;
 
@@ -84,7 +86,7 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
         initialValues={initialValues}
         validate={validate}
         render={({ handleSubmit, submitting, pristine, valid }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={className}>
             {title && <Text type="h2">{title}</Text>}
             {/* <Spinner intent={Intent.PRIMARY} /> */}
             <p>{description}</p>
