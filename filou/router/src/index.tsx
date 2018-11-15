@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { isElectron } from '@filou/core';
+// import createHashSource from './create-hash-source';
 export * from '@reach/router';
 import {
-  createMemorySource,
-  createHistory,
   History,
   WindowLocation,
   HistorySource,
+  LocationProvider,
   RouteComponentProps,
   MatchRenderProps
+  // createHistory
 } from '@reach/router';
 export { default as ErrorBoundary } from './error-boundary';
 export * from './error-boundary';
@@ -33,37 +34,18 @@ class ApplicationRouter extends React.Component<IApplicationRouter> {
   constructor(props: IApplicationRouter) {
     super(props);
     if (isElectron || props.memory) {
-      let url = '/';
-      if (typeof location !== 'undefined' && location.hash) {
-        url = location.hash.substr(1);
-      } else {
-        url = localStorage.getItem('pathname') || url;
-      }
-      this.source = createMemorySource(url || '/');
-      this.history = createHistory(this.source);
-      this.state.location = this.source.location;
+      // this.source = createHashSource();
+      // this.history = createHistory(this.source);
     }
   }
-
-  componentDidMount() {
-    if (this.history) {
-      this.history.listen(this.listener);
-    }
-  }
-
-  listener = () => {
-    const location = this.source.location;
-    if (
-      !this.state.location ||
-      this.state.location.pathname !== location.pathname
-    ) {
-      localStorage.setItem('pathname', location.pathname);
-    }
-    this.setState({ location });
-  };
 
   render() {
     const { children } = this.props;
+    if (this.history) {
+      return (
+        <LocationProvider history={this.history}>{children}</LocationProvider>
+      );
+    }
     return <>{children}</>;
   }
 }

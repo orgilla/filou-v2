@@ -27,13 +27,13 @@ const rule = (theme: any, backgroundImage?: string) =>
       zIndex: 1,
       position: 'absolute',
       cursor: 'default',
-      height: '100%',
+      // height: '100%',
       width: '100%',
       // opacity: 0.6,
       top: 0,
       left: 0,
       userSelect: 'none',
-      '> div > div': {
+      '> div': {
         flexDirection: 'row',
         alignItems: 'center',
         display: 'flex'

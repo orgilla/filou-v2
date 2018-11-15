@@ -7,6 +7,6 @@ export interface IfProps {
 export const If: React.StatelessComponent<IfProps> = ({
   condition,
   children
-}) => (condition ? <React.Fragment>{children}</React.Fragment> : null);
+}) => (condition ? <>{children}</> : null);
 
 export default If;

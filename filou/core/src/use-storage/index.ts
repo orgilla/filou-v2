@@ -1,22 +1,22 @@
 import * as React from 'react';
 
+function getInitialValue(key: string, initialValue?: any) {
+  const storedValue = localStorage.getItem(key);
+  if (storedValue) {
+    return JSON.parse(storedValue);
+  } else {
+    return initialValue || null;
+  }
+}
+
 function useStorage<T>(key: string, initialValue: T): [T, (value: T) => void] {
   const [value, onChange]: [T, (value: T) => void] = React.useState(
-    initialValue
+    getInitialValue(key, initialValue)
   );
 
-  function getInitialValue(key: string, initialValue?: T) {
-    const storedValue = localStorage.getItem(key);
-    if (storedValue) {
-      return JSON.parse(storedValue);
-    } else {
-      return initialValue || null;
-    }
-  }
-
   function listenToStorage(event: StorageEvent) {
-    const newValue = JSON.parse(event.newValue || '');
     if (event.key === key) {
+      const newValue = JSON.parse(event.newValue || '');
       onChange(newValue);
     }
   }
