@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { FelaComponent, isOSX, isWindows } from '@filou/core';
+import { FelaComponent, isOSX, isWindows, useDark } from '@filou/core';
 import IsMaximized from './is-maximized';
 import Windows from './windows';
 import Divider from './divider';
-import { useDark } from './context';
 
 export enum RibbonOSStyle {
   WIN = 'win',

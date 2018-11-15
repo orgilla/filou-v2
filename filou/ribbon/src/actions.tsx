@@ -1,19 +1,28 @@
 import * as React from 'react';
-import { FelaComponent } from '@filou/core';
+import { FelaComponent, useDark } from '@filou/core';
 import Item from './item';
 import Divider from './divider';
-import { useDark } from './context';
 
-const rule = ({ theme, dark = false }: { theme: any; dark: boolean }) => ({
+const rule = ({
+  theme,
+  title,
+  dark = false,
+  color = false
+}: {
+  theme: any;
+  title: string;
+  dark: boolean;
+  color?: boolean;
+}) => ({
   display: 'flex',
   flexDirection: 'row',
   paddingLeft: 8,
-  paddingRight: 8,
+  paddingRight: title ? 0 : 8,
   minHeight: 48,
   maxHeight: 48,
   alignContent: 'center',
   alignItems: 'stretch',
-  backgroundColor: dark ? '#222' : '#f7f7f7',
+  backgroundColor: color ? theme.color : dark ? '#222' : '#f7f7f7',
   borderBottom: `1px solid ${theme.dark4}`,
   // boxShadow:
   // '0px 1px 0px 0px rgb(255, 255, 255), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.75)',
@@ -94,21 +103,30 @@ const rule = ({ theme, dark = false }: { theme: any; dark: boolean }) => ({
 
 export interface RibbonActionProps {
   title?: string | React.ReactNode;
+  dark?: boolean;
+  color?: string | boolean;
 }
 
 export const RibbonActions: React.StatelessComponent<RibbonActionProps> = ({
   title,
-  children
+  children,
+  dark,
+  color
 }) => {
-  const dark = useDark();
+  dark = dark !== undefined ? dark : useDark();
   return (
-    <FelaComponent dark={dark} rule={rule}>
+    <FelaComponent
+      title={!!title}
+      dark={dark || color}
+      color={color}
+      rule={rule}
+    >
       {title ? (
         <Item component="span" className="title">
           {title}
         </Item>
       ) : null}
-      {title ? <Divider dark /> : null}
+      {title ? <Divider dark={dark} /> : null}
       {children}
     </FelaComponent>
   );

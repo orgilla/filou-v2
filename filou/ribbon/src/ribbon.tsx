@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FelaComponent, isElectron } from '@filou/core';
+import { FelaComponent, isElectron, DarkProvider } from '@filou/core';
 import IsMaximized from './is-maximized';
 import Actions from './actions';
 import Tabs from './tabs';
@@ -8,7 +8,6 @@ import Spacer from './spacer';
 import Item from './item';
 import Foot from './foot';
 import Divider from './divider';
-import DarkProvider from './context';
 
 interface RibbonProps {
   maximized?: boolean;

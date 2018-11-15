@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { FelaComponent } from '@filou/core';
+import { FelaComponent, useDark } from '@filou/core';
 
 const rule = ({
   theme,
   marginLeft,
-  color,
+  // color,
   dark
 }: {
   theme: any;
   marginLeft: string | boolean | number;
-  color: string;
+  // color: string;
   dark: boolean;
 }) => ({
   color: theme.light,
@@ -18,9 +18,7 @@ const rule = ({
   // fontWeight: 500,
   justifyContent: 'center',
   margin: '6px 8px',
-  borderRight: `1px solid ${
-    color ? theme[color] : dark ? theme.dark4 : theme.light4
-  }`,
+  borderRight: `1px solid ${dark ? theme.light5 : theme.dark4}`,
   marginLeft: marginLeft ? `${marginLeft}!important` : undefined,
   outline: 0,
   // textTransform: 'uppercase',
@@ -47,7 +45,7 @@ const Divider: React.ComponentType<RibbonDividerProps> = ({
   <FelaComponent
     rule={rule}
     color={color}
-    dark={dark}
+    dark={dark !== undefined ? dark : useDark()}
     marginLeft={marginLeft}
     component="b"
   >
