@@ -55,13 +55,7 @@ export interface RibbonTitleWindowsProps {
 }
 const Windows: React.SFC<RibbonTitleWindowsProps> = ({ maximized }) => (
   <IsMaximized>
-    {({
-      disableMaximize,
-      disableMinimize,
-      isMaximized,
-      currentWindow,
-      isMax = maximized !== undefined ? maximized : isMaximized
-    }) => (
+    {({ disableMaximize, disableMinimize, isMaximized, currentWindow }) => (
       <FelaComponent
         style={{
           flexGrow: 0,
@@ -92,7 +86,9 @@ const Windows: React.SFC<RibbonTitleWindowsProps> = ({ maximized }) => (
           <svg aria-hidden="true" version="1.1" width="10" height="10">
             <path
               d={
-                isMax
+                (maximized !== undefined
+                ? maximized
+                : isMaximized)
                   ? 'm 2,1e-5 0,2 -2,0 0,8 8,0 0,-2 2,0 0,-8 z m 1,1 6,0 0,6 -1,0 0,-5 -5,0 z m -2,2 6,0 0,6 -6,0 z'
                   : 'M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z'
               }
