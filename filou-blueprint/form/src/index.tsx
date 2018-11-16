@@ -73,7 +73,7 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
       validate,
       children,
       error,
-      submitLabel,
+      submitLabel = 'OK',
       submitDisabled,
       size = 3,
       className,
@@ -89,9 +89,9 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
           <form onSubmit={handleSubmit} className={className}>
             {title && <Text type="h2">{title}</Text>}
             {/* <Spinner intent={Intent.PRIMARY} /> */}
-            <p>{description}</p>
-            <br />
-            <br />
+            {description && <p>{description}</p>}
+            {title && description && <br />}
+            {title && description && <br />}
             <FlexGrid size={size} gutter={2}>
               {children as any}
               {error && (
@@ -106,7 +106,7 @@ class BlueprintForm<T> extends React.Component<IForm<T>> {
                 </FlexGrid.Item>
               )}
               <FlexGrid.Item size={3}>
-                <br />
+                {onSubmit && <br />}
                 {onSubmit && (
                   <Button
                     // intent="success"
