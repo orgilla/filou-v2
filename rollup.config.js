@@ -5,7 +5,8 @@ const pkg = require(require('path').resolve(process.cwd(), './package.json'));
 
 const convertName = name => camelCase(name.replace('@', '$').replace('/', '-'));
 const globals = {
-  '@filou/core': convertName('@filou/core')
+  '@filou/core': convertName('@filou/core'),
+  '@filou/core2': convertName('@filou/core')
 };
 
 const onwarn = message => {
