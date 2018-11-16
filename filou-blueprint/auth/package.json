@@ -1,6 +1,6 @@
 {
   "name": "@filou/blueprint-auth",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
@@ -29,10 +29,10 @@
     "bundle": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
-    "@filou/blueprint": "^1.5.4",
-    "@filou/blueprint-form": "^1.5.4",
-    "@filou/core": "^1.5.4",
-    "@filou/router": "^1.5.4",
+    "@filou/blueprint": "^1.5.5",
+    "@filou/blueprint-form": "^1.5.5",
+    "@filou/core": "^1.5.5",
+    "@filou/router": "^1.5.5",
     "@types/jwt-decode": "^2.2.1",
     "@types/validator": "^9.4.3",
     "axios": "^0.18.0",
