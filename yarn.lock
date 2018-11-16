@@ -775,54 +775,7 @@
     js-levenshtein "^1.1.3"
     semver "^5.3.0"
 
-"@babel/preset-env@7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.1.0.tgz#e67ea5b0441cfeab1d6f41e9b5c79798800e8d11"
-  integrity sha512-ZLVSynfAoDHB/34A17/JCZbyrzbQj59QC1Anyueb4Bwjh373nVPq5/HMph0z+tCmcDjXDe+DlKQq9ywQuvWrQg==
-  dependencies:
-    "@babel/helper-module-imports" "^7.0.0"
-    "@babel/helper-plugin-utils" "^7.0.0"
-    "@babel/plugin-proposal-async-generator-functions" "^7.1.0"
-    "@babel/plugin-proposal-json-strings" "^7.0.0"
-    "@babel/plugin-proposal-object-rest-spread" "^7.0.0"
-    "@babel/plugin-proposal-optional-catch-binding" "^7.0.0"
-    "@babel/plugin-proposal-unicode-property-regex" "^7.0.0"
-    "@babel/plugin-syntax-async-generators" "^7.0.0"
-    "@babel/plugin-syntax-object-rest-spread" "^7.0.0"
-    "@babel/plugin-syntax-optional-catch-binding" "^7.0.0"
-    "@babel/plugin-transform-arrow-functions" "^7.0.0"
-    "@babel/plugin-transform-async-to-generator" "^7.1.0"
-    "@babel/plugin-transform-block-scoped-functions" "^7.0.0"
-    "@babel/plugin-transform-block-scoping" "^7.0.0"
-    "@babel/plugin-transform-classes" "^7.1.0"
-    "@babel/plugin-transform-computed-properties" "^7.0.0"
-    "@babel/plugin-transform-destructuring" "^7.0.0"
-    "@babel/plugin-transform-dotall-regex" "^7.0.0"
-    "@babel/plugin-transform-duplicate-keys" "^7.0.0"
-    "@babel/plugin-transform-exponentiation-operator" "^7.1.0"
-    "@babel/plugin-transform-for-of" "^7.0.0"
-    "@babel/plugin-transform-function-name" "^7.1.0"
-    "@babel/plugin-transform-literals" "^7.0.0"
-    "@babel/plugin-transform-modules-amd" "^7.1.0"
-    "@babel/plugin-transform-modules-commonjs" "^7.1.0"
-    "@babel/plugin-transform-modules-systemjs" "^7.0.0"
-    "@babel/plugin-transform-modules-umd" "^7.1.0"
-    "@babel/plugin-transform-new-target" "^7.0.0"
-    "@babel/plugin-transform-object-super" "^7.1.0"
-    "@babel/plugin-transform-parameters" "^7.1.0"
-    "@babel/plugin-transform-regenerator" "^7.0.0"
-    "@babel/plugin-transform-shorthand-properties" "^7.0.0"
-    "@babel/plugin-transform-spread" "^7.0.0"
-    "@babel/plugin-transform-sticky-regex" "^7.0.0"
-    "@babel/plugin-transform-template-literals" "^7.0.0"
-    "@babel/plugin-transform-typeof-symbol" "^7.0.0"
-    "@babel/plugin-transform-unicode-regex" "^7.0.0"
-    browserslist "^4.1.0"
-    invariant "^2.2.2"
-    js-levenshtein "^1.1.3"
-    semver "^5.3.0"
-
-"@babel/preset-env@^7.1.5", "@babel/preset-env@^7.1.6":
+"@babel/preset-env@7.1.6", "@babel/preset-env@^7.1.5", "@babel/preset-env@^7.1.6":
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.1.6.tgz#a0bf4b96b6bfcf6e000afc5b72b4abe7cc13ae97"
   integrity sha512-YIBfpJNQMBkb6MCkjz/A9J76SNCSuGVamOVBgoUkLzpJD/z8ghHi9I42LQ4pulVX68N/MmImz6ZTixt7Azgexw==
@@ -1922,10 +1875,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.6.tgz#7fc213c1b811c90fc9a3edb6206742b95d697678"
   integrity sha512-+ZWB5Ec1iki99xQFzBlivlKxSZQ+fuUKBott8StBOnLN4dWbRHlgdg1XknpW6g0tweniN5DcOqA64CJyOUPSAw==
 
-"@types/node@^10.12.8":
-  version "10.12.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.8.tgz#d0a3ab5a6e61458c492304e2776ac136b81db927"
-  integrity sha512-INamyRZG4rW3lDCUmwVd5Xho/bXvQm/v1yP8V0UN1RuInU7RoWoaO570b+yLX4Ia/0szsx1wa8VzcsVlsvbWLA==
+"@types/node@^10.12.9":
+  version "10.12.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.9.tgz#a07bfa74331471e1dc22a47eb72026843f7b95c8"
+  integrity sha512-eajkMXG812/w3w4a1OcBlaTwsFPO5F7fJ/amy+tieQxEMWBlbV1JGSjkFM+zkHNf81Cad+dfIRA+IBkvmvdAeA==
 
 "@types/prop-types@*":
   version "15.5.6"
@@ -1990,15 +1943,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.1.0":
-  version "16.7.3"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.7.3.tgz#dd96b19b21c450fab7d136f71d48f4b8fc72777e"
-  integrity sha512-ve/2lnXuLNaTDR1SPvsEX25m+NoNW3PMJxL2jd372UR8oJPwR5+jgtcheUoN27O+qKLFmQy0y0YKRwZcwtny3w==
-  dependencies:
-    "@types/prop-types" "*"
-    csstype "^2.2.0"
-
-"@types/react@^16.7.6":
+"@types/react@*", "@types/react@^16.1.0", "@types/react@^16.7.6":
   version "16.7.6"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.7.6.tgz#80e4bab0d0731ad3ae51f320c4b08bdca5f03040"
   integrity sha512-QBUfzftr/8eg/q3ZRgf/GaDP6rTYc7ZNem+g4oZM38C9vXyV8AWRWaTQuW5yCoZTsfHrN7b3DeEiUnqH9SrnpA==
@@ -2006,10 +1951,10 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/recompose@^0.27.0":
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/@types/recompose/-/recompose-0.27.0.tgz#66955b8ea4d477c3c03f09a571380ca82549cdac"
-  integrity sha512-p92Unulom3aSdgWCFXrKIpd6obaO3gOKJhEBJUBohlcC21aDXnsnu1BbYL42GeV5qcXezeRXM1SXiyKpnFSGlA==
+"@types/recompose@^0.27.1":
+  version "0.27.1"
+  resolved "https://registry.yarnpkg.com/@types/recompose/-/recompose-0.27.1.tgz#eafe5a80b6bdce2108c025bbf19d030136aad894"
+  integrity sha512-5bT3OMz9HHHwvRSMQaDGN8tWbpCxQfsZXlcy5HLexEEqkSJ9PBZfVMA6HANDbshOvn4kNS75SjQSJLJv5LJHxw==
   dependencies:
     "@types/react" "*"
 
@@ -2860,10 +2805,10 @@ babel-preset-docz@^0.11.1:
     babel-plugin-transform-dynamic-import "^2.0.0"
     babel-plugin-transform-react-remove-prop-types "^0.4.15"
 
-babel-preset-docz@^0.12.10:
-  version "0.12.10"
-  resolved "https://registry.yarnpkg.com/babel-preset-docz/-/babel-preset-docz-0.12.10.tgz#3333365c10e4a9b2e18c3d96de5c82d0909147f7"
-  integrity sha512-RbLXmntE1YDlR3K2DvWcptplDKVf/8ZDn1BlYYSjfgvLs98GOepPYkcurSJI+Pfa5RDxvlgRtrc0oL10V+OthQ==
+babel-preset-docz@^0.12.11:
+  version "0.12.11"
+  resolved "https://registry.yarnpkg.com/babel-preset-docz/-/babel-preset-docz-0.12.11.tgz#f2870ff41f9e0940fd5f71dd713c3913459f03d3"
+  integrity sha512-zG/HZthbr+uIA4uwRGfVetyTNNcMZSJzJNheOlQ8c1WoKlc/uAArL+Bx8CM94WyUnKhsDfZsmF2OYS2vzbPfiw==
   dependencies:
     "@babel/core" "7.1.6"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -2872,7 +2817,7 @@ babel-preset-docz@^0.12.10:
     "@babel/plugin-transform-destructuring" "7.1.3"
     "@babel/plugin-transform-regenerator" "7.0.0"
     "@babel/plugin-transform-runtime" "7.1.0"
-    "@babel/preset-env" "7.1.0"
+    "@babel/preset-env" "7.1.6"
     "@babel/preset-flow" "7.0.0"
     "@babel/preset-react" "7.0.0"
     "@babel/preset-typescript" "7.1.0"
@@ -4884,10 +4829,10 @@ docz-core@^0.11.0:
     ws "^6.0.0"
     yargs "^12.0.1"
 
-docz-core@^0.12.10:
-  version "0.12.10"
-  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-0.12.10.tgz#196c68c46f0a18396aad98a408e63b15031c6c5a"
-  integrity sha512-2hS4rIh5mVDAZBvAww7Q1uTS0vwWVuDlD7mqseoNQ3+jh9FcU8gRWNbJCnfFlKgWuSOFm9HqZjqlTdOdBwTTrw==
+docz-core@^0.12.11:
+  version "0.12.11"
+  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-0.12.11.tgz#15edf037caa48959e3d8ddb82fe6aab00f1b6c3e"
+  integrity sha512-FCECGC4f2VFWnT6DxVpoIvRSgTdqBg0R9bk6H853fCkkBrvYpQhgPs90E97u3y6Jt3DFYDobx9QCagNUs8K6pg==
   dependencies:
     "@babel/core" "7.1.6"
     "@babel/polyfill" "7.0.0"
@@ -4899,7 +4844,7 @@ docz-core@^0.12.10:
     "@svgr/webpack" "^4.0.3"
     art-template "^4.13.2"
     babel-loader "^8.0.2"
-    babel-preset-docz "^0.12.10"
+    babel-preset-docz "^0.12.11"
     babylon "^6.18.0"
     cache-loader "^1.2.5"
     chalk "^2.4.1"
@@ -4919,6 +4864,7 @@ docz-core@^0.12.10:
     friendly-errors-webpack-plugin "^1.7.0"
     fs-extra "^7.0.1"
     get-pkg-repo "^4.0.2"
+    happypack "^5.0.0"
     html-minifier "^3.5.21"
     humanize-string "^1.0.2"
     koa "^2.6.2"
@@ -4979,14 +4925,14 @@ docz-plugin-css@^0.11.0:
     webpack "^4.17.1"
     webpack-chain "^4.9.0"
 
-docz-theme-default@^0.12.10:
-  version "0.12.10"
-  resolved "https://registry.yarnpkg.com/docz-theme-default/-/docz-theme-default-0.12.10.tgz#cce052ec5fa9000881840345dbabc26d094b25f3"
-  integrity sha512-BQU9tcn/VV6e2Xe+Z/28iw3ew+MtRfOzrRbIBtTLlX0zt9D1QFLoesj4uDJ34NKSAfKCwlJaG6bvqPUZXRTfAQ==
+docz-theme-default@^0.12.11:
+  version "0.12.11"
+  resolved "https://registry.yarnpkg.com/docz-theme-default/-/docz-theme-default-0.12.11.tgz#0f18799dfc830605389fcefb8bd781d4f1fed395"
+  integrity sha512-x/TV+TkELRC8I3tDJu9VmIEPbKTE4Ljf3roxQ5+ZXx9Kmm49ILijl3BmfV0RKt4xXnFeWSJnE1ZgQzjICCd2Iw==
   dependencies:
     codemirror "^5.41.0"
     copy-text-to-clipboard "^1.0.4"
-    docz "^0.12.10"
+    docz "^0.12.11"
     emotion "^9.2.12"
     emotion-theming "^9.2.9"
     facepaint "^1.2.1"
@@ -5038,10 +4984,10 @@ docz-utils@^0.12.10:
     unist-util-is "^2.1.2"
     unist-util-visit "^1.4.0"
 
-docz@^0.12.10:
-  version "0.12.10"
-  resolved "https://registry.yarnpkg.com/docz/-/docz-0.12.10.tgz#ea19104e5567eaf8c5679ad1e449b5c1d492c079"
-  integrity sha512-rPBf9ThcMkz5DLhc4fXp572fhcA0hmrEAlNjdnvUzCZ1Hi866f1fDnNCqSPU+VbPCc3B2FuhwPD6g5pTMdTSSQ==
+docz@^0.12.11:
+  version "0.12.11"
+  resolved "https://registry.yarnpkg.com/docz/-/docz-0.12.11.tgz#2a242be498b4591657bb4297ed8b4a95cc47bcd9"
+  integrity sha512-4f7lHqhoYuR9Rp18BHSo02dMn1iGinZ3izIgGh7MoIibjU3Aed8PdmBF050xKgEtoxkNLQ6JNpx8r6vPV4aSpQ==
   dependencies:
     "@mdx-js/tag" "^0.16.0"
     "@sindresorhus/slugify" "^0.6.0"
@@ -5050,8 +4996,8 @@ docz@^0.12.10:
     callbag-subject "^1.0.2"
     capitalize "^2.0.0"
     deepmerge "^2.2.1"
-    docz-core "^0.12.10"
-    docz-theme-default "^0.12.10"
+    docz-core "^0.12.11"
+    docz-theme-default "^0.12.11"
     fast-deep-equal "^2.0.1"
     lodash "^4.17.11"
     prop-types "^15.6.2"
@@ -11050,10 +10996,12 @@ react-fela@^8.0.4:
     fela-dom "^8.0.4"
     prop-types "^15.5.8"
 
-react-final-form@^3.6.7:
-  version "3.6.7"
-  resolved "https://registry.yarnpkg.com/react-final-form/-/react-final-form-3.6.7.tgz#c4d2e01e04674201b850cdd05ed5b67ff5ea06c5"
-  integrity sha512-/m7JBwA5FaGlSo2ZSFhzQYfPKfT18uirIbJrojWgb9GLoYU2wEOq9yM+vlugqTPD4Ozq+TFJDxWr1jzgASN0fA==
+react-final-form@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-final-form/-/react-final-form-4.0.0.tgz#259dad4144c8302ba832fde99071d4deb5e23210"
+  integrity sha512-iRcdtQWM0SzKNlatI4f+s2y+7j7EZiRyUS9lrGNYYktq36UcS57CNoTJwE3377Y8Z2LM9ioTe3lwS8qQodUntQ==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
 
 react-hot-loader@4.3.12:
   version "4.3.12"
