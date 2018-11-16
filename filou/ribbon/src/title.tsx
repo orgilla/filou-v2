@@ -129,7 +129,9 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
           xy={console.log(isOSX, isWindows, isMaximized)}
           dark={dark}
           isMacNoFullscreen={
-            (maximized !== undefined ? !maximized : !isMaximized) &&
+            (maximized !== undefined
+              ? maximized === false
+              : isMaximized === false) &&
             (os !== undefined ? os === RibbonOSStyle.MAC : isOSX)
           }
           os={os}

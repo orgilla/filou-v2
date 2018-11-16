@@ -7,11 +7,17 @@ if (isElectron) {
   //  maximize = win.maximize;
 }
 
+interface IChildren {
+  isMaximized?: boolean;
+  disableMaximize?: boolean;
+  disableMinimize?: boolean;
+  currentWindow: any;
+}
 interface IsMaximizedProps {
   currentWindow?: any;
   disableMaximize?: boolean;
   disableMinimize?: boolean;
-  children: (args: any) => React.ReactNode;
+  children: (args: IChildren) => React.ReactNode;
 }
 class IsMaximized extends React.Component<IsMaximizedProps> {
   static decorate: (
@@ -24,8 +30,9 @@ class IsMaximized extends React.Component<IsMaximizedProps> {
   };
 
   state = {
-    isMaximized:
-      this.props.currentWindow && this.props.currentWindow.isMaximized()
+    isMaximized: this.props.currentWindow
+      ? this.props.currentWindow.isMaximized()
+      : undefined
   };
 
   componentDidMount = () => {
