@@ -19,12 +19,12 @@ export interface RibbonTitleProps {
 
 const rule = ({
   theme,
-  isMacFullscreen,
+  isMacNoFullscreen,
   os,
   dark = false
 }: {
   theme: any;
-  isMacFullscreen?: boolean;
+  isMacNoFullscreen?: boolean;
   os?: RibbonOSStyle;
   dark?: boolean;
 }) => ({
@@ -41,7 +41,7 @@ const rule = ({
   alignItems: 'stretch',
   '> .brand': {
     transition: '.3s cubic-bezier(.25,.8,.5,1),color 1ms',
-    marginLeft: isMacFullscreen ? 70 : undefined,
+    marginLeft: isMacNoFullscreen ? 70 : undefined,
     // Hide first spans padding left => Title
     paddingLeft: 0
   },
@@ -126,9 +126,10 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
       {({ isMaximized }) => (
         <FelaComponent
           rule={rule}
+          xy={console.log(isOSX, isWindows, isMaximized)}
           dark={dark}
-          isMacFullscreen={
-            (maximized !== undefined ? maximized : isMaximized) &&
+          isMacNoFullscreen={
+            (maximized !== undefined ? !maximized : !isMaximized) &&
             (os !== undefined ? os === RibbonOSStyle.MAC : isOSX)
           }
           os={os}
