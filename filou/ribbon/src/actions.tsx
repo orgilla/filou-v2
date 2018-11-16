@@ -7,19 +7,21 @@ const rule = ({
   theme,
   title,
   dark = false,
-  color = false
+  color = false,
+  height = 48
 }: {
   theme: any;
   title: string;
   dark: boolean;
   color?: boolean;
+  height?: number;
 }) => ({
   display: 'flex',
   flexDirection: 'row',
   paddingLeft: 8,
   paddingRight: title ? 0 : 8,
-  minHeight: 48,
-  maxHeight: 48,
+  minHeight: height,
+  maxHeight: height,
   alignContent: 'center',
   alignItems: 'stretch',
   backgroundColor: color ? theme.color : dark ? '#222' : '#f7f7f7',
@@ -106,6 +108,7 @@ export interface RibbonActionProps {
   className?: string;
   dark?: boolean;
   color?: string | boolean;
+  height?: number;
 }
 
 export const RibbonActions: React.StatelessComponent<RibbonActionProps> = ({
@@ -113,7 +116,8 @@ export const RibbonActions: React.StatelessComponent<RibbonActionProps> = ({
   children,
   dark,
   color,
-  className
+  className,
+  height
 }) => {
   dark = dark !== undefined ? dark : useDark();
   return (
@@ -122,6 +126,7 @@ export const RibbonActions: React.StatelessComponent<RibbonActionProps> = ({
       dark={dark || color}
       color={color}
       rule={rule}
+      height={height}
       className={className}
     >
       {title ? (
