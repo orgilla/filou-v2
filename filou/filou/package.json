@@ -1,6 +1,6 @@
 {
   "name": "filou",
-  "version": "1.5.6",
+  "version": "1.5.8",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
@@ -28,8 +28,8 @@
   "dependencies": {
     "@filou/color": "^1.5.6",
     "@filou/core": "^1.5.6",
-    "@filou/menu": "^1.5.6",
-    "@filou/ribbon": "^1.5.6",
+    "@filou/menu": "^1.5.7",
+    "@filou/ribbon": "^1.5.7",
     "@filou/router": "^1.5.6"
   },
   "devDependencies": {

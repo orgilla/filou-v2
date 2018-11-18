@@ -126,7 +126,6 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
       {({ isMaximized }) => (
         <FelaComponent
           rule={rule}
-          xy={console.log(isOSX, isWindows, isMaximized)}
           dark={dark}
           isMacNoFullscreen={
             (maximized !== undefined
@@ -142,7 +141,9 @@ export const RibbonTitle: React.StatelessComponent<RibbonTitleProps> = ({
                   <Logo color="white" size={16} />
                 </span>
               ) : null}
-              {brand ? <span className="brand">{brand}</span> : null}
+              {brand ? (
+                <span className={Logo ? '' : 'brand'}>{brand}</span>
+              ) : null}
               {brand || Logo ? <Divider /> : null}
               {children}
               {(os !== undefined ? (
