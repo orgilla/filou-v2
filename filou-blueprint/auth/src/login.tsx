@@ -2,7 +2,6 @@ import * as React from 'react';
 import { IRoute, IMatch } from '@filou/router';
 import { Button } from '@filou/blueprint';
 import isEmail from 'validator/lib/isEmail';
-import axios from 'axios';
 import Form from '@filou/blueprint-form';
 import { useAuth } from './context';
 
@@ -12,16 +11,16 @@ function AuthLogin(props: IRoute<IAuthLogin>) {
   const { navigate } = props as IMatch<IAuthLogin>;
   const [loginType, setLoginType] = React.useState(null);
   const [error, setError] = React.useState(null);
-  const { apiEndpoint } = useAuth();
+  const { login } = useAuth();
 
   const onSubmit = React.useCallback(
     (values: any) => {
-      return axios
-        .post(`${apiEndpoint}/login`, values)
-        .then(({ data }) => {
-          navigate(`/auth/callback${data.token ? `#${data.token}` : ''}`);
+      console.log('LOGIN', values);
+      return login(values)
+        .then(token => {
+          navigate(`/auth/callback${token ? `#${token}` : ''}`);
         })
-        .catch(err => setError(err.response.data));
+        .catch(err => setError(err));
     },
     [loginType]
   );

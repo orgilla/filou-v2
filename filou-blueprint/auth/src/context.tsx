@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { navigate } from '@filou/router';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
@@ -98,12 +97,14 @@ export function useAuth(): IAuthState {
 
 interface IAuthReact {
   skip?: boolean;
+  onVerified?: () => void;
   apiEndpoint?: string;
 }
 
 interface IAuthState {
   apiEndpoint: string;
-  login: () => void;
+  verify: () => void;
+  login: (values: any) => Promise<string>;
   logout: () => void;
   isAuthenticated: boolean;
   user: any;
@@ -129,6 +130,7 @@ class AuthReact extends React.Component<IAuthReact> {
     const user = this.isAuthenticated();
     this.state = {
       apiEndpoint,
+      verify: this.verify,
       login: this.login,
       logout: this.logout,
       isAuthenticated: !!user,
@@ -142,29 +144,51 @@ class AuthReact extends React.Component<IAuthReact> {
     const { t } = jwtDecode(token);
     if (t === TOKEN_TYPES.REGISTER || t === TOKEN_TYPES.VERIFY) {
       return handleRegisterToken(this.state.apiEndpoint, token).then(
-        this.login
+        this.verify
       );
     }
   };
 
-  login = async () => {
+  verify = async () => {
+    const { onVerified } = this.props;
     await verify(this.state.apiEndpoint);
     const user = this.isAuthenticated();
     this.setState({
       isAuthenticated: !!user,
       user
     });
-    navigate('/');
+    if (onVerified) {
+      onVerified();
+    }
+  };
+
+  login = async (values: any) => {
+    console.log('LOGIN!');
+    return axios
+      .post(`${this.state.apiEndpoint}/login`, values)
+      .then(({ data }) => data.token)
+      .catch(err => {
+        console.error('ERROR', err, err.stack, err.message);
+        throw err;
+        console.log('ERROR', err);
+        if (err.response && err.response.data) {
+          return err.response.data;
+        }
+        return err.toString();
+      });
   };
 
   logout = async () => {
+    const { onVerified } = this.props;
     await logout();
     const user = this.isAuthenticated();
     this.setState({
       isAuthenticated: !!user,
       user
     });
-    navigate('/');
+    if (onVerified) {
+      onVerified();
+    }
   };
 
   isAuthenticated = () => {

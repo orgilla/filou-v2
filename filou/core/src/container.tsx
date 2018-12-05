@@ -39,7 +39,7 @@ const rule = ({ size }: IContainer) =>
       width: size === 'small' ? 640 : 1140,
       maxWidth: '100%'
     }
-  });
+  } as any);
 
 export interface IContainer {
   render?: React.ComponentType;

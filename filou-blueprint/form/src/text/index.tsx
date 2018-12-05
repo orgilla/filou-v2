@@ -8,7 +8,7 @@ export interface IFormText {
   label: string;
   type?: string;
   size?: number;
-  icon?: React.ReactType;
+  icon?: React.ComponentClass<any>;
 }
 export interface IText extends FieldRenderProps, IFormText {
   label: string;

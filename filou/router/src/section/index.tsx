@@ -148,6 +148,7 @@ const Wrapper: React.StatelessComponent<ISection> = ({
                               inverted={inverted}
                               render={({ className }) => (
                                 <Router
+                                  primary={!!app}
                                   className={className}
                                   location={location}
                                   {...rest}

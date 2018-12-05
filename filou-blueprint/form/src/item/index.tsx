@@ -8,12 +8,13 @@ export interface IFormItem {
   label: string;
   type?: string;
   size?: number;
-  icon?: React.ReactType;
+  icon?: React.ComponentClass<any>;
   gutter?: number;
   gridSize?: number;
   component?: any;
   com?: any;
 }
+
 export interface IItem extends FieldRenderProps, IFormItem {
   label: string;
 }

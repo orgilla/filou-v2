@@ -25,7 +25,7 @@ const rule = (height: string | number = '100%') =>
     overflow: 'hidden',
     width: '100%',
     height: height
-  });
+  } as any);
 
 function AuthLayout({
   children,

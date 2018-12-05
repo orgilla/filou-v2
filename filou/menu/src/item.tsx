@@ -69,8 +69,6 @@ const rule = ({
       break;
   }
 
-  console.log(size === 'small' ? 2 : useTheme('space1'));
-
   return css({
     width: collapsed ? height : 'auto',
     height,
@@ -92,7 +90,7 @@ const rule = ({
       (!!active && useTheme('dark4')),
     color: (inverted ? useTheme('light') : useTheme('dark')) + '',
     userSelect: 'none',
-    onHover: {
+    ':hover': {
       backgroundColor: !!onClick && !disabled && hoverColor
     },
     '> *': collapsed && {
