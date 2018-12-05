@@ -27,7 +27,7 @@ interface IGridItem extends React.HTMLAttributes<HTMLDivElement> {
   img?: string;
   size?: number;
   gridSize?: number;
-  render?: React.ReactType;
+  render?: React.ComponentClass<any>;
   gutter?: number;
   background?: string;
   children?: React.ReactElement<IGridItem>[] | React.ReactElement<IGridItem>;
