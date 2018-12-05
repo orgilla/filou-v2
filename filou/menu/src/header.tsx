@@ -35,7 +35,7 @@ const rule = ({ color, palette, inverted }: IMenuHeader) =>
       height: 48,
       borderRadius: useTheme('borderRadius')
     }
-  });
+  } as any);
 
 const MenuHeader = ({
   children,
