@@ -102,7 +102,7 @@ const rule = ({
         display: 'none'
       }
     }
-  });
+  } as any);
 };
 
 const MenuItem = ({

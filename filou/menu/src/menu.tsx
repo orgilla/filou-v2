@@ -41,7 +41,7 @@ const rule = ({ color, palette }: IMenu) => {
     overflowY: 'auto',
     overflowX: 'hidden',
     transition: 'all 200ms cubic-bezier(0.165, 0.84, 0.44, 1)'
-  });
+  } as any);
 };
 
 const Menu = ({
