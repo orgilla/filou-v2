@@ -1,6 +1,6 @@
 {
   "name": "@filou/menu",
-  "version": "1.5.7",
+  "version": "1.6.0",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
@@ -26,7 +26,7 @@
     "bundle": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
-    "@filou/core": "^1.5.7",
+    "@filou/core": "^1.6.0",
     "@types/react-beautiful-dnd": "^7.1.2",
     "@types/react-portal": "^4.0.1",
     "react-beautiful-dnd": "^10.0.2",

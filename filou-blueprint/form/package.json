@@ -1,6 +1,6 @@
 {
   "name": "@filou/blueprint-form",
-  "version": "1.5.7",
+  "version": "1.6.0",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
@@ -29,8 +29,8 @@
     "bundle": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
-    "@filou/blueprint": "^1.5.7",
-    "@filou/core": "^1.5.7",
+    "@filou/blueprint": "^1.6.0",
+    "@filou/core": "^1.6.0",
     "final-form": "^4.11.0",
     "react-final-form": "^4.0.2"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@filou/blueprint",
-  "version": "1.5.7",
+  "version": "1.6.0",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
@@ -31,7 +31,7 @@
   "dependencies": {
     "@blueprintjs/core": "^3.9.0",
     "@blueprintjs/select": "^3.3.0",
-    "@filou/core": "^1.5.7",
+    "@filou/core": "^1.6.0",
     "emotion": "^10.0.2"
   },
   "devDependencies": {

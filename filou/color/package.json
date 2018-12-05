@@ -1,6 +1,6 @@
 {
   "name": "@filou/color",
-  "version": "1.5.7",
+  "version": "1.6.0",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
@@ -26,7 +26,7 @@
     "bundle": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
-    "@filou/core": "^1.5.7",
+    "@filou/core": "^1.6.0",
     "@types/react-color": "^2.13.6",
     "react-color": "^2.14.1"
   },
