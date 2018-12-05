@@ -1,6 +1,6 @@
 {
   "name": "@filou/core",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",

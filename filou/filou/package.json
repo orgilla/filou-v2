@@ -1,6 +1,6 @@
 {
   "name": "filou",
-  "version": "1.5.8",
+  "version": "1.5.7",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "jsnext:main": "lib/es/index.js",
@@ -26,11 +26,11 @@
     "bundle": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
-    "@filou/color": "^1.5.6",
-    "@filou/core": "^1.5.6",
+    "@filou/color": "^1.5.7",
+    "@filou/core": "^1.5.7",
     "@filou/menu": "^1.5.7",
     "@filou/ribbon": "^1.5.7",
-    "@filou/router": "^1.5.6"
+    "@filou/router": "^1.5.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
