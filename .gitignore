@@ -1,14 +1,7 @@
 .DS_Store
 .docz
-coverage
 node_modules
 filou/**/lib
 filou-web/**/lib
 filou-blueprint/**/lib
-.old/typescript/**/lib
-.old/typescript/**/es
-.old/typescript-eval/**/lib
-.old/typescript-eval/**/es
-.old/typescript-eval/*/src/**/*.d.ts
-.old/typescript-eval/*/stories/**/*.d.ts
 yarn-error.log

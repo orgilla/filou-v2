@@ -2,33 +2,23 @@ import * as React from 'react';
 import { Router, Match } from '@filou/router';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import { Button } from '@filou/blueprint';
-import { useDark } from '@filou/core';
+import { useDark, useTheme } from '@filou/core';
 import { css, cx } from 'emotion';
 
-const padding = (x: number, y = x) =>
-  css(`
-    padding-left: ${x}px;
-    padding-right: ${x}px;
-    padding-top: ${y}px;
-    padding-bottom: ${y}px;
-  `);
-
-const rule = (theme: any, dark?: boolean) =>
-  css(
-    `
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: ${dark ? '#222' : 'rgb(247, 247, 247)'};
-    color: ${dark ? 'white' : undefined};
-    min-width: 400px;
-    max-width: 400px;
-    & a: {
-      color: ${theme.color}
+const rule = (dark?: boolean) =>
+  css({
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: dark ? '#222' : 'rgb(247, 247, 247)',
+    color: dark ? 'white' : undefined,
+    minWidth: 400,
+    maxWidth: 400,
+    padding: useTheme('space3'),
+    '& a': {
+      color: useTheme('color')
     }
-  `,
-    padding(15)
-  );
+  });
 
 const length = 150;
 const opacity = 'opacity';
@@ -63,23 +53,21 @@ const ruleInner = (state: string, invertedAnim = false) => {
       zIndex: -1
     };
   }
-  return css(
-    {
-      flexGrow: 1,
-      position: 'absolute',
-      display: 'flex',
-      flexDirection: 'row',
-      top: 0,
-      left: 0,
-      overflow: 'hidden',
-      transition: `all ${length}ms cubic-bezier(0.165, 0.84, 0.44, 1)`,
-      zIndex: 0,
-      'backface-visibility': 'hidden',
-      perspective: 1000,
-      ...stateStyles
-    },
-    padding(15)
-  );
+  return css({
+    flexGrow: 1,
+    position: 'absolute',
+    display: 'flex',
+    flexDirection: 'row',
+    top: 0,
+    left: 0,
+    padding: useTheme('space3'),
+    overflow: 'hidden',
+    transition: `all ${length}ms cubic-bezier(0.165, 0.84, 0.44, 1)`,
+    zIndex: 0,
+    'backface-visibility': 'hidden',
+    perspective: 1000,
+    ...stateStyles
+  });
 };
 
 interface IFormPane {
@@ -89,7 +77,7 @@ interface IFormPane {
 function FormPane({ children, company }: IFormPane) {
   const dark = useDark();
   return (
-    <div className={cx(rule({}, dark), { 'bp3-dark': dark })}>
+    <div className={cx(rule(dark), { 'bp3-dark': dark })}>
       <Match path="*">
         {({ match, location }) => (
           <TransitionGroup component={null}>

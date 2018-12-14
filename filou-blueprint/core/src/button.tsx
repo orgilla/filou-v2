@@ -1,14 +1,6 @@
 import * as React from 'react';
 import { Button as BlueprintButton, IButtonProps } from '@blueprintjs/core';
-import {
-  css,
-  useTheme,
-  getColor,
-  isDark,
-  useDark,
-  fade,
-  padding
-} from '@filou/core';
+import { css, useTheme, getColor, textColor } from '@filou/core';
 
 interface IBlueprintButton extends IButtonProps {
   children?: React.ReactNode;
@@ -18,9 +10,8 @@ interface IBlueprintButton extends IButtonProps {
 // maybe remove color, since we already have intent??
 function Button({ children, intent, color: c, ...rest }: IBlueprintButton) {
   const theme = useTheme<any>();
-  const color = getColor(c) || theme.color;
-  const isDarkColor = isDark(color);
-  const isDarkBack = useDark();
+  const color = getColor(c);
+  // const isDarkBack = useDark();
 
   return (
     <BlueprintButton
@@ -30,7 +21,10 @@ function Button({ children, intent, color: c, ...rest }: IBlueprintButton) {
           borderRadius: theme.borderRadius,
           boxShadow: 'none',
           backgroundImage: 'none',
-          ...padding(theme.space2, theme.space3),
+          paddingTop: theme.space2,
+          paddingBottom: theme.space2,
+          paddingLeft: theme.space3,
+          paddingRight: theme.space3,
           minHeight: 'auto',
           ':hover': {
             boxShadow: 'none'
@@ -39,7 +33,7 @@ function Button({ children, intent, color: c, ...rest }: IBlueprintButton) {
             '&.bp3-intent-primary': {
               color,
               ':hover': {
-                backgroundColor: fade(color, isDarkBack ? 20 : 10),
+                // backgroundColor: fade(color, isDarkBack ? 20 : 10),
                 color
               }
             },
@@ -47,10 +41,10 @@ function Button({ children, intent, color: c, ...rest }: IBlueprintButton) {
           },
           ':not(.bp3-minimal)': {
             backgroundColor: color || theme.dark5,
-            color: isDarkColor ? theme.light : theme.dark,
+            color: textColor(color || theme.dark5),
             ':hover': {
               backgroundColor: color || theme.dark4,
-              color: isDarkColor ? theme.light1 : theme.dark1
+              color: textColor(color || theme.dark4, 1)
             }
           }
         }

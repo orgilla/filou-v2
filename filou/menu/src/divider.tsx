@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FelaComponent, IFelaRule, border } from '@filou/core';
+import { FelaComponent, IFelaRule } from '@filou/core';
 import { IMenuProps } from './menu';
 
 export interface IMenuDivider extends IMenuProps {}
@@ -7,7 +7,7 @@ export interface IMenuDivider extends IMenuProps {}
 const rule = ({ theme, inverted }: IFelaRule<IMenuDivider>) => ({
   width: '100%',
   border: 'none',
-  borderTop: border(theme, inverted ? theme.light4 : theme.dark4)
+  borderTop: `1px solid ${inverted ? theme.light4 : theme.dark4}`
 });
 
 const MenuDivider = ({ className, inverted }: IMenuDivider) => (
